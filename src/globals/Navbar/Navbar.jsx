@@ -48,11 +48,16 @@ const Navbar = () => {
 
 
             <div className={menuToggle ? 'overlay-menu active' : 'overlay-menu'}>
-                <FontAwesomeIcon icon={faXmark} onClick={() => setMenuToggle(false)} id='close-overlay-menu' />
+                <FontAwesomeIcon icon={faXmark} size={10} onClick={() => setMenuToggle(false)} id='close-overlay-menu' style={{
+                  top: '20px',
+                  right: '20px',
+                  height: '50px',
+                  position: 'absolute'
+                }} />
 
                 <ul id="menu">
-                    <li onClick={() => setMenuToggle(false)}>Inicio</li>
-                    <li onClick={() => setMenuToggle(false)}>Productos</li>
+                    <li onClick={() => setMenuToggle(false)}><a>Inicio</a></li>
+                    <li onClick={() => setMenuToggle(false)}><a>Productos</a></li>
                 </ul>
                 
             </div>
@@ -212,6 +217,11 @@ const Navbar = () => {
                                       Mobile Menu Menu Icon
                     ======================================================*/
                   @media(max-width: 640px) {
+                    .navbar--hidden {
+                      transform: translateY(0);
+                      transition: transform 0.3s ease-in-out;
+                    }
+
                     .menuIcon {
                       cursor: pointer;
                       display: block;
@@ -348,7 +358,7 @@ const Navbar = () => {
                                      Responsive Mobile Menu 
                     ======================================================*/
                   .overlay-menu {
-                    background: lightblue;
+                    background: var(--color-primary);
                     color: var(--color-text);
                     display: flex;
                     align-items: center;
@@ -362,6 +372,16 @@ const Navbar = () => {
                     height: 100vh;
                     -webkit-transition: transform 0.2s ease-out;
                     transition: transform 0.2s ease-out;
+                    z-index: 12;
+                  }
+
+                  .overlay-menu.active {
+                    transform: translateX(0);
+                  }
+
+                  #close-overlay-menu{
+                    position: absolute;
+                    top: 10px;
                   }
                   
                   .overlay-menu ul, .overlay-menu li {
@@ -373,19 +393,17 @@ const Navbar = () => {
                     display: block;
                     font-size: 1.8em;
                     letter-spacing: 4px;
-                  /*   opacity: 0; */
                     padding: 10px 0;
-                    text-align: right;
+                    text-decoration: none;
+                    text-align: 'center';
                     text-transform: uppercase;
                     -webkit-transition: color 0.3s ease;
                     transition: color 0.3s ease;
-                  /*   -webkit-transition: 0.2s opacity 0.2s ease-out;
-                    transition: 0.2s opacity 0.2s ease-out; */
                   }
                   
                   .overlay-menu li a:hover,
                   .overlay-menu li a:active {
-                    color: rgb(28, 121, 184);
+                    color: var(--color-alternative);
                     -webkit-transition: color 0.3s ease;
                     transition: color 0.3s ease;
                   }
