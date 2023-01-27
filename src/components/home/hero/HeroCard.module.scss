@@ -156,3 +156,15 @@
 
 
 }
+
+@media screen and (max-width: 768px) {
+    .card_container {
+        width: 90% !important;
+        height: 300px !important;
+        position: relative !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        align-self: center;
+        margin: 20px 0;
+    }
+}

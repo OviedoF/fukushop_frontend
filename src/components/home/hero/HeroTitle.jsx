@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './HeroTitle.module.scss';
 import {motion} from 'framer-motion';
 import HeroCard from './HeroCard';
 
 const HeroTitle = ({title, span, sliderText, sliderTextAlternative}) => {
+    const [windowWidth, setWindowWidth] = useState(1200);
+
+    const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+        console.log(windowWidth);
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const cardStyle = {
         height: '180%',
         width: '25%',

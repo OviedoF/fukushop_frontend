@@ -55,7 +55,37 @@
 
 @media screen and (max-width: 768px){
     #hero{
-        height: 100vh;
-        padding: 50px 20px;
+        height: 100%;
+        padding: var(--margin-within-sections) 0;
+
+        .hero_description{
+            width: 100%;
+            height: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            .hero_description_text{
+                width: 90%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+                padding-right: 10px !important;
+                box-sizing: border-box;
+
+                p{
+                    text-align: center;
+                }
+            }
+
+            .hero_description_text{
+                padding-right: 0;
+            }
+        }
     }
 }
