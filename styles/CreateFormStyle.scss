@@ -1,0 +1,120 @@
+.form_container.first_design{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-group{
+        width: 50%;
+        position: relative;
+
+        &.required{
+            &::after{
+                content: "*";
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                font-size: 15px;
+                color: var(--color-danger);
+            }
+        }
+
+        &.full{
+            width: 100%;
+        }
+
+        input, textarea, select{
+            width: 100%;
+            height: 70px;
+            text-align: center;
+            color: white;
+            background-color: #00000050;
+            border: 1px solid #FFFFFF10;
+        }
+
+        option{
+            background-color: #000000;
+            padding: 10px;
+            
+        }
+
+        textarea{
+            padding: 20px;
+            height: 200px;
+        }
+
+        input[type="file"], input[type="checkbox"]{
+            display: none;
+        }
+
+        .select-changer{
+            border: 1px solid #FFFFFF10;
+            background-color: #00000050;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 60px;
+            user-select: none;
+
+            svg{
+                margin-left: 10px;
+
+                &.success{
+                    color: var(--color-success);
+                }
+
+                &.error{
+                    color: var(--color-danger);
+                }
+            }
+        }
+
+        .image-picker{
+            border: 1px solid #FFFFFF10;
+            background-color: #00000050;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 300px;
+        }
+    }
+
+    .blocks_design_error, .blocks_design_success{
+        width: 100%;
+        height: 50px;
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-danger);
+        font-size: 20px;
+        color: white;
+        margin: 10px 0;
+    }
+
+    .blocks_design_success{
+        background-color: var(--color-success);
+    }
+
+    button[type="submit"]{
+        width: 100%;
+        background-color: var(--color-primary);
+        color: white;
+        padding: 25px 0;
+        cursor: pointer;
+        border: none;
+        margin: 5px 0;
+        transition: all .3s ease-in-out;
+
+        &:hover{
+            background-color: var(--color-hover);
+        }
+    }
+    
+}

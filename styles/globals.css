@@ -17,6 +17,8 @@
   --margin-within-sections: 40px;
   --title-font: 'Fuku', 'Prompt', sans-serif;
   --title-letter-spacing: 10px;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
 }
 
 @media screen and (max-width: 768px) {
@@ -88,4 +90,47 @@ main{
 	box-sizing: border-box;
 	overflow: hidden;
 	margin-bottom: var(--margin-within-sections);
+}
+
+body{
+	overflow-x: hidden;
+}
+
+.center_sons{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+main.loading_container{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.success_message{
+	color: var(--color-success);
+	margin: 10px 0;
+}
+
+.error_message{
+	color: var(--color-danger);
+	margin: 10px 0;
+}
+
+main h1{
+	font-size: 2.5rem;
+	font-weight: 500;
+	margin: 20px;
+	text-align: center;
+	font-family: 'Fuku', sans-serif;
+}
+
+/* change the user select color */
+
+*::selection {
+  background: var(--color-alternative);
+  color: var(--color-primary);
 }
