@@ -27,6 +27,7 @@ const Category = () => {
     const handleSend = (e) => {
         e.preventDefault();
         setStatus({ status: 'loading' });
+        console.log(form)
 
         const formData = new FormData();
         formData.append('name', form.name);

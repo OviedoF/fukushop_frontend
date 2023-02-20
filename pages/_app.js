@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import store from '../src/redux/store/index'
 import { QueryClientProvider } from 'react-query';
 import { QueryClient } from 'react-query';
+import Footer from '../src/globals/Footer/Footer'
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -21,6 +22,8 @@ export default function App({ Component, pageProps }) {
         <Navbar />
         
         <Component {...pageProps} />
+
+        <Footer />
       </Provider>
     </QueryClientProvider>
   )

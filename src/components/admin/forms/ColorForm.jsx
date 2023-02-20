@@ -8,7 +8,7 @@ const ColorForm = ({status, handleChanges, handleSend, buttonText, data}) => {
             </div>
 
             <div className="form-group required">
-                <input type='color' onChange={(e) => handleChanges(e)} name='color' placeholder='Color' defaultValue={data && data.description} />
+                <input type='color' onChange={(e) => handleChanges(e)} name='hex' placeholder='Color' defaultValue={data && data.description} />
             </div>
 
             <div className="form-group required">

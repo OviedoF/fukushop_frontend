@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import env from '../../../src/env';
 import LoadingPage from '../../../src/globals/LoadingPage';
 import ErrorPage from '../../../src/globals/ErrorPage';
+import axios from 'axios';
 
 const Subtype = () => {
     const [form, setForm] = useState({});
@@ -24,8 +25,30 @@ const Subtype = () => {
 
     const action = (e) => {
         e.preventDefault();
-        // setStatus({ status: 'loading' });
-        console.log(form)
+        // setStatus({ status: 'loading' });}
+        const formData = new FormData();
+
+        formData.append('name', form.name);
+        formData.append('category', form.category);
+        formData.append('description', form.description);
+
+        for (let i = 0; i < form.images.length; i++) {
+            formData.append('images', form.images[i]);
+        }
+        
+        axios.post(`${env.API_URL}/subTypes`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+            .then(res => {
+                setStatus({ status: 'success', message: "Sub-tipo de prenda creada .👌" });
+                setButtonText('Sub-tipo creado');
+            })
+            .catch(err => {
+                setStatus({ status: 'error', message: err.response.data.message });
+            })
+
     }
 
     if (status.status === 'loading' || statusGet === 'loading') return <LoadingPage />;
@@ -54,15 +77,15 @@ const Subtype = () => {
                 </div>
 
                 <div className="form-group required" style={{ background: `url(${backgroundImage}) center/cover no-repeat` }}>
-                    <label className="image-picker" htmlFor="image">Seleccionar imágen principal</label>
+                    <label className="image-picker" htmlFor="images">Seleccionar imágen principal</label>
                     <input onChange={(e) => {
                         setForm({
                             ...form,
-                            [e.target.name]: e.target.files[0],
+                            [e.target.name]: e.target.files,
                             fakeImage: URL.createObjectURL(e.target.files[0])
                         });
                         setBackgroundImage(URL.createObjectURL(e.target.files[0]))
-                    }} type="file" name="image" id="image" />
+                    }} type="file" name="images" id="images" multiple />
                 </div>
 
                 {status.status === 'error' && <p className='blocks_design_error'>{status.message}</p>}

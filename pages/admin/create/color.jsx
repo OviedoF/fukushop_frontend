@@ -23,15 +23,17 @@ const Color = () => {
         e.preventDefault();
         setStatus({ status: 'loading' });
 
-        axios.post(`${env.API_URL}/sizes`, form)
+
+        if(!form.name || !form.hex || !form.imageKey) return setStatus({ status: 'error', message: 'Todos los campos son requeridos' });
+
+        axios.post(`${env.API_URL}/productColor`, form)
             .then(res => {
-                setButtonText('Talle creado');
                 setForm({});
-                setStatus({ status: 'success', message: 'Talle creado!' });
+                setStatus({ status: 'success', message: 'Color creado!' });
             })
             .catch(err => {
                 setButtonText('Error al crear talle');
-                setStatus({ status: 'error', message: 'Error al crear talle' });
+                setStatus({ status: 'error', message: 'Error al crear color' });
             });
     }
 

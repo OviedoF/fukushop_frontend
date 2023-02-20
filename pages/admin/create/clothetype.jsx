@@ -31,7 +31,7 @@ const Clothetype = () => {
         const formData = new FormData();
         formData.append('name', form.name);
         formData.append('description', form.description);
-        formData.append('image', form.image);
+        formData.append('images', form.image);
 
         axios.post(`${env.API_URL}/types`, formData, {
             headers: {
@@ -44,7 +44,7 @@ const Clothetype = () => {
                 setStatus({ status: 'success', message: 'Tipo de prenda creado!' });
             })
             .catch(err => {
-                setStatus({ status: 'error', message: 'Error al crear tipo de prenda' });
+                setStatus({ status: 'error', message: err.response.data.message });
             });
     }
 

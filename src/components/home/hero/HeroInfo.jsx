@@ -14,15 +14,14 @@ const HeroInfo = () => {
         <motion.div className={styles.hero_description} initial={{opacity: 0, y: 100}} animate={{opacity: 1, y: 0}} transition={{duration: 1.5, delay: 1.2}}>
             <motion.div className={styles.hero_description_text} initial={{opacity: 0, y: 100}} animate={{opacity: 1, y: 0}} transition={{duration: 1.5, delay: 1.2}}>
                 <motion.p initial={{opacity: 0, y: 100}} animate={{opacity: 1, y: 0}} transition={{duration: 1.5, delay: 1.2}}>
-                    Somos una empresa dedicada a la venta de ropa de calidad, con diseños exclusivos y de tendencia. Amantes de la cultura asiática, nuestra inspiración proviene de la cultura de este continente, donde la moda es un arte.
+                ¡Bienvenidos a Fuku Shop! Aquí encontrarás lo mejor de la moda asiática y el anime, y lo mejor de todo: sin maltrato animal.
                 </motion.p>
 
                 <motion.p initial={{opacity: 0, y: 100}} animate={{opacity: 1, y: 0}} transition={{duration: 1.5, delay: 1.2}}> 
-                    Nuestro objetivo es ofrecer a nuestros clientes una experiencia única, donde puedan encontrar ropa de calidad y de su gusto a un precio accesible. Sobre todo en lugares donde no se encuentre este tipo de prendas.
-                </motion.p>
+                Nuestro estilo exclusivo y de tendencia te encantará. Además, estarás apoyando la protección del medio ambiente.                </motion.p>
 
                 <motion.button initial={{y: 250}} animate={{y: 0}} transition={{delay: 1.5, type: 'spring', stiffness: 120}} className={styles.button}>
-                    <a href="#products">Conocé nuestros productos</a>
+                    <a href="#products">¡Conoce nuestros productos!</a>
                 </motion.button>
             </motion.div>
 

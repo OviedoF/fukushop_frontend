@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Fuku Shop - Tienda de ropa urbana japonesa</title>
-        <meta name="description" content="La mejor calidad y diseño en ropa urbana con estilo japonés ⭐⭐⭐⭐⭐ tela 100% algodón y gran cantidad de diseños, ¿qué esperas?" />
+        <title>Fuku Shop | Tienda de ropa urbana japonesa</title>
+        <meta name="description" content='¡Bienvenidos a Fuku Shop! ✌️ Descubre nuestra amplia selección de ropa de estilo asiático y anime, con diseños exclusivos y de tendencia. 🥳🥳 Compra prendas hechas sin maltrato animal y disfruta de la moda de una forma más consciente. ¡Visítanos ahora y vive la experiencia Fuku Shop!' />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

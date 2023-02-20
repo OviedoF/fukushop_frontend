@@ -3,6 +3,7 @@ import { useQuery } from 'react-query';
 import env from '../../../src/env';
 import LoadingPage from '../../../src/globals/LoadingPage';
 import ErrorPage from '../../../src/globals/ErrorPage';
+import axios from 'axios';
 
 const Subcategory = () => {
     const [form, setForm] = useState({});
@@ -24,8 +25,27 @@ const Subcategory = () => {
 
     const action = (e) => {
         e.preventDefault();
-        // setStatus({ status: 'loading' });
-        console.log(form)
+        setStatus({ status: 'loading' });
+        const formData = new FormData();
+        formData.append('name', form.name);
+        formData.append('category', form.category);
+        formData.append('description', form.description);
+        formData.append('images', form.image);
+        
+        axios.post(`${env.API_URL}/subcategories`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            }
+        })
+            .then(res => {
+                setStatus({ status: 'success', message: 'Subcategoría creada!' });
+                setForm({});
+                setBackgroundImage(null);
+            })
+            .catch(err => {
+                console.log(err)
+                setStatus({ status: 'error', message: "Ha ocurrido un error al crear la categoría" });
+            })
     }
 
     if(status.status === 'loading' || statusGet === 'loading') return <LoadingPage />;

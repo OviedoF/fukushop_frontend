@@ -31,7 +31,7 @@ const Size = () => {
             })
             .catch(err => {
                 setButtonText('Error al crear talle');
-                setStatus({ status: 'error', message: 'Error al crear talle' });
+                setStatus({ status: 'error', message: err.response.data.message });
             });
     }
 
