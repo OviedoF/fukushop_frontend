@@ -1,47 +1,55 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ColorsSelect from './ColorsSelect';
 import SizesSelect from './SizesSelect';
 
-const CreateProductForm = ({categories, subCategories}) => {
+const CreateProductForm = ({categories, subCategories, handleInputChange, form, setForm, sizes, colors, handleSend}) => {
     const [sizesSelected, setSizesSelected] = useState([]);
     const [colorsSelected, setColorsSelected] = useState([]);
+    const [subCategoriesFromCategroy, setSubCategoriesFromCategroy] = useState([])
+
+    useEffect(() => {
+        if (form.category) {
+            const subCategoriesFromCategory = subCategories.filter(subCategory => subCategory.category === form.category);
+            setSubCategoriesFromCategroy(subCategoriesFromCategory);
+        }
+    }, [form.category]);
 
     return (
         <form id='small_form_style'>
             <div className="form_group required">
                 <label htmlFor="name">Nombre del producto</label>
-                <input type="text" name='name' id='name' placeholder='Escriba aquí' />
+                <input type="text" name='name' id='name' onChange={(e) => handleInputChange(e)} placeholder='Escriba aquí' />
             </div>
 
             <div className="form_group required">
                 <label htmlFor="description">Descripción</label>
-                <textarea name="description" id="description" cols="30" rows="10" placeholder='Escriba aquí'></textarea>
+                <textarea name="description" id="description" onChange={(e) => handleInputChange(e)} cols="30" rows="10" placeholder='Escriba aquí'></textarea>
             </div>
 
             <div className="form_group required">
                 <label htmlFor="price">Precio</label>
-                <input type="number" name='price' id='price' placeholder='Escriba aquí'/>
+                <input type="number" name='price' onChange={(e) => handleInputChange(e)} id='price' placeholder='Escriba aquí'/>
             </div>
 
             <div className="form_group">
                 <label htmlFor="discount">Descuento (porcentaje)</label>
-                <input type="number" name='discount' id='discount' placeholder='Escriba aquí'/>
+                <input type="number" name='discount' onChange={(e) => handleInputChange(e)} id='discount' placeholder='Escriba aquí'/>
             </div>
 
             <div className="form_group">
                 <label htmlFor="priceWithOffer">Precio con descuento</label>
-                <input type="number" name='priceWithOffer' id='priceWithOffer' placeholder='Escriba aquí' />
+                <input type="number" name='priceWithOffer' onChange={(e) => handleInputChange(e)} id='priceWithOffer' placeholder='Escriba aquí' />
             </div>
 
             <div className="form_group required">
                 <label htmlFor="stock">Stock</label>
-                <input type="number" name='stock' id='stock' placeholder='Escriba aquí'/>
+                <input type="number" name='stock' onChange={(e) => handleInputChange(e)} id='stock' placeholder='Escriba aquí'/>
             </div>
 
             <div className="form_group form_picker required">
                 <label htmlFor="category">Categoría</label>
-                <select name="category" id="category">
-                    <option value={null}>Selecciona una categoría</option>
+                <select name="category" id="category" onChange={(e) => handleInputChange(e)}>
+                    {form.category ? <option value={form.category}>{form.category}</option> : <option value={null}>Selecciona una categoría</option>}
 
                     {categories.map(category => (
                         <option key={category._id} value={category._id}>{category.name}</option>
@@ -52,38 +60,20 @@ const CreateProductForm = ({categories, subCategories}) => {
             <div className="form_group form_picker required">
                 <label htmlFor="subcategory">Subcategoría</label>
 
-                <select name="subcategory" id="subcategory">
-                    <option value={null}>Selecciona una sub-categoría</option>
+                <select name="subCategory" id="subCategory" onChange={(e) => handleInputChange(e)}>
+                    {form.subcategory ? <option value={form.subcategory}>{form.subcategory}</option> : <option value={null}>Selecciona una subcategoría</option>}
 
-                    {subCategories.map(subCategory => (
+                    {subCategoriesFromCategroy.map(subCategory => (
                         <option key={subCategory._id} value={subCategory._id}>{subCategory.name}</option>
                     ))}
                 </select>
             </div>
 
-            <SizesSelect setSizesSelected={setSizesSelected} sizesSelected={sizesSelected} />
+            <SizesSelect form={form} sizes={sizes} setSizesSelected={setSizesSelected} setForm={setForm} sizesSelected={sizesSelected} />
 
-            <ColorsSelect setColorsSelected={setColorsSelected} colorsSelected={colorsSelected} />
+            <ColorsSelect colors={colors} form={form} setForm={setForm} setColorsSelected={setColorsSelected} colorsSelected={colorsSelected} />
 
-            {/* <div className="form_group multiple-picker">
-                <label htmlFor="sizes">Tallas</label>
-
-                <select name="sizes" id="sizes" multiple>
-                    <option value="1">Talla 1</option>
-                    <option value="2">Talla 2</option>
-                    <option value="3">Talla 3</option>
-                </select>
-            </div>
-
-            <div className="form_group multiple-picker">
-                <label htmlFor="colors">Colores</label>
-
-                <select name="colors" id="colors" multiple>
-                    <option value="1">Color 1</option>
-                    <option value="2">Color 2</option>
-                    <option value="3">Color 3</option>
-                </select>
-            </div> */}
+            <button type='submit' onClick={(e) => handleSend(e)}>Crear producto</button>
 
         </form>
     );

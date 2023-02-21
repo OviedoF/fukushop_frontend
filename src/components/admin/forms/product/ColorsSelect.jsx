@@ -1,61 +1,53 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const ColorsSelect = ({setColorsSelected, colorsSelected}) => {
+const ColorsSelect = ({setColorsSelected, colorsSelected, colors, setForm, form}) => {
     const [lengthPrincipalImage, setLengthPrincipalImage] = useState({});
     const [lengthImages, setLengthImages] = useState({});
 
-    const aux = [
-        {
-            name: 'Blanco', 
-            hex: '#FFFFFF',
-            _id: 'Blanco',
-            imageKey: 'productWhiteImages'
-        },
-        {
-            name: 'Negro',
-            hex: '#000000',
-            _id: 'Negro',
-            imageKey: 'productBlackImages'
-        }
-    ];
+    useEffect(() => {
+      setForm({
+        ...form,
+        colors: colorsSelected
+      })
+    }, [colorsSelected])
+    
 
     const isSelected = (color) => {
-        return colorsSelected.some(c => c._id === color._id);
+        return colorsSelected.some(colorItem => colorItem._id === color._id);
     }
 
     const handleAdd = (color) => {
         if(!isSelected(color)){
             setColorsSelected([...colorsSelected, color]);
         } else {
-            setColorsSelected(colorsSelected.filter(c => c._id !== color._id));
+            setColorsSelected(colorsSelected.filter(colorItem => colorItem._id !== color._id));
             setLengthImages({...lengthImages, [color._id]: 0});
             setLengthPrincipalImage({...lengthImages, [color._id]: 0});
         }
-        console.log(colorsSelected);
     }
 
     const handlePrimaryImage = (e, color) => {
-        setColorsSelected(colorsSelected.map(c => {
-            if(c._id === color._id){
+        setColorsSelected(colorsSelected.map(colorItem => {
+            if(colorItem._id === color._id){
                 return {
-                    ...c,
+                    ...colorItem,
                     principalImage: e.target.files[0]
                 }
             }
-            return c;
+            return colorItem;
         }));
         setLengthPrincipalImage({...lengthImages, [color._id]: e.target.files.length});
     }
 
     const handleImages = (e, color) => {
-        const aux = colorsSelected.map(c => {
-            if(c._id === color._id){
+        const aux = colorsSelected.map(colorItem => {
+            if(colorItem._id === color._id){
                 return {
-                    ...c,
+                    ...colorItem,
                     images: e.target.files
                 }
             }
-            return c;
+            return colorItem;
         });
 
         setColorsSelected(aux);
@@ -67,17 +59,17 @@ const ColorsSelect = ({setColorsSelected, colorsSelected}) => {
             <div className='form_group multiple_picker required'>
                 <label htmlFor="sizes">Colores</label>
 
-                {aux.map(color => (
-                    <div onClick={() => handleAdd(color)} key={color._id} className={`multiple_picker_item ${isSelected(color) && 'active'}`}>
+                {colors.map((color, index) => (
+                    <div onClick={() => handleAdd(color)} key={`${color._id}-${index}`} className={`multiple_picker_item ${isSelected(color) && 'active'}`}>
                         <p>{color.name}</p>
                     </div>
                 ))}
             </div>
 
-            {colorsSelected.map(color => (
-                <div key={color._id} style={{width: '80%', marginBottom: 100}} className='image_color_picker'>
+            {colorsSelected.map((color, index) => (
+                <div key={`${color._id}-${index}`} style={{width: '80%', marginBottom: 100}} className='image_color_picker'>
 
-                    <div key={color._id} className='form_group'>
+                    <div  className='form_group'>
                         <label htmlFor={color.imageKey} style={{display: 'flex', flexDirection: 'column'}}> 
                             Elija la imágen principal del color {color.name} 
                             <br />
@@ -87,7 +79,7 @@ const ColorsSelect = ({setColorsSelected, colorsSelected}) => {
                         <input onChange={(e) => handlePrimaryImage(e, color)} type="file" name={color.imageKey} id={color.imageKey} />
                     </div>
 
-                    <div key={color._id} className='form_group'>
+                    <div  className='form_group'>
                         <label htmlFor={color._id} style={{display: 'flex', flexDirection: 'column'}}>Imagenes secundarias del color {color.name}
                             <br />
                             <br />
