@@ -15,14 +15,15 @@ const Product = () => {
     const { isLoading: isLoadingSub, error: errorSub, data: subCategories } = useQuery('subcategory', () => axios.get(`${env.API_URL}/subcategories`) );
     const { isLoading: isLoadingSizes, error: errorSizes, data: sizes } = useQuery('sizes', () => axios.get(`${env.API_URL}/sizes`) );
     const { isLoading: isLoadingColors, error: errorColors, data: colors } = useQuery('colors', () => axios.get(`${env.API_URL}/productColor`) );
+    const { isLoading: isLoadingTypes, error: errorTypes, data: types } = useQuery('types', () => axios.get(`${env.API_URL}/types`) );
     const [createStatus, setCreateStatus] = useState({status: 'idle'})
     const auth = useSelector(state => state.auth);
 
     if (!auth) return <NotFoundItem />;
 
-    if (isLoadingCategories || isLoadingSub || isLoadingSizes || isLoadingColors ) return <LoadingPage />;
+    if (isLoadingCategories || isLoadingSub || isLoadingSizes || isLoadingColors || isLoadingTypes || createStatus.status === 'loading' ) return <LoadingPage />;
 
-    if (error || errorSub || errorSizes || errorColors) return <ErrorPage />;
+    if (error || errorSub || errorSizes || errorColors || errorTypes) return <ErrorPage />;
 
     const handleInputChange = (e) => {
         setForm({
@@ -62,7 +63,7 @@ const Product = () => {
             {createStatus.status === 'success' && <motion.p className='card_text_1 success' animate={{transform: 'scale(1)'}}>{createStatus.message}</motion.p>}
             {createStatus.status === 'error' && <motion.p className='card_text_1 error' animate={{transform: 'scale(1)'}}>{createStatus.message}</motion.p>}
 
-            <CreateProductForm handleSend={handleSend} sizes={sizes.data} colors={colors.data} handleInputChange={handleInputChange} setForm={setForm} form={form} categories={categories.data} subCategories={subCategories.data} />
+            <CreateProductForm handleSend={handleSend} types={types.data} sizes={sizes.data} colors={colors.data} handleInputChange={handleInputChange} setForm={setForm} form={form} categories={categories.data} subCategories={subCategories.data} />
         </main>
     );
 }

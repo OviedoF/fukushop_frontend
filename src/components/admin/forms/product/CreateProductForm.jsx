@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ColorsSelect from './ColorsSelect';
 import SizesSelect from './SizesSelect';
 
-const CreateProductForm = ({categories, subCategories, handleInputChange, form, setForm, sizes, colors, handleSend}) => {
+const CreateProductForm = ({categories, subCategories, handleInputChange, form, setForm, types, sizes, colors, handleSend}) => {
     const [sizesSelected, setSizesSelected] = useState([]);
     const [colorsSelected, setColorsSelected] = useState([]);
     const [subCategoriesFromCategroy, setSubCategoriesFromCategroy] = useState([])
@@ -39,6 +39,17 @@ const CreateProductForm = ({categories, subCategories, handleInputChange, form, 
             <div className="form_group">
                 <label htmlFor="priceWithOffer">Precio con descuento</label>
                 <input type="number" name='priceWithOffer' onChange={(e) => handleInputChange(e)} id='priceWithOffer' placeholder='Escriba aquí' />
+            </div>
+
+            <div className="form_group form_picker required">
+                <label htmlFor="clothe_type">Tipo de prenda</label>
+                <select name="clothe_type" id="clothe_type" onChange={(e) => handleInputChange(e)}>
+                    {form.category ? <option value={form.category}>{form.category}</option> : <option value={null}>Selecciona una categoría</option>}
+
+                    {types.map(type => (
+                        <option key={type._id} value={type._id}>{type.name}</option>
+                    ))}
+                </select>
             </div>
             
             <div className="form_group form_picker required">
