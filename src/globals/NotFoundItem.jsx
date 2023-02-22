@@ -3,7 +3,7 @@ import React from 'react';
 import routes from '../routes';
 import styles from './NotFoundItem.module.scss'
 
-const NotFoundItem = ({title, subtitle}) => {
+const NotFoundItem = ({title = 'No se ha encontrado esta página! :(', subtitle = 'Tranquilo, te redirigiremos al inicio! 😉'}) => {
     const router = useRouter();
 
     return (

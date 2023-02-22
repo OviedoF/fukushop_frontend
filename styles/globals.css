@@ -134,3 +134,20 @@ main h1{
   background: var(--color-alternative);
   color: var(--color-primary);
 }
+
+.card_text_1{
+	font-size: 1.5rem;
+	font-weight: 500;
+	margin: 10px 0;
+	text-align: center;
+	padding: 5px;
+	margin: 20px 0;
+}
+
+.card_text_1.success{
+	color: var(--color-success);
+}
+
+.card_text_1.error{
+	color: var(--color-danger);
+}

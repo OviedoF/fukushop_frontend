@@ -40,12 +40,7 @@ const CreateProductForm = ({categories, subCategories, handleInputChange, form, 
                 <label htmlFor="priceWithOffer">Precio con descuento</label>
                 <input type="number" name='priceWithOffer' onChange={(e) => handleInputChange(e)} id='priceWithOffer' placeholder='Escriba aquí' />
             </div>
-
-            <div className="form_group required">
-                <label htmlFor="stock">Stock</label>
-                <input type="number" name='stock' onChange={(e) => handleInputChange(e)} id='stock' placeholder='Escriba aquí'/>
-            </div>
-
+            
             <div className="form_group form_picker required">
                 <label htmlFor="category">Categoría</label>
                 <select name="category" id="category" onChange={(e) => handleInputChange(e)}>

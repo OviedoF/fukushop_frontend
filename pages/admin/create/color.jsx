@@ -24,7 +24,7 @@ const Color = () => {
         setStatus({ status: 'loading' });
 
 
-        if(!form.name || !form.hex || !form.imageKey) return setStatus({ status: 'error', message: 'Todos los campos son requeridos' });
+        if(!form.name || !form.color || !form.imageKey) return setStatus({ status: 'error', message: 'Todos los campos son requeridos' });
 
         axios.post(`${env.API_URL}/productColor`, form)
             .then(res => {
