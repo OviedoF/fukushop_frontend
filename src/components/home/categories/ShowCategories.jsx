@@ -7,7 +7,7 @@ function ShowCategories() {
 
     return (
         <motion.section data-aos="zoom-in-left" className={styles.show_categories} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <h2>VIstete con tu estilo</h2>
+            <h2>Vistete con tu estilo</h2>
 
             <motion.div className={styles.categories} initial={{opacity: 0, y: 100}} animate={{opacity: 1, y: 0}} transition={{duration: 1.5, delay: 0.5}}>
                 <TextToTopHoverCard img={'https://res.cloudinary.com/syphhy/image/upload/v1674846845/s-l500_ehrluy.jpg'} text={'Remeras'} />

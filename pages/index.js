@@ -1,12 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
 import Hero from '../src/components/home/hero/Hero'
 import ShowCategories from '../src/components/home/categories/ShowCategories'
+import env from '../src/env'
+import Featured from '../src/components/home/featured/Featured'
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+export default function Home({products}) {
   return (
     <>
       <Head>
@@ -21,8 +19,22 @@ export default function Home() {
       <main>
         <Hero />
         <ShowCategories />
+        <Featured products={products} />
       </main>
       
     </>
   )
+}
+
+// getStaticProps
+
+export async function getStaticProps() {
+  const res = await fetch(`${env.API_URL}/products`)
+  const products = await res.json()
+
+  return {
+    props: {
+      products: products || []
+    }
+  }
 }

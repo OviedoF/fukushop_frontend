@@ -52,7 +52,7 @@ const Product = () => {
             }
         });  
 
-        axios.post(`${env.API_URL}/product`, formData)
+        axios.post(`${env.API_URL}/products`, formData)
             .then(res => setCreateStatus({status: 'success', message: res.data.message}))
             .catch(err => setCreateStatus({status: 'error', message: err.response.data.message}))
     }

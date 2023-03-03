@@ -1,5 +1,5 @@
 import Navbar from '../src/globals/Navbar/Navbar'
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import '../styles/SimpleForm.scss'
 import '../styles/CreateFormStyle.scss'
 import '../styles/SmallFormStyle.scss'
