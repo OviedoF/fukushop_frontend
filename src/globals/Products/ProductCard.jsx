@@ -3,28 +3,46 @@ import styles from './ProductCard.module.scss'
 import ProductColorsList from './ProductColorsList';
 
 export default function ProductCard({ product }) {
+    const [variantSelected, setVariantSelected] = useState(null);
     const [colorSelected, setColorSelected] = useState(null);
-    console.log(product);
+    const [productColors, setProductColors] = useState([]);
+
+    const getColors = () => {
+        const colors = product.variants.map(variant => variant.color);
+
+        // Eliminamos los colores repetidos
+        const colorsWithoutDuplicates = colors.filter((color, index) => colors.indexOf(color) === index);
+
+        setProductColors(colorsWithoutDuplicates);
+    }
 
     useEffect(() => {
-      const colorBlack = product.colors.find(color => color.color.name === 'Negro');
+      const variant = product.variants.find(variant => variant.color.name === 'Negro'); 
 
-      if(!colorBlack) {
-        return setColorSelected(product.colors[0]);
-      }
+      if(!variant) return setVariantSelected(product.variants[0])
 
-      setColorSelected(colorBlack);
-    }, [])
+      setVariantSelected(variant)
+      getColors();
+    }, [product])
 
-    if(colorSelected) return (
-        <div key={product.id} className={styles.product_card}>
-            <img src={colorSelected.principalImage} alt={product.name} />
+    useEffect(() => {
+        const color = productColors.find(color => color.name === variantSelected.color.name);
+
+        setColorSelected(color);
+    }, [variantSelected])
+    
+
+    if(variantSelected) return (
+        <div key={product._id} className={styles.product_card}>
+            <img src={variantSelected.image} alt={product.name} />
+
+            <ProductColorsList colors={productColors} product={product} setVariantSelected={setVariantSelected} colorSelected={colorSelected} setColorSelected={setColorSelected} />
 
             <div className={styles.product_card__info}>
                 <h3 className={styles.product_name}>{product.name}</h3>
+                <p className={styles.clothe_type}>{product.clothe_type.name}</p>
                 
-                <ProductColorsList colors={product.colors} colorSelected={colorSelected} setColorSelected={setColorSelected} />
-
+                <p className={styles.product_price}>${product.price}</p>
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SizesSelect = ({setSizesSelected, sizesSelected, form, setForm, sizes}) => {
+const SizesSelect = ({setSizesSelected, sizesSelected, sizes}) => {
     const isSelected = (size) => {
         return sizesSelected.includes(size._id);
     }
@@ -8,10 +8,8 @@ const SizesSelect = ({setSizesSelected, sizesSelected, form, setForm, sizes}) =>
     const handleAdd = (size) => {
         if(!isSelected(size)){
             setSizesSelected([...sizesSelected, size._id]);
-            setForm({...form, sizes: [...sizesSelected, size._id]});
         } else {
             setSizesSelected(sizesSelected.filter(s => s !== size._id));
-            setForm({...form, sizes: sizesSelected.filter(s => s !== size._id)});
         }
     }
 

@@ -8,9 +8,9 @@ import ErrorPage from '../../../src/globals/ErrorPage';
 import NotFoundItem from '../../../src/globals/NotFoundItem';
 import {motion} from 'framer-motion';
 import { useSelector } from 'react-redux';
+import {ProductFormProvider} from '../../../src/components/admin/forms/product/Product.provider';
 
 const Product = () => {
-    const [form, setForm] = useState({})
     const { isLoading: isLoadingCategories, error, data: categories } = useQuery('category', () => axios.get(`${env.API_URL}/category`) );
     const { isLoading: isLoadingSub, error: errorSub, data: subCategories } = useQuery('subcategory', () => axios.get(`${env.API_URL}/subcategories`) );
     const { isLoading: isLoadingSizes, error: errorSizes, data: sizes } = useQuery('sizes', () => axios.get(`${env.API_URL}/sizes`) );
@@ -25,45 +25,15 @@ const Product = () => {
 
     if (error || errorSub || errorSizes || errorColors || errorTypes) return <ErrorPage />;
 
-    const handleInputChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        })
-    }
-
-    const handleSend = (e) => {
-        e.preventDefault();
-        setCreateStatus({status: 'loading'})
-
-        const formData = new FormData();
-        formData.append('body', JSON.stringify({
-            ...form,
-            colors: null
-        }));
-
-        formData.append('colors', JSON.stringify(form.colors));
-
-        form.colors.forEach(color => {
-            formData.append(color.imageKey, color.principalImage);
-            
-            for (const image of color.images) {
-                formData.append(color.imageKey, image);
-            }
-        });  
-
-        axios.post(`${env.API_URL}/products`, formData)
-            .then(res => setCreateStatus({status: 'success', message: res.data.message}))
-            .catch(err => setCreateStatus({status: 'error', message: err.response.data.message}))
-    }
-
-    if (categories && subCategories) return (
+    if (categories && subCategories && types) return (
         <main>
             <h1>Crear producto</h1>
             {createStatus.status === 'success' && <motion.p className='card_text_1 success' animate={{transform: 'scale(1)'}}>{createStatus.message}</motion.p>}
             {createStatus.status === 'error' && <motion.p className='card_text_1 error' animate={{transform: 'scale(1)'}}>{createStatus.message}</motion.p>}
 
-            <CreateProductForm handleSend={handleSend} types={types.data} sizes={sizes.data} colors={colors.data} handleInputChange={handleInputChange} setForm={setForm} form={form} categories={categories.data} subCategories={subCategories.data} />
+            <ProductFormProvider setCreateStatus={setCreateStatus} types={types.data} categories={categories.data} colors={colors.data} sizes={sizes.data} subCategories={subCategories.data}>
+                <CreateProductForm  />
+            </ProductFormProvider>
         </main>
     );
 }
