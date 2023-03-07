@@ -15,6 +15,7 @@ export default function ProductsContainer({products}) {
                 justify-content: center;
                 padding: 0 50px;
                 margin-top: var(--margin-within-sections);
+                width: 100%;
             }
         `}</style>
     </div>

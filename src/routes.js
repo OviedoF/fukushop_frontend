@@ -1,6 +1,7 @@
 export default {
     home: '/',
-    
+    products: '/productos',
+    contact: '/contacto',
 
     /* admin */
     adminLogin: '/adminlogin',

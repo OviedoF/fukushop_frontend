@@ -4,14 +4,16 @@ import SizesSelect from './SizesSelect';
 import ProductFormContext from './Product.provider';
 import Variants from './Variants';
 import ColorImagesPicker from './ColorImagesPicker';
+import { HashLoader } from 'react-spinners';
+import { motion } from 'framer-motion';
 
-const CreateProductForm = () => {
+const CreateProductForm = ({ createStatus }) => {
     const [sizesSelected, setSizesSelected] = useState([]);
     const [colorsSelected, setColorsSelected] = useState([]);
     const [subCategoriesFromCategroy, setSubCategoriesFromCategroy] = useState([])
     const [populatedVariants, setPopulatedVariants] = useState([]);
     const { form, setForm, handleInputChange, handleSend, categories, subCategories, types, sizes, variants, setVariants,
-    populateVariant } = useContext(ProductFormContext);
+        populateVariant } = useContext(ProductFormContext);
 
     useEffect(() => {
         if (form.category) {
@@ -39,7 +41,7 @@ const CreateProductForm = () => {
             ...form,
             variants
         })
-      
+
     }, [colorsSelected, sizesSelected])
 
     useEffect(() => {
@@ -113,11 +115,13 @@ const CreateProductForm = () => {
 
             <ColorsSelect setColorsSelected={setColorsSelected} colorsSelected={colorsSelected} />
 
-            <Variants variants={populatedVariants} colorsSelected={colorsSelected} />            
+            <Variants variants={populatedVariants} colorsSelected={colorsSelected} />
 
             <ColorImagesPicker colorsSelected={colorsSelected} />
 
-            <button type='submit' onClick={(e) => handleSend(e)}>Crear producto</button>
+            {createStatus.status === 'success' && <motion.p className='card_text_1 success' animate={{ transform: 'scale(1)' }}>{createStatus.message}</motion.p>}
+            {createStatus.status === 'loading' ? <HashLoader color='#FFF' size={50} /> : <button type='submit' onClick={(e) => handleSend(e)}>Crear producto</button>}
+            {createStatus.status === 'error' && <motion.p className='card_text_1 error' animate={{ transform: 'scale(1)' }}>{createStatus.message}</motion.p>}
 
         </form>
     );

@@ -9,6 +9,7 @@ import NotFoundItem from '../../../src/globals/NotFoundItem';
 import {motion} from 'framer-motion';
 import { useSelector } from 'react-redux';
 import {ProductFormProvider} from '../../../src/components/admin/forms/product/Product.provider';
+import { HashLoader } from 'react-spinners';
 
 const Product = () => {
     const { isLoading: isLoadingCategories, error, data: categories } = useQuery('category', () => axios.get(`${env.API_URL}/category`) );
@@ -21,18 +22,16 @@ const Product = () => {
 
     if (!auth) return <NotFoundItem />;
 
-    if (isLoadingCategories || isLoadingSub || isLoadingSizes || isLoadingColors || isLoadingTypes || createStatus.status === 'loading' ) return <LoadingPage />;
+    if (isLoadingCategories || isLoadingSub || isLoadingSizes || isLoadingColors || isLoadingTypes ) return <LoadingPage />;
 
     if (error || errorSub || errorSizes || errorColors || errorTypes) return <ErrorPage />;
 
     if (categories && subCategories && types) return (
         <main>
             <h1>Crear producto</h1>
-            {createStatus.status === 'success' && <motion.p className='card_text_1 success' animate={{transform: 'scale(1)'}}>{createStatus.message}</motion.p>}
-            {createStatus.status === 'error' && <motion.p className='card_text_1 error' animate={{transform: 'scale(1)'}}>{createStatus.message}</motion.p>}
 
             <ProductFormProvider setCreateStatus={setCreateStatus} types={types.data} categories={categories.data} colors={colors.data} sizes={sizes.data} subCategories={subCategories.data}>
-                <CreateProductForm  />
+                <CreateProductForm createStatus={createStatus}  />
             </ProductFormProvider>
         </main>
     );

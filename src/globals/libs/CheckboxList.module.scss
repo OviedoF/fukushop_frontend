@@ -1,0 +1,31 @@
+.selectionable_items{
+    display: flex;
+    flex-direction: column;
+    --seleccionable-item-size: 20px;
+
+    .selectionable_items__item{
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        cursor: pointer;
+
+        svg{
+            width: var(--seleccionable-item-size);
+            height: var(--seleccionable-item-size);
+            margin-right: 10px;
+        }
+
+        .box {
+            position: absolute;
+            border: 1px solid white;
+            width: var(--seleccionable-item-size);
+            height: var(--seleccionable-item-size);
+        }
+
+        .label {
+            margin-left: 10px;
+            font-size: var(--width);
+            transition: color 0.2s;
+        }
+    }
+}

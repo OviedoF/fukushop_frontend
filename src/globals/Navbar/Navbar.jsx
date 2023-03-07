@@ -34,7 +34,8 @@ const Navbar = () => {
 
                     <ul id={styles.menu}>
                         <li><Link href={routes.home}>Inicio</Link></li>
-                        <li><Link href={routes.home}>Productos</Link></li>
+                        <li><Link href={routes.products}>Productos</Link></li>
+                        <li><Link href={routes.contact}>Contacto</Link></li>
                         {auth && <li><Link href={routes.adminPanel}>Administrador</Link></li>}
                     </ul>
                 </div>
@@ -55,8 +56,12 @@ const Navbar = () => {
                 }} />
 
                 <ul id={styles.menu}>
-                    <li onClick={() => setMenuToggle(false)}><a>Inicio</a></li>
-                    <li onClick={() => setMenuToggle(false)}><a>Productos</a></li>
+                    <li onClick={() => setMenuToggle(false)}>
+                        <Link href={routes.home}>Inicio</Link>
+                    </li>
+                    <li onClick={() => setMenuToggle(false)}>
+                        <Link href={routes.products}>Productos</Link>
+                    </li>
                 </ul>
                 
             </div>

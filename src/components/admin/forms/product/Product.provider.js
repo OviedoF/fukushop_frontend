@@ -33,6 +33,7 @@ function ProductFormProvider({children, setCreateStatus, categories, subCategori
 
   const handleSend = (e) => {
     e.preventDefault();
+    setCreateStatus({status: 'loading', message: 'Creando producto...'})
     const formData = new FormData();
 
     formData.append('body', JSON.stringify({
@@ -54,11 +55,11 @@ function ProductFormProvider({children, setCreateStatus, categories, subCategori
 
     axios.post(`${env.API_URL}/products`, formData)
         .then(res => {
-          // setCreateStatus({status: 'success', message: res.data.message})
+          setCreateStatus({status: 'success', message: res.data.message})
           console.log(res.data);
         })
         .catch(err => {
-          // setCreateStatus({status: 'error', message: err.response.data.message})
+          setCreateStatus({status: 'error', message: err.response.data.message})
           console.log(err.response.data);
         })
   }
