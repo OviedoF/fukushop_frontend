@@ -1,11 +1,47 @@
 import Head from 'next/head'
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import ImagesSlider from '../../src/components/product-page/ImagesSlider'
+import ProductPresentation from '../../src/components/product-page/ProductPresentation'
 import env from '../../src/env'
 
 export default function ProductPage({ product }) {
-    console.log(product)
+    const [productVariant, setProductVariant] = useState(false);
+    const [variantColorSizes, setVariantColorSizes] = useState([]);
+    const [productColors, setProductColors] = useState([])
 
-    return (
+    useEffect(() => {
+        if (product.variants.length > 0) {
+            // Find the first variant that color is black
+            const blackVariant = product.variants.find(variant => variant.color === 'black');
+
+            if (blackVariant) {
+                setProductVariant(blackVariant);
+            } else {
+                setProductVariant(product.variants[0]);
+            }
+        }
+
+        // Get all colors of the product in an array
+        const colors = product.variants.map(variant => variant.color);
+        // Remove duplicates
+        const uniqueColors = colors.map(color => JSON.stringify(color)).filter((color, index, self) => self.indexOf(color) === index).map(color => JSON.parse(color));
+
+        setProductColors(uniqueColors);
+    }, [product]);
+
+    useEffect(() => {
+        if (productVariant) {
+            // Find all variants wich color is the same as the selected variant
+            const variantsWithSameColor = product.variants.filter(variant => variant.color._id === productVariant.color._id);
+
+            // Get the sizes of the variants with the same color in an array
+            const sizes = variantsWithSameColor.map(variant => variant.size);
+            setVariantColorSizes(sizes);
+        }
+    }, [productVariant])
+
+
+    if (productVariant) return (
         <>
             <Head>
                 <title>{product.name} | Fuku Shop</title>
@@ -17,7 +53,19 @@ export default function ProductPage({ product }) {
             </Head>
 
             <main>
-                <h1>{product.name}</h1>
+                <ImagesSlider variant={productVariant} product={product} />
+
+                <ProductPresentation product={product} variant={productVariant} sizes={variantColorSizes} colors={productColors} />
+
+                <style jsx>{`
+                    main {
+                        display: flex;
+                        align-items: flex-start;
+                        margin-top: 3rem;
+                        padding: 70px var(--padding-from-borders);
+                        padding-left: 0;
+                    }
+                `}</style>
             </main>
         </>
     )

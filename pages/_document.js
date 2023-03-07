@@ -6,10 +6,10 @@ export default function Document() {
       <Head>
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Fuku Shop" />
-        <meta name="language" content="es" />
-        
+        <meta name="language" content="es" />  
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <body>
         <Main />
         <NextScript />
