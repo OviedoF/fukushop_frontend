@@ -10,9 +10,9 @@
  .card .current_value {
     height: 50px;
     width: 100%;
-    display: flex;
     flex-wrap: wrap;
     align-items: center;
+    flex-direction: column;
 }
 
  .card .current_value label {

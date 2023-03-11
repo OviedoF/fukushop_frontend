@@ -69,8 +69,6 @@ class DoubleRangeSlider extends React.Component {
         const dragedWidhtInPercent = (dragedWidht * 100) / sliderWidth;
         const currentMin = Math.abs(parseInt((max * dragedWidhtInPercent) / 100));
 
-        console.log();
-
         if ((currentMin >= min) && (currentMin <= (currentMax - minValueBetween))) {
             this.minValue.style.width = dragedWidhtInPercent + "%";
             this.minValue.dataset.content = currentMin;
@@ -128,12 +126,11 @@ class DoubleRangeSlider extends React.Component {
         const currentMax = Math.abs(parseInt((max * dragedWidhtInPercent) / 100));
 
         if ((currentMax >= (currentMin + minValueBetween)) && (currentMax <= max)) {
-
             maxWalueThumb.style.width = dragedWidhtInPercent + "%";
             maxWalueThumb.dataset.content = currentMax;
             this.setState({
                 currentMax,
-                inputMax: currentMax
+                inputMax: parseInt((max * dragedWidhtInPercent) / 100) > 0 ? currentMax : 0
             })
             this.props.handleMax(parseInt(currentMax));
         }
@@ -172,7 +169,7 @@ class DoubleRangeSlider extends React.Component {
                             onChange={this.setMin}
                             value={inputMin}
                             min={min}
-                            max={this.maxForMin} />
+                            max={this.maxForMin()} />
                     </div>
 
                     <div>
@@ -182,7 +179,7 @@ class DoubleRangeSlider extends React.Component {
                             type="number"
                             onChange={this.setMax}
                             value={inputMax}
-                            min={this.minForMax}
+                            min={this.minForMax()}
                             max={max} />
                     </div>
 

@@ -36,6 +36,7 @@ const Navbar = () => {
                         <li><Link href={routes.home}>Inicio</Link></li>
                         <li><Link href={routes.products}>Productos</Link></li>
                         <li><Link href={routes.contact}>Contacto</Link></li>
+                        <li><Link href={routes.sizes}>Talles</Link></li>
                         {auth && <li><Link href={routes.adminPanel}>Administrador</Link></li>}
                     </ul>
                 </div>
@@ -61,6 +62,12 @@ const Navbar = () => {
                     </li>
                     <li onClick={() => setMenuToggle(false)}>
                         <Link href={routes.products}>Productos</Link>
+                    </li>
+                    <li onClick={() => setMenuToggle(false)}>
+                        <Link href={routes.contact}>Contacto</Link>
+                    </li>
+                    <li onClick={() => setMenuToggle(false)}>
+                        <Link href={routes.sizes}>Talles</Link>
                     </li>
                 </ul>
                 

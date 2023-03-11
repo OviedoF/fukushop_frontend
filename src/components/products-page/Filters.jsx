@@ -23,7 +23,6 @@ export default function Filters({ categories, types, colors, sizes, setProducts,
   }
 
   const handleMax = (max) => {
-    console.log(max)
     setFilters({
       ...filters,
       price: {

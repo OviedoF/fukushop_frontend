@@ -1,0 +1,38 @@
+.sizes_table{
+    padding: var(--padding-from-borders);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2{
+        color: white;
+        text-align: left;
+        font-size: 2rem;
+
+        &::after{
+            display: none;
+        }
+    }
+
+    table{
+        width: 50%;
+        margin: var(--margin-within-sections) 0;
+        
+        th{
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            background-color: var(--color-secondary);
+            padding: 20px;
+        }
+
+        td{
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            background-color: var(--color-primary);
+            padding: 20px;
+        }
+    }
+}

@@ -2,6 +2,7 @@ export default {
     home: '/',
     products: '/productos',
     contact: '/contacto',
+    sizes: '/talles',
 
     /* admin */
     adminLogin: '/adminlogin',
