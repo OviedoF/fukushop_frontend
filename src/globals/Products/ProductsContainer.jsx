@@ -12,7 +12,7 @@ export default function ProductsContainer({products}) {
             .products_container {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: center;
+                justify-content: flex-start;
                 padding: 0 50px;
                 margin-top: var(--margin-within-sections);
                 width: 100%;

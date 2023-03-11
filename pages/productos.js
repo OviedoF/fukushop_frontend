@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head'
 import Filters from '../src/components/products-page/Filters'
 import env from '../src/env'
 import ProductsSection from '../src/components/products-page/ProductsSection'
 
 export default function products({products, categories, types, colors, sizes}) {
+    const [productsState, setProductsState] = useState(products)
+    const [minPrice, setMinPrice] = useState(Math.min(...products.map(product => product.priceWithOffer || product.price)))
+    const [maxPrice, setMaxPrice] = useState(Math.max(...products.map(product => product.priceWithOffer || product.price)) + 500)
+    const originalProducts = products
+
+    useEffect(() => {
+        setProductsState(products)
+    }, [products])
+
     return (
         <>
             <Head>
@@ -18,9 +27,10 @@ export default function products({products, categories, types, colors, sizes}) {
             </Head>
 
             <main>
-                <Filters categories={categories} types={types} colors={colors} sizes={sizes} />
+                <Filters categories={categories} types={types} colors={colors} sizes={sizes} products={productsState} setProducts={setProductsState} originalProducts={originalProducts} 
+                maxPrice={maxPrice} minPrice={minPrice}/>
 
-                <ProductsSection products={products} />
+                <ProductsSection products={productsState} />
 
                 <style jsx>{`
                     main {

@@ -3,8 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import styles from './ProductPresentation.module.scss'
 import formatNumber from '../../utils/FormatNumbers'
+import env from '../../env'
 
 export default function ProductPresentation({ product, sizes, colors, variant }) {
+    const message = `¡Hola! me gustaría saber más sobre el producto "${product.name}"
+¿Podrías enviarme más información? 人(_ _*)
+¡Muchas gracias! :D
+
+Para que las cosas nos sean más fácil a los dos: 
+${env.FRONTEND_URL}/producto/${encodeURIComponent(product.name)}
+`
+
     return (
         <section className={styles.product_presentation}>
             <h1>{product.name}</h1>
@@ -43,11 +52,11 @@ export default function ProductPresentation({ product, sizes, colors, variant })
                 </p>
             </div>
 
-            <div className={styles.product_presentation_actions}>
+            <a target={'_blank'} href={env.FUKU_WHATSAPP + encodeURIComponent(message)} className={styles.product_presentation_actions}>
                 <button className='button_design'>
                     <p>¡Quiero este producto!</p>
                 </button>
-            </div>
+            </a>
         </section>
     )
 }

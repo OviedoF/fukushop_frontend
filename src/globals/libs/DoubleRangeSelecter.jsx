@@ -2,19 +2,26 @@ import React from 'react';
 import styles from './DoubleRangeSelecter.module.scss';
 
 class DoubleRangeSlider extends React.Component {
-    state = {
-        sliderWidth: 0,
-        offsetSliderWidht: 0,
-        min: 0,
-        max: 200,
-        minValueBetween: 10,
 
-        currentMin: 55,
-        inputMin: 55,
-
-        currentMax: 100,
-        inputMax: 100
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            sliderWidth: 0,
+            offsetSliderWidht: 0,
+            min: 0,
+            max: this.props.max,
+            minValueBetween: 10,
+    
+            currentMin: 0,
+            inputMin: 0,
+    
+            currentMax: this.props.max,
+            inputMax: this.props.max
+        };
+        this.handleMin = this.props.handleMin;
+        this.handleMax = this.props.handleMax;
+        this.props = props;
+      }
 
     componentDidMount() {
         const { currentMin, currentMax, max } = this.state;
@@ -72,6 +79,7 @@ class DoubleRangeSlider extends React.Component {
                 currentMin,
                 inputMin: (max * dragedWidhtInPercent) / 100 < 0 ? 0 : currentMin
             })
+            this.props.handleMin(parseInt(currentMin));
         }
     }
 
@@ -82,7 +90,6 @@ class DoubleRangeSlider extends React.Component {
         document.removeEventListener('touchend', this.onMouseMoveMin);
         document.removeEventListener('touchmove', this.onMouseUpMin);
     }
-
 
     setMax = (e) => {
         const { min, max, currentMin, currentMax, minValueBetween } = this.state;
@@ -128,6 +135,7 @@ class DoubleRangeSlider extends React.Component {
                 currentMax,
                 inputMax: currentMax
             })
+            this.props.handleMax(parseInt(currentMax));
         }
     }
 

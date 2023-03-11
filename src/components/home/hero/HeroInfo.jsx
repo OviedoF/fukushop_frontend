@@ -20,8 +20,8 @@ const HeroInfo = () => {
                 <motion.p initial={{opacity: 0, y: 100}} animate={{opacity: 1, y: 0}} transition={{duration: 1.5, delay: 1.2}}> 
                 Nuestro estilo exclusivo y de tendencia te encantará. Además, estarás apoyando la protección del medio ambiente.                </motion.p>
 
-                <motion.button initial={{y: 250}} animate={{y: 0}} transition={{delay: 1.5, type: 'spring', stiffness: 120}} className={styles.button}>
-                    <a href="#products">¡Conoce nuestros productos!</a>
+                <motion.button className='button_design'  initial={{y: 250}} animate={{y: 0}} transition={{delay: 1.5, type: 'spring', stiffness: 120}}>
+                    <p style={{marginBottom: 0}}>¡Conoce nuestros productos!</p>
                 </motion.button>
             </motion.div>
 

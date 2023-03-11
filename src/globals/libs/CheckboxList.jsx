@@ -8,6 +8,9 @@ class CheckboxList extends React.Component {
         type: 'checkbox', // change this between 'radio' and 'checkmark' for different input control
         selection: []
       };
+      this.handleFilters = this.props.handleFilters;
+      this.filterName = this.props.filterName;
+      this.filters = this.props.filters;
       this.props = props;
     }
     
@@ -21,11 +24,17 @@ class CheckboxList extends React.Component {
       if (type === 'checkbox') { // logic as checkbox
         if (selection.includes(id)) {
           this.setState({ selection: selection.filter(sel => sel !== id)});
+          // Opcional
+          this.props.handleFilters(this.filterName, selection.filter(sel => sel !== id));
         } else {
           this.setState({ selection: [...selection, id] });
+          // Opcional
+          this.props.handleFilters(this.filterName, [...selection, id]);
         }
+
       } else { // logic as radio-button
         this.setState({ selection: [id] });
+        this.props.handleFilters(this.filterName, selection);
       }
     }
     
