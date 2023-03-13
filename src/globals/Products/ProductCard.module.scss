@@ -10,7 +10,6 @@
     align-items: center;
     justify-content: flex-start;
     position: relative;
-    transition: all 0.3s ease-in-out;
     overflow: hidden;
 
     &:hover{
@@ -212,17 +211,24 @@
 
 @media screen and (max-width: 992px) {
     .product_card {
-        width: 33.333%;
+        width: 30%;
     }
 }
 
 @media screen and (max-width: 768px) {
     .product_card {
-        width: 50%;
+        width: 45%;
     }
 }
 
 @media screen and (max-width: 576px) {
+    .product_card {
+        width: 45%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 420px) {
     .product_card {
         width: 100%;
     }

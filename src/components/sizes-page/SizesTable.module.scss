@@ -1,38 +1,120 @@
 .sizes_table{
-    padding: var(--padding-from-borders);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 
     h2{
         color: white;
         text-align: left;
         font-size: 2rem;
+        margin-bottom: 20px;
 
         &::after{
             display: none;
         }
     }
 
-    table{
-        width: 50%;
-        margin: var(--margin-within-sections) 0;
-        
-        th{
-            color: white;
-            font-size: 1.5rem;
-            text-align: center;
-            background-color: var(--color-secondary);
-            padding: 20px;
+    .table{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        img{
+            width: 25%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        td{
-            color: white;
+    
+        table{
+            width: 50%;
+            
+            th{
+                color: white;
+                font-size: 1.2rem;
+                text-align: center;
+                background-color: var(--color-secondary);
+                padding: 20px;
+            }
+    
+            td{
+                color: white;
+                font-size: 1.2rem;
+                text-align: center;
+                background-color: var(--color-primary);
+                padding: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .sizes_table{
+        h2{
             font-size: 1.5rem;
-            text-align: center;
-            background-color: var(--color-primary);
-            padding: 20px;
+        }
+
+        .table{
+            flex-direction: column;
+            align-items: center;
+
+            img{
+                width: 50%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            table{
+                width: 100%;
+
+                th{
+                    font-size: .7rem;
+                    padding: 10px;
+                }
+
+                td{
+                    font-size: .7rem;
+                    padding: 10px;
+                }
+                
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 480px){
+    .sizes_table{
+        h2{
+            font-size: 1.2rem;
+        }
+
+        .table{
+            flex-direction: column;
+            align-items: center;
+
+            img{
+                width: 50%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            table{
+                width: 100%;
+
+                th{
+                    font-size: .5rem;
+                    padding: 10px;
+                }
+
+                td{
+                    font-size: .5rem;
+                    padding: 10px;
+                }
+                
+            }
+            
         }
     }
 }

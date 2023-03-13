@@ -1,8 +1,15 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 export default function ContactForm() {
   return (
-    <div className="contact-form" style={{width: '100%', padding: '20px 100px'}}>
+    <motion.div
+      className="contact-form"
+      style={{ width: '100%', padding: '20px 0 0 50px' }}
+      initial={{ y: -50, opacity: 0, scale: 0.8 }}
+      animate={{ y: 0, opacity: 1, scale: 1 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20, duration: 2 }}
+    >
 
       <form action="https://formspree.io/f/xnqoqzjy" method="POST" className='glassmorphism_form '>
         <div className="form_group">
@@ -25,9 +32,16 @@ export default function ContactForm() {
           <textarea name="message" id="message" rows="5" className="form-control" placeholder="Escribe tu mensaje, ¡puedes dejarnos redes sociales o números de teléfono si quieres otro medio de respuesta!"></textarea>
         </div>
 
-        <button type="submit" className="btn btn-primary">Enviar mensaje</button>
+        <button type="submit" className="button_design" style={{ background: 'transparent', border: 'none' }}>
+          <p>Enviar</p>
+        </button>
       </form>
 
-    </div>
+      <style jsx>{`
+        .contact-form{
+          background: red !important;
+        }
+      `}</style>
+    </motion.div>
   )
 }

@@ -12,6 +12,10 @@
     left: 0;
     background-color: var(--color-primary);
     z-index: 1000;
+
+    @media (max-width: 768px) {
+        padding: 0 0rem;
+    }
 }
 
 .navbar__hidden {
@@ -57,7 +61,7 @@
     text-transform: uppercase;
   } @media(max-width: 768px) {
       .logo {
-  /*       margin-left: 5px; */
+         margin-left: 5px; 
       }
     }
   
@@ -100,6 +104,18 @@
     text-transform: uppercase;
     transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
+
+    @media (max-width: 900px) {
+      font-size: 0.8em;
+    }
+
+    @media (max-width: 780px) {
+      font-size: 0.7em;
+    }
+
+    @media (max-width: 750px) {
+      display: none;
+    }
   }
   
   #navbar li a:hover {
@@ -147,7 +163,7 @@
   /*======================================================
                       Mobile Menu Menu Icon
     ======================================================*/
-  @media(max-width: 640px) {
+  @media(max-width: 750px) {
     .navbar__hidden {
       transform: translateY(0);
       transition: transform 0.3s ease-in-out;

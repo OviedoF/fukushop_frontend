@@ -3,8 +3,9 @@ import Hero from '../src/components/home/hero/Hero'
 import ShowCategories from '../src/components/home/categories/ShowCategories'
 import env from '../src/env'
 import Featured from '../src/components/home/featured/Featured'
+import { motion } from 'framer-motion'
 
-export default function Home({products}) {
+export default function Home({ products }) {
   return (
     <>
       <Head>
@@ -16,13 +17,13 @@ export default function Home({products}) {
         <meta property="og:description" content="¡Bienvenidos a Fuku Shop! ✌️ Descubre nuestra amplia selección de ropa de estilo asiático y anime, con diseños exclusivos y de tendencia. 🥳🥳" />
         <meta property="og:image" content="https://res.cloudinary.com/syphhy/image/upload/v1678072035/logo_mitkyo.png" />
       </Head>
-      
-      <main>
+
+      <motion.main>
         <Hero />
         <ShowCategories />
         <Featured products={products} />
-      </main>
-      
+      </motion.main>
+
     </>
   )
 }

@@ -149,3 +149,50 @@
         }
     }
 }
+
+@media screen and (max-width: 758px){
+    .product_presentation{
+        width: 100%;
+        margin: 0;
+        margin-top: 40px;
+        padding: 0 1rem;
+
+        h1{
+            font-size: 1.8rem;
+        }
+
+        h2{
+            font-size: 1.2rem;
+        }
+
+        .product_presentation_description{
+            p{
+                font-size: 1rem;
+            }
+        }
+
+        .product_presentation_sizes{
+            ul{
+                li{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+
+        .product_presentation_colors{
+            ul{
+                li{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+
+        .product_presentation_price{
+            .product_price{
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

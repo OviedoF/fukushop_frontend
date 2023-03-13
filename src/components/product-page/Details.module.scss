@@ -1,0 +1,12 @@
+.sizes_section{
+    h2{
+        margin-bottom: 20px;
+        text-align: left;
+        font-size: 30px;
+
+        &::after{
+            display: none;
+        }
+    }
+
+}

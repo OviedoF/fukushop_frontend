@@ -17,6 +17,13 @@ export default function ProductsContainer({products}) {
                 margin-top: var(--margin-within-sections);
                 width: 100%;
             }
+
+            @media screen and (max-width: 768px) {
+                .products_container {
+                    padding: 0 20px;
+                    justify-content: center;
+                }
+            }
         `}</style>
     </div>
   )

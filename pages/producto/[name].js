@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react';
 import ImagesSlider from '../../src/components/product-page/ImagesSlider'
 import ProductPresentation from '../../src/components/product-page/ProductPresentation'
 import env from '../../src/env'
+import Details from '../../src/components/product-page/Details';
 
 export default function ProductPage({ product }) {
     const [productVariant, setProductVariant] = useState(false);
     const [variantColorSizes, setVariantColorSizes] = useState([]);
     const [productColors, setProductColors] = useState([])
+    const [allProductSizes, setallProductSizes] = useState([])
 
     useEffect(() => {
         if (product.variants.length > 0) {
@@ -26,7 +28,14 @@ export default function ProductPage({ product }) {
         // Remove duplicates
         const uniqueColors = colors.map(color => JSON.stringify(color)).filter((color, index, self) => self.indexOf(color) === index).map(color => JSON.parse(color));
 
+        // Get all sizes of the product in an array
+        const sizes = product.variants.map(variant => variant.size);
+        console.log(sizes)
+        // Remove duplicates
+        const uniqueSizes = sizes.filter((size, index, self) => self.indexOf(size) === index);
+        
         setProductColors(uniqueColors);
+        setallProductSizes(uniqueSizes);
     }, [product]);
 
     useEffect(() => {
@@ -53,17 +62,29 @@ export default function ProductPage({ product }) {
             </Head>
 
             <main>
-                <ImagesSlider variant={productVariant} product={product} />
+                <section className='product'>
+                    <ImagesSlider variant={productVariant} product={product} />
 
-                <ProductPresentation product={product} variant={productVariant} sizes={variantColorSizes} colors={productColors} />
+                    <ProductPresentation product={product} variant={productVariant} sizes={variantColorSizes} colors={productColors} />
+                </section>
+
+                <Details product={product} sizes={allProductSizes} />
 
                 <style jsx>{`
                     main {
-                        display: flex;
-                        align-items: flex-start;
                         margin-top: 3rem;
                         padding: 70px var(--padding-from-borders);
-                        padding-left: 0;
+                    }
+
+                    .product {
+                        display: flex;
+                        align-items: flex-start;
+                    }
+
+                    @media screen and (max-width: 768px) {
+                        .product {
+                            flex-direction: column;
+                        }
                     }
                 `}</style>
             </main>

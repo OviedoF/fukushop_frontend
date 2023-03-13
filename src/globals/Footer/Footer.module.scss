@@ -34,7 +34,7 @@
             }
         }
 
-        &#footer_copyright{
+        &.footer_copyright{
             p{
                 font-size: 0.8rem;
                 font-weight: 500;
@@ -60,6 +60,43 @@
                         }
                     }
                 }
+            }
+
+            &#footer_copyright_nocomputer{
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    #footer{
+        flex-direction: column;
+        padding: 50px 10%;
+
+        section{
+            width: 100%;
+            margin: 20px 0;
+
+            ul{
+                li{
+                    font-size: 1rem;
+                }
+            }
+
+            &.footer_copyright{
+                p{
+                    font-size: 0.7rem;
+                }
+                
+                &#footer_copyright_nocomputer{
+                    display: flex;
+                }
+
+                &#footer_copyright_noresponsive{
+                    display: none;
+                }
+
             }
         }
     }

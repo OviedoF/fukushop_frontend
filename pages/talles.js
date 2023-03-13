@@ -2,8 +2,9 @@ import React from 'react'
 import Head from 'next/head'
 import env from '../src/env'
 import SizesTable from '../src/components/sizes-page/SizesTable'
+import { motion } from 'framer-motion'
 
-export default function talles({sizes}) {
+export default function talles({ sizes }) {
     console.log(sizes)
     return (
         <>
@@ -17,11 +18,24 @@ export default function talles({sizes}) {
                 <meta property="og:image" content="https://res.cloudinary.com/syphhy/image/upload/v1678072035/logo_mitkyo.png" />
             </Head>
 
-            <main>
+            <motion.main
+                initial={{ y: -50, opacity: 0, scale: 0.8 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                transition={{ type: "spring", stiffness: 100, damping: 20, duration: 2 }}
+                style={{paddingTop: '5rem'}}
+            >
                 <h1>Tablas de talles</h1>
 
                 <SizesTable sizes={sizes} title='Remera oversize' />
-            </main>
+
+                <style jsx>{`
+                    @media (min-width: 768px) {
+                        main{
+                            padding-top: 3rem;
+                        }
+                    }
+                `}</style>
+            </motion.main>
         </>
     )
 }

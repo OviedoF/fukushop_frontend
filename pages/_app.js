@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }) {
     <QueryClientProvider client={new QueryClient()}>
       <Provider store={store}>
         <Navbar />
-        
+
         <Component {...pageProps} />
 
         <Footer />

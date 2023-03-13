@@ -17,7 +17,7 @@ export default function Footer() {
             </ul>
         </section>
 
-        <section id={styles.footer_copyright}>
+        <section className={styles.footer_copyright} id={styles.footer_copyright_noresponsive}>
             <div className={styles.img_container}>
                 <Image src={logo} alt="Fuku Shop" width={200} height={200} />
             </div>
@@ -42,6 +42,25 @@ export default function Footer() {
                 <li><a href=''>Nuevos productos</a></li>
                 <li><a href=''>Categorias</a></li>
                 <li><a href=''>Sobre nosotros</a></li>
+            </ul>
+        </section>
+
+        <section className={styles.footer_copyright} id={styles.footer_copyright_nocomputer}>
+            <div className={styles.img_container}>
+                <Image src={logo} alt="Fuku Shop" width={200} height={200} />
+            </div>
+            <p>
+                Copyright © 2023 Fuku Shop. Todos los derechos reservados. El contenido de esta tienda en línea, incluyendo textos, imágenes, diseños y logotipos, está protegido por derechos de autor y otras leyes de propiedad intelectual. Queda estrictamente prohibida la reproducción, distribución, modificación, exhibición o transmisión de cualquier contenido sin el permiso previo y por escrito de Fuku Shop.
+            </p>
+
+            <p>
+                Esta página web fue diseñada y desarrollada por OvDev. Nos enorgullece haber creado una plataforma intuitiva y fácil de usar para nuestros clientes. Si tienes alguna pregunta o comentario sobre la tienda en línea, por favor contáctanos. ¡Gracias por elegir Fuku Shop!
+            </p>
+
+            <ul id='footer_social_media'>
+                <li><a href={'https://www.facebook.com'}><FontAwesomeIcon icon={faFacebook} /></a></li>
+                <li><a href={'https://www.instagram.com'}><FontAwesomeIcon icon={faInstagram} /></a></li>
+                <li><a href={'https://www.pinterest.com'}><FontAwesomeIcon icon={faPinterest} /></a></li>
             </ul>
         </section>
     </footer>

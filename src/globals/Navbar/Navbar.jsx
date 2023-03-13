@@ -6,6 +6,7 @@ import env from '../env';
 import { useSelector } from 'react-redux';
 import styles from './Navbar.module.scss';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
     const [prevScrollPos, setPrevScrollPos] = useState(0);

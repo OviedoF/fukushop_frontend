@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from './Filters.module.scss'
 import CheckboxList from '../../globals/libs/CheckboxList'
 import DoubleRangeSlider from '../../globals/libs/DoubleRangeSelecter'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 export default function Filters({ categories, types, colors, sizes, setProducts, originalProducts, maxPrice, minPrice }) {
   const [filters, setFilters] = useState({
@@ -14,6 +16,7 @@ export default function Filters({ categories, types, colors, sizes, setProducts,
       max: maxPrice,
     },
   })
+  const [filtersActiveInResponsive, setFiltersActiveInResponsive] = useState(false)
 
   const handleFilters = (filter, value) => {
     setFilters({
@@ -41,7 +44,7 @@ export default function Filters({ categories, types, colors, sizes, setProducts,
       },
     })
   }
-
+  
   useEffect(() => {
     const productsFiltered = originalProducts.filter(product => {
       let category = true;
@@ -67,10 +70,10 @@ export default function Filters({ categories, types, colors, sizes, setProducts,
       }
 
       if (filters.price.min > 0 || filters.price.max < 50000) {
-        price = product.priceWithOffer ? product.priceWithOffer >= filters.price.min && product.priceWithOffer <= filters.price.max : product.price >= filters.price.min && product.price <= filters.price.max 
+        price = product.priceWithOffer ? product.priceWithOffer >= filters.price.min && product.priceWithOffer <= filters.price.max : product.price >= filters.price.min && product.price <= filters.price.max
       }
 
-      if(!(category && type && color && size && price)) return setProducts([])
+      if (!(category && type && color && size && price)) return setProducts([])
 
       return category && type && color && size && price
     })
@@ -79,39 +82,49 @@ export default function Filters({ categories, types, colors, sizes, setProducts,
   }, [filters])
 
   return (
-    <aside id={styles.products_filter}>
-      <h3>Filtros</h3>
+    <>
+      <button className='button_design' id={styles.filters_button_active} onClick={(e) => setFiltersActiveInResponsive(!filtersActiveInResponsive)}>
+        <p>Filtros <FontAwesomeIcon icon={faAngleRight} style={{transform: filtersActiveInResponsive ? 'rotate(180deg)' : 'none'}}/></p>
+      </button>
 
-      <div className={styles.filter}>
-        <h4>Categorías</h4>
+      <aside id={styles.products_filter} style={{left: filtersActiveInResponsive ? '0' : '-100%'}}>
+        <h3>Filtros</h3>
 
-        <CheckboxList handleFilters={handleFilters} filterName={'categories'} filters={filters} items={categories} />
-      </div>
+        <FontAwesomeIcon icon={faAngleLeft} id={styles.close_filters} onClick={(e) => setFiltersActiveInResponsive(false)}
+        style={{transform: !filtersActiveInResponsive ? 'rotate(180deg)' : 'none'}}/>
 
-      <div className={styles.filter}>
-        <h4>Tipo de prenda</h4>
+        <div className={styles.filter}>
+          <h4>Categorías</h4>
 
-        <CheckboxList handleFilters={handleFilters} filterName={'types'} filters={filters} items={types} />
-      </div>
+          <CheckboxList handleFilters={handleFilters} filterName={'categories'} filters={filters} items={categories} />
+        </div>
 
-      <div className={styles.filter}>
-        <h4>Colores</h4>
+        <div className={styles.filter}>
+          <h4>Tipo de prenda</h4>
 
-        <CheckboxList handleFilters={handleFilters} filterName={'colors'} filters={filters} items={colors} />
-      </div>
+          <CheckboxList handleFilters={handleFilters} filterName={'types'} filters={filters} items={types} />
+        </div>
 
-      <div className={styles.filter}>
-        <h4>Tallas</h4>
+        <div className={styles.filter}>
+          <h4>Colores</h4>
 
-        <CheckboxList handleFilters={handleFilters} filterName={'sizes'} filters={filters} items={sizes} />
-      </div>
+          <CheckboxList handleFilters={handleFilters} filterName={'colors'} filters={filters} items={colors} />
+        </div>
 
-      <div className={styles.filter}>
-        <h4>Precio</h4>
+        <div className={styles.filter}>
+          <h4>Tallas</h4>
 
-        <DoubleRangeSlider handleMax={handleMax} handleMin={handleMin} min={filters.price.min} 
-        max={filters.price.max} minValueBetween={10} />
-      </div>
-    </aside>
+          <CheckboxList handleFilters={handleFilters} filterName={'sizes'} filters={filters} items={sizes} />
+        </div>
+
+        <div className={styles.filter}>
+          <h4>Precio</h4>
+
+          <DoubleRangeSlider handleMax={handleMax} handleMin={handleMin} min={filters.price.min}
+            max={filters.price.max} minValueBetween={10} />
+        </div>
+      </aside>
+
+    </>
   )
 }

@@ -31,7 +31,7 @@ export default function contacto() {
                         flex-direction: column;
                         align-items: center;
                         justify-content: center;
-                        padding: 0 10rem;
+                        padding: 0 7rem;
                         margin: 3rem auto 6rem;
                         width: 100vw;
                     }
@@ -46,6 +46,16 @@ export default function contacto() {
                         display: flex;
                         width: 100%;
                         justify-content: space-between;
+                    }
+
+                    @media screen and (max-width: 900px) {
+                        main{
+                            padding: 0 1rem;
+                        }
+
+                        #contact_section {
+                            flex-direction: column-reverse;
+                        }
                     }
                 `}</style>
             </main>

@@ -37,6 +37,12 @@ export default function products({products, categories, types, colors, sizes}) {
                         display: flex;
                         width: 100vw;
                     }
+
+                    @media screen and (max-width: 900px) {
+                        main {
+                            flex-direction: column;
+                        }
+                    }
                 `}</style>
             </main>
         </>

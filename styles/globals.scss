@@ -279,3 +279,10 @@ button{
 	border: none;
 	color: white;
 }
+
+@media (max-width: 768px) {
+	.contact-form {
+		padding: 0 !important;
+		margin-bottom: 50px;
+	}
+}

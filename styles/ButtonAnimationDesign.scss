@@ -66,3 +66,13 @@
 	transform-origin: bottom right;
 	transform: scale(0);
 }
+
+@media screen and (max-width: 768px) {
+	.button_design {
+		height: 50px;
+	}
+
+	.button_design p {
+		font-size: 15px !important;
+	}
+}
