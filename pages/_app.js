@@ -13,6 +13,7 @@ import { QueryClientProvider } from 'react-query';
 import { QueryClient } from 'react-query';
 import Footer from '../src/globals/Footer/Footer'
 
+
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     Aos.init({ duration: 2000 });

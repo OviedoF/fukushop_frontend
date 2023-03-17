@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export"
+    "export": "next build && next export && node ./scripts/generate-sitemap.js",
+    "generate-sitemap": "node ./scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -18,17 +19,23 @@
     "aos": "^2.3.4",
     "axios": "^1.3.2",
     "framer-motion": "^8.5.0",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^11.1.0",
     "next": "13.1.4",
+    "next-sitemap": "^4.0.5",
+    "nextjs-sitemap-generator": "^1.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-draggable-range": "^0.1.1",
     "react-query": "^3.39.3",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.0",
+    "react-sitemap": "^1.0.1",
     "react-spinners": "^0.13.8",
     "react-typing-effect": "^2.0.5",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "sharp": "^0.31.3"
   }
 }
