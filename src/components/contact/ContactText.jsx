@@ -38,16 +38,16 @@ export default function ContactText() {
 
             <ul className={styles.social_media}>
                 <li>
-                    <a href="https://www.instagram.com/fukushop_/" target="_blank" rel="noreferrer">
+                    <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faInstagram} />
-                        @fukushop_
+                        @fukushop (prox)
                     </a>
                 </li>
 
                 <li>
-                    <a href="mailto:fukushop86239@gmail.com" target="_blank" rel="noreferrer">
+                    <a href="mailto:contacto@fukushop.com.ar" target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faEnvelope} />
-                        fukushop86239@gmail.com
+                        contacto@fukushop.com.ar
                     </a>
                 </li>
 

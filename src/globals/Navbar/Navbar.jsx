@@ -30,7 +30,7 @@ const Navbar = () => {
             <nav id={styles.navbar}>
                 <div className={styles.nav_wrapper}>
                     <div className={styles.logo} style={{padding: 1}}>
-                        <img src={env.logoUrl} alt="logo" style={{height: '100%', objectFit: 'cover', transform: 'scale(2)'}} />
+                        <img src={env.logoUrl} alt="logo" style={{height: '100%', objectFit: 'contain', transform: 'scale(1)'}} />
                     </div>
 
                     <ul id={styles.menu}>
