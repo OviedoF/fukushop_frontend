@@ -6,10 +6,8 @@ import { useQuery } from 'react-query';
 import LoadingPage from '../../../src/globals/LoadingPage';
 import ErrorPage from '../../../src/globals/ErrorPage';
 import NotFoundItem from '../../../src/globals/NotFoundItem';
-import {motion} from 'framer-motion';
 import { useSelector } from 'react-redux';
 import {ProductFormProvider} from '../../../src/components/admin/forms/product/Product.provider';
-import { HashLoader } from 'react-spinners';
 
 const Product = () => {
     const { isLoading: isLoadingCategories, error, data: categories } = useQuery('category', () => axios.get(`${env.API_URL}/category`) );

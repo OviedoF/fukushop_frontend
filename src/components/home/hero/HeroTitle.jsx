@@ -25,121 +25,70 @@ const HeroTitle = ({ title, span, sliderText, sliderTextAlternative }) => {
     }
 
     return (
-        <motion.div className={styles.hero_name} >
-            <motion.div className={styles.title}
-                initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                animate={{ y: 0, opacity: 1, scale: 1 }}
-                transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.8 }}
-            >
+        <motion.div className={styles.hero_name} 
+        initial={{ y: -50, opacity: 0, scale: 0.8 }}
+        animate={{ y: 0, opacity: 1, scale: 1 }}
+        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1 }}
+        >
+
+            <div className={styles.title}>
                 <h1>{title}</h1>
                 <p><span>[</span>{span}<span>]</span></p>
-            </motion.div>
+            </div>
 
-            <motion.div className={styles.traduction_container}
-                initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                animate={{ y: 0, opacity: 1, scale: 1 }}
-                transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1 }}
-            >
-                <motion.div className={styles.traduction_slider} >
-                    <motion.div className={styles.traduction}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.2 }}
-                    >
+            <div className={styles.traduction_container}>
+                <div className={styles.traduction_slider} >
+                    <div className={styles.traduction} >
                         <p>{sliderText}</p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div className={styles.traduction_alternative}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.6 }}
-                    >
+                    <div className={styles.traduction_alternative} >
                         <p style={{ fontFamily: 'Fuku', fontSize: 26 }}>{sliderTextAlternative}</p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div className={styles.traduction}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.2 }}
-                    >
+                    <div className={styles.traduction} >
                         <p>{sliderText}</p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div className={styles.traduction_alternative}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.6 }}
-                    >
+                    <div className={styles.traduction_alternative} >
                         <p style={{ fontFamily: 'Fuku', fontSize: 26 }}>{sliderTextAlternative}</p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div className={styles.traduction}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.2 }}
-                    >
+                    <div className={styles.traduction} >
                         <p>{sliderText}</p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div className={styles.traduction_alternative}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.6 }}
-                    >
+                    <div className={styles.traduction_alternative} >
                         <p style={{ fontFamily: 'Fuku', fontSize: 26 }}>{sliderTextAlternative}</p>
-                    </motion.div>
-                </motion.div>
+                    </div>
+                </div>
 
-                <motion.div className={styles.traduction_slider} >
-                    <motion.div className={styles.traduction}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.2 }}
-                    >
+                <div className={styles.traduction_slider} >
+                    <div className={styles.traduction} >
                         <p>{sliderText}</p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div className={styles.traduction_alternative}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.6 }}
-                    >
+                    <div className={styles.traduction_alternative} >
                         <p style={{ fontFamily: 'Fuku', fontSize: 26 }}>{sliderTextAlternative}</p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div className={styles.traduction}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.2 }}
-                    >
+                    <div className={styles.traduction} >
                         <p>{sliderText}</p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div className={styles.traduction_alternative}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.6 }}
-                    >
+                    <div className={styles.traduction_alternative} >
                         <p style={{ fontFamily: 'Fuku', fontSize: 26 }}>{sliderTextAlternative}</p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div className={styles.traduction}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.2 }}
-                    >
+                    <div className={styles.traduction} >
                         <p>{sliderText}</p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div className={styles.traduction_alternative}
-                        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                        animate={{ y: 0, opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1.6 }}
-                    >
+                    <div className={styles.traduction_alternative} >
                         <p style={{ fontFamily: 'Fuku', fontSize: 26 }}>{sliderTextAlternative}</p>
-                    </motion.div>
-                </motion.div>
-            </motion.div>
+                    </div>
+                </div>
+            </div>
 
             <HeroCard containerStyles={cardStyle} image={'https://res.cloudinary.com/syphhy/image/upload/v1674524513/Sudadera-con-capucha-y-cremallera-para-hombre-ropa-de-calle-negra-para-Jogger-Hip-Hop-Punk.jpg_Q90.jpg__qryyq5.webp'} />
         </motion.div>

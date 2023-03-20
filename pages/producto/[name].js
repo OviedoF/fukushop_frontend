@@ -4,6 +4,7 @@ import ImagesSlider from '../../src/components/product-page/ImagesSlider'
 import ProductPresentation from '../../src/components/product-page/ProductPresentation'
 import env from '../../src/env'
 import Details from '../../src/components/product-page/Details';
+import { motion } from 'framer-motion';
 
 export default function ProductPage({ product }) {
     const [productVariant, setProductVariant] = useState(false);
@@ -33,7 +34,7 @@ export default function ProductPage({ product }) {
         console.log(sizes)
         // Remove duplicates
         const uniqueSizes = sizes.filter((size, index, self) => self.indexOf(size) === index);
-        
+
         setProductColors(uniqueColors);
         setallProductSizes(uniqueSizes);
     }, [product]);
@@ -98,7 +99,7 @@ export const getStaticPaths = async () => {
     const products = await res.json()
 
     const paths = products.map(product => ({
-        params: { name: product.name }
+        params: { name: product.name.replaceAll(' ', '_') }
     }));
 
     return {
@@ -108,7 +109,8 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-    const res = await fetch(`${env.API_URL}/products/${params.name}`)
+    const productName = decodeURIComponent(params.name).replaceAll('_', ' ');
+    const res = await fetch(`${env.API_URL}/products/${productName}`)
     const product = await res.json()
 
     return {

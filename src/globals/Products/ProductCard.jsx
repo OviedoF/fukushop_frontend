@@ -75,7 +75,7 @@ export default function ProductCard({ product }) {
                     )
                 }
 
-                <Link href={`/producto/${product.name}`} className={styles.product_card__link}>
+                <Link href={encodeURI(`/producto/${product.name}`).replaceAll('%20', '_')} className={styles.product_card__link}>
                     <button>Ver producto</button>
                 </Link>
             </div>

@@ -5,7 +5,7 @@ import DoubleRangeSlider from '../../globals/libs/DoubleRangeSelecter'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-export default function Filters({ categories, types, colors, sizes, setProducts, originalProducts, maxPrice, minPrice }) {
+export default function Filters({ categories, types, colors, sizes, setProducts, originalProducts, maxPrice, minPrice, queryCategory }) {
   const [filters, setFilters] = useState({
     categories: [],
     types: [],
@@ -81,6 +81,15 @@ export default function Filters({ categories, types, colors, sizes, setProducts,
     setProducts(productsFiltered)
   }, [filters])
 
+  useEffect(() => {
+    if (queryCategory) {
+      setFilters({
+        ...filters,
+        categories: [queryCategory],
+      })
+    }
+  }, [queryCategory])
+
   return (
     <>
       <button className='button_design' id={styles.filters_button_active} onClick={(e) => setFiltersActiveInResponsive(!filtersActiveInResponsive)}>
@@ -96,7 +105,7 @@ export default function Filters({ categories, types, colors, sizes, setProducts,
         <div className={styles.filter}>
           <h4>Categorías</h4>
 
-          <CheckboxList handleFilters={handleFilters} filterName={'categories'} filters={filters} items={categories} />
+          <CheckboxList handleFilters={handleFilters} filterName={'categories'} filters={filters} items={categories} default={queryCategory} />
         </div>
 
         <div className={styles.filter}>

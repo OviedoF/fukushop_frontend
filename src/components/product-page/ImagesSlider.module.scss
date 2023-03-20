@@ -9,6 +9,34 @@
         position: relative;
         top: 0;
         left: 0;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .zoom_icon{
+            position: absolute;
+            top: 20px;
+            right: 50px;
+            height: 20px;
+        }
+
+        &:hover{
+            .zoom_icon{
+                transition: all 0.3s ease-in-out;
+                transform: scale(1.3);
+            }
+
+            img{
+                transition: all 0.3s ease-in-out;
+                transform: scale(1);
+            }
+        }
     }
 
     .gallery_images_container{
@@ -26,7 +54,19 @@
             overflow: hidden;
             cursor: pointer;
 
+            .zoom_icon{
+                position: absolute;
+                top: 0px;
+                right: 10px;
+                height: 10px;
+            }
+
             &:hover{
+                .zoom_icon{
+                    transition: all 0.3s ease-in-out;
+                    transform: scale(1.1);
+                }
+
                 img{
                     transition: all 0.3s ease-in-out;
                     transform: scale(1.1);

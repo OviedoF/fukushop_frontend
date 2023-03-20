@@ -12,6 +12,7 @@ class CheckboxList extends React.Component {
       this.filterName = this.props.filterName;
       this.filters = this.props.filters;
       this.props = props;
+      this.activeDefault = true;
     }
     
     /**
@@ -20,10 +21,14 @@ class CheckboxList extends React.Component {
     **/
     toggleSelection(id) {
       const { type, selection } = this.state;
+      console.log('toggleSelection', id, selection);
       
       if (type === 'checkbox') { // logic as checkbox
         if (selection.includes(id)) {
           this.setState({ selection: selection.filter(sel => sel !== id)});
+          if(this.props.default && this.props.default === id) {
+            this.activeDefault = false;
+          }
           // Opcional
           this.props.handleFilters(this.filterName, selection.filter(sel => sel !== id));
         } else {
@@ -41,6 +46,12 @@ class CheckboxList extends React.Component {
     render() {
       const { selection } = this.state;
       const { items } = this.props;
+
+      if(this.props.default && this.activeDefault && !selection.includes(this.props.default)) {
+        this.setState({ selection: [this.props.default] });
+      }
+
+      
       
       return (
         <ul className={styles.selectionable_items}>

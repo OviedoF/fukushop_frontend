@@ -5,7 +5,7 @@ import env from '../src/env'
 import Featured from '../src/components/home/featured/Featured'
 import { motion } from 'framer-motion'
 
-export default function Home({ products }) {
+export default function Home({ products, categories }) {
   return (
     <>
       <Head>
@@ -20,7 +20,7 @@ export default function Home({ products }) {
 
       <motion.main>
         <Hero />
-        <ShowCategories />
+        <ShowCategories categories={categories} />
         <Featured products={products} />
       </motion.main>
 
@@ -32,11 +32,14 @@ export default function Home({ products }) {
 
 export async function getStaticProps() {
   const res = await fetch(`${env.API_URL}/products`)
+  const resCategories = await fetch(`${env.API_URL}/category`)
   const products = await res.json()
+  const categories = await resCategories.json()
 
   return {
     props: {
-      products: products || []
+      products: products || [],
+      categories: categories || []
     }
   }
 }

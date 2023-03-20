@@ -3,12 +3,22 @@ import Head from 'next/head'
 import Filters from '../src/components/products-page/Filters'
 import env from '../src/env'
 import ProductsSection from '../src/components/products-page/ProductsSection'
+import { useRouter } from 'next/router'
 
 export default function products({products, categories, types, colors, sizes}) {
     const [productsState, setProductsState] = useState(products)
     const [minPrice, setMinPrice] = useState(Math.min(...products.map(product => product.priceWithOffer || product.price)))
     const [maxPrice, setMaxPrice] = useState(Math.max(...products.map(product => product.priceWithOffer || product.price)) + 500)
-    const originalProducts = products
+    const [queryCategory, setQueryCategory] = useState(null)
+    const originalProducts = products;
+    const router = useRouter();
+    const { category } = router.query;
+
+    useEffect(() => {
+        if (category) {
+            setQueryCategory(categories.find(cat => cat.name === category))
+        }
+    }, [category])
 
     useEffect(() => {
         setProductsState(products)
@@ -28,7 +38,7 @@ export default function products({products, categories, types, colors, sizes}) {
 
             <main>
                 <Filters categories={categories} types={types} colors={colors} sizes={sizes} products={productsState} setProducts={setProductsState} originalProducts={originalProducts} 
-                maxPrice={maxPrice} minPrice={minPrice}/>
+                maxPrice={maxPrice} minPrice={minPrice} queryCategory={queryCategory ? queryCategory._id : null}/>
 
                 <ProductsSection products={productsState} />
 
