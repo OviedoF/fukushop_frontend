@@ -8,7 +8,13 @@ export default function ContactForm() {
       animation='appear'
     >
 
-      <form action="https://formspree.io/f/xnqoqzjy" method="POST" className='glassmorphism_form '>
+      <form  method="POST" className='glassmorphism_form' action="https://formsubmit.co/fukushop86239@gmail.com">
+        <input type="hidden" name="_next" value="https://fukushop.com.ar/" />
+        <input type="hidden" name="_subject" value="Nuevo mensaje!" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_autoresponse" value="¡Hemos recibido tu mensaje!" />
+        <input type="hidden" name="_template" value="table" />
+
         <div className="form_group">
           <label htmlFor="name">Name</label>
           <input type="text" name="name" id="name" className="form-control" placeholder="Tu nombre" />
