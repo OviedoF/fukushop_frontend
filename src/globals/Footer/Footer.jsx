@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import logo from '../../assets/icon.png'
 import { faFacebook, faPinterest, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import Image from 'next/image'
 import styles from './Footer.module.scss'
 import Link from 'next/link'
 import routes from '../../routes'
+import env from '../env'
 
 export default function Footer() {
     return (
@@ -20,7 +20,7 @@ export default function Footer() {
 
             <section className={styles.footer_copyright} id={styles.footer_copyright_noresponsive}>
                 <div className={styles.img_container}>
-                    <Image src={logo} alt="Fuku Shop" width={200} height={200} />
+                    <Image src={env.logoUrl} alt="Fuku Shop" width={200} height={200} />
                 </div>
                 <p>
                     Copyright © 2023 Fuku Shop. Todos los derechos reservados. El contenido de esta tienda en línea, incluyendo textos, imágenes, diseños y logotipos, está protegido por derechos de autor y otras leyes de propiedad intelectual. Queda estrictamente prohibida la reproducción, distribución, modificación, exhibición o transmisión de cualquier contenido sin el permiso previo y por escrito de Fuku Shop.
@@ -62,7 +62,7 @@ export default function Footer() {
 
             <section className={styles.footer_copyright} id={styles.footer_copyright_nocomputer}>
                 <div className={styles.img_container}>
-                    <Image src={logo} alt="Fuku Shop" width={200} height={200} />
+                    <Image src={env.logoUrl} alt="Fuku Shop" width={200} height={200} />
                 </div>
                 <p>
                     Copyright © 2023 Fuku Shop. Todos los derechos reservados. El contenido de esta tienda en línea, incluyendo textos, imágenes, diseños y logotipos, está protegido por derechos de autor y otras leyes de propiedad intelectual. Queda estrictamente prohibida la reproducción, distribución, modificación, exhibición o transmisión de cualquier contenido sin el permiso previo y por escrito de Fuku Shop.

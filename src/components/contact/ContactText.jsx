@@ -3,15 +3,10 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import styles from './ContactText.module.scss'
-import { motion } from 'framer-motion';
 
 export default function ContactText() {
     return (
-        <motion.div className={styles.message_container}
-            initial={{ y: -50, opacity: 0, scale: 0.8 }}
-            animate={{ y: 0, opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.8 }}
-        >
+        <div className={styles.message_container} animation='appear' >
             <h4>¡Hola! ¡Qué gusto tenerte por aquí! 😃</h4>
             <p>
                 Nos encanta estar en contacto contigo y queremos que sepas que estamos disponibles para cualquier duda o consulta.
@@ -58,6 +53,6 @@ export default function ContactText() {
                     </a>
                 </li>
             </ul>
-        </motion.div>
+        </div>
     )
 }

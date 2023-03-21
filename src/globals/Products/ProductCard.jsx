@@ -2,7 +2,6 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import styles from './ProductCard.module.scss'
 import ProductColorsList from './ProductColorsList';
-import { motion } from 'framer-motion';
 
 export default function ProductCard({ product }) {
     const [variantSelected, setVariantSelected] = useState(null);
@@ -39,11 +38,7 @@ export default function ProductCard({ product }) {
 
 
     if (variantSelected) return (
-        <motion.div key={product._id} className={styles.product_card}
-            initial={{ y: -50, opacity: 0, scale: 0.8 }}
-            animate={{ y: 0, opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.8 }}
-        >
+        <div key={product._id} className={styles.product_card} animation='appear'>
             <img src={variantSelected.image} alt={product.name} />
 
             {product.discount > 0 && <span className={styles.product_card__discount}>{product.discount}% OFF</span>}
@@ -79,6 +74,6 @@ export default function ProductCard({ product }) {
                     <button>Ver producto</button>
                 </Link>
             </div>
-        </motion.div>
+        </div>
     )
 }

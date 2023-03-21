@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion'
-import Image from 'next/image'
 import TextToTopHoverCard from '../../../globals/Cards/TextToTopHoverCard'
 import styles from './ShowCategories.module.scss'
 

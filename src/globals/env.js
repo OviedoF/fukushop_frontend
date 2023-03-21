@@ -1,3 +1,3 @@
 export default {
-    logoUrl: 'https://res.cloudinary.com/dmoqdwvnr/image/upload/v1679399317/logo_cm2zmm.png'
+    logoUrl: 'https://res.cloudinary.com/dmoqdwvnr/image/upload/v1679408428/icon_eizc0s.webp'
 }

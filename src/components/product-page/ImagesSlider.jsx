@@ -33,8 +33,8 @@ export default function ImagesSlider({ variant, product }) {
 
             <div className={styles.gallery_images_container}>
                 {gallery.filter(image => image !== null).map((image, index) => (
-                    <div key={index} className={styles.gallery_image_container} onClick={(e) => setZoom(image)}>
-                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} className={styles.zoom_icon} />
+                    <div key={index} className={styles.gallery_image_container} >
+                        {/* <FontAwesomeIcon icon={faArrowUpRightFromSquare} className={styles.zoom_icon} /> */}
                         <Image src={image} alt={`${product.name} en color ${variant.color.name}`} fill style={{ objectFit: 'contain' }}
                             onClick={() => handleImageClick(image)} />
                     </div>

@@ -5,7 +5,6 @@ import ProductFormContext from './Product.provider';
 import Variants from './Variants';
 import ColorImagesPicker from './ColorImagesPicker';
 import { HashLoader } from 'react-spinners';
-import { motion } from 'framer-motion';
 
 const CreateProductForm = ({ createStatus }) => {
     const [sizesSelected, setSizesSelected] = useState([]);
@@ -119,9 +118,9 @@ const CreateProductForm = ({ createStatus }) => {
 
             <ColorImagesPicker colorsSelected={colorsSelected} />
 
-            {createStatus.status === 'success' && <motion.p className='card_text_1 success' animate={{ transform: 'scale(1)' }}>{createStatus.message}</motion.p>}
+            {createStatus.status === 'success' && <p animation='appear' className='card_text_1 success' animate={{ transform: 'scale(1)' }}>{createStatus.message}</p>}
             {createStatus.status === 'loading' ? <HashLoader color='#FFF' size={50} /> : <button type='submit' onClick={(e) => handleSend(e)}>Crear producto</button>}
-            {createStatus.status === 'error' && <motion.p className='card_text_1 error' animate={{ transform: 'scale(1)' }}>{createStatus.message}</motion.p>}
+            {createStatus.status === 'error' && <p animation='appear' className='card_text_1 error' animate={{ transform: 'scale(1)' }}>{createStatus.message}</p>}
 
         </form>
     );

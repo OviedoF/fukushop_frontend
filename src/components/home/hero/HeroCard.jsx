@@ -1,15 +1,10 @@
 import React from 'react';
 import styles from './HeroCard.module.scss';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 const HeroCard = ({ containerStyles, image }) => {
     return (
-        <motion.div className={styles.card_container} style={containerStyles}
-            initial={{ y: -50, opacity: 0, scale: 0.8 }}
-            animate={{ y: 0, opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 100, damping: 20, duration: 0.8 }}
-        >
+        <div className={styles.card_container} style={containerStyles} animation='appear'>
             <span></span>
             <span></span>
             <span></span>
@@ -22,7 +17,7 @@ const HeroCard = ({ containerStyles, image }) => {
                 </div>
 
             </div>
-        </motion.div>
+        </div>
     );
 }
 

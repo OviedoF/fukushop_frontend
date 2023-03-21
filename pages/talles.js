@@ -2,7 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 import env from '../src/env'
 import SizesTable from '../src/components/sizes-page/SizesTable'
-import { motion } from 'framer-motion'
 
 export default function talles({ sizes }) {
     console.log(sizes)
@@ -19,11 +18,9 @@ export default function talles({ sizes }) {
                 <link rel="canonical" href="https://fukushop.com.ar/talles" />
             </Head>
 
-            <motion.main
+            <main
                 initial={{ y: -50, opacity: 0, scale: 0.8 }}
-                animate={{ y: 0, opacity: 1, scale: 1 }}
-                transition={{ type: "spring", stiffness: 100, damping: 20, duration: 2 }}
-                style={{paddingTop: '5rem'}}
+                animation='appear'
             >
                 <h1>Tablas de talles</h1>
 
@@ -36,7 +33,7 @@ export default function talles({ sizes }) {
                         }
                     }
                 `}</style>
-            </motion.main>
+            </main>
         </>
     )
 }

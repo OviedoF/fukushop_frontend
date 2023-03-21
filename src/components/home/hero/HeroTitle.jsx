@@ -1,20 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './HeroTitle.module.scss';
-import { motion } from 'framer-motion';
 import HeroCard from './HeroCard';
 
 const HeroTitle = ({ title, span, sliderText, sliderTextAlternative }) => {
-    const [windowWidth, setWindowWidth] = useState(1200);
-
-    const handleResize = () => {
-        setWindowWidth(window.innerWidth);
-    }
-
-    useEffect(() => {
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
     const cardStyle = {
         height: '180%',
         width: '25%',
@@ -24,11 +12,7 @@ const HeroTitle = ({ title, span, sliderText, sliderTextAlternative }) => {
     }
 
     return (
-        <motion.div className={styles.hero_name} 
-        initial={{ y: -50, opacity: 0, scale: 0.8 }}
-        animate={{ y: 0, opacity: 1, scale: 1 }}
-        transition={{ type: "spring", stiffness: 100, damping: 20, duration: 1 }}
-        >
+        <div className={styles.hero_name} animation='appear'>
 
             <div className={styles.title}>
                 <h1>{title}</h1>
@@ -90,7 +74,7 @@ const HeroTitle = ({ title, span, sliderText, sliderTextAlternative }) => {
             </div>
 
             <HeroCard containerStyles={cardStyle} image={'https://res.cloudinary.com/syphhy/image/upload/v1674524513/Sudadera-con-capucha-y-cremallera-para-hombre-ropa-de-calle-negra-para-Jogger-Hip-Hop-Punk.jpg_Q90.jpg__qryyq5.webp'} />
-        </motion.div>
+        </div>
     );
 }
 

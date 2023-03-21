@@ -3,7 +3,6 @@ import Hero from '../src/components/home/hero/Hero'
 import ShowCategories from '../src/components/home/categories/ShowCategories'
 import env from '../src/env'
 import Featured from '../src/components/home/featured/Featured'
-import { motion } from 'framer-motion'
 
 export default function Home({ products, categories }) {
   return (
@@ -19,11 +18,11 @@ export default function Home({ products, categories }) {
         <link rel="canonical" href="https://fukushop.com.ar/" />
       </Head>
 
-      <motion.main>
+      <main>
         <Hero />
         <ShowCategories categories={categories} />
         <Featured products={products} />
-      </motion.main>
+      </main>
 
     </>
   )

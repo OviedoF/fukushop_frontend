@@ -4,7 +4,6 @@ import ImagesSlider from '../../src/components/product-page/ImagesSlider'
 import ProductPresentation from '../../src/components/product-page/ProductPresentation'
 import env from '../../src/env'
 import Details from '../../src/components/product-page/Details';
-import { motion } from 'framer-motion';
 
 export default function ProductPage({ product }) {
     const [productVariant, setProductVariant] = useState(false);
