@@ -21,7 +21,6 @@ class CheckboxList extends React.Component {
     **/
     toggleSelection(id) {
       const { type, selection } = this.state;
-      console.log('toggleSelection', id, selection);
       
       if (type === 'checkbox') { // logic as checkbox
         if (selection.includes(id)) {
@@ -42,16 +41,17 @@ class CheckboxList extends React.Component {
         this.props.handleFilters(this.filterName, selection);
       }
     }
+
+    componentDidUpdate(prevProps, prevState) {
+      if (this.props.default && this.activeDefault && !this.state.selection.includes(this.props.default)) {
+        this.setState({ selection: [this.props.default] });
+      }
+    }
+    
     
     render() {
       const { selection } = this.state;
       const { items } = this.props;
-
-      if(this.props.default && this.activeDefault && !selection.includes(this.props.default)) {
-        this.setState({ selection: [this.props.default] });
-      }
-
-      
       
       return (
         <ul className={styles.selectionable_items}>

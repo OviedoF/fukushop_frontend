@@ -26,7 +26,7 @@ export default function ProductColorsList({ colors, colorSelected, setColorSelec
                             <FontAwesomeIcon icon={faCheck} />
                         </div>
 
-                        <span class="sr-only">Cambiar a color {color.name}</span>
+                        <span className="sr-only">Cambiar a color {color.name}</span>
                     </>}
                 </button>
             ))}

@@ -43,6 +43,10 @@
                 text-align: center;
             }
 
+            img{
+                object-fit: contain;
+            }
+
             ul{
                 flex-direction: row;
 

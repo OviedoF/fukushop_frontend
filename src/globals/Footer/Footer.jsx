@@ -34,19 +34,19 @@ export default function Footer() {
                     <li>
                         <a href={'https://www.facebook.com'} target={'_blank'}>
                             <FontAwesomeIcon icon={faFacebook} />
-                            <span class="sr-only">Ir al Facebook</span>
+                            <span className="sr-only">Ir al Facebook</span>
                         </a>
                     </li>
                     <li>
                         <a href={'https://www.instagram.com'} target={'_blank'}>
                             <FontAwesomeIcon icon={faInstagram} />
-                            <span class="sr-only">Ir al Instagram</span>
+                            <span className="sr-only">Ir al Instagram</span>
                         </a>
                     </li>
                     <li>
                         <a href={'https://www.pinterest.com'} target={'_blank'}>
                             <FontAwesomeIcon icon={faPinterest} />
-                            <span class="sr-only">Ir al Pinterest</span>
+                            <span className="sr-only">Ir al Pinterest</span>
                         </a>
                     </li>
                 </ul>
@@ -76,19 +76,19 @@ export default function Footer() {
                     <li>
                         <a href={'https://www.facebook.com'} target={'_blank'}>
                             <FontAwesomeIcon icon={faFacebook} />
-                            <span class="sr-only">Ir al Facebook</span>
+                            <span className="sr-only">Ir al Facebook</span>
                         </a>
                     </li>
                     <li>
                         <a href={'https://www.instagram.com'} target={'_blank'}>
                             <FontAwesomeIcon icon={faInstagram} />
-                            <span class="sr-only">Ir al Instagram</span>
+                            <span className="sr-only">Ir al Instagram</span>
                         </a>
                     </li>
                     <li>
                         <a href={'https://www.pinterest.com'} target={'_blank'}>
                             <FontAwesomeIcon icon={faPinterest} />
-                            <span class="sr-only">Ir al Pinterest</span>
+                            <span className="sr-only">Ir al Pinterest</span>
                         </a>
                     </li>
                 </ul>

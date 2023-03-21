@@ -17,7 +17,7 @@ const HeroInfo = () => {
                 </p>
 
                 <p>
-                Nuestro estilo es único y re piola, te aseguramos que te va a encantar. ¿Qué estás esperando? Seguí scrolleando y sé parte de Fuku ;)
+                     Tenemos altos diseños, te aseguramos que te van a gustar. ¿Qué estás esperando? Seguí scrolleando y sé parte de Fuku ;)
                 </p>
 
                 <button className='button_design' >

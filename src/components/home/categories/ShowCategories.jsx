@@ -2,8 +2,6 @@ import TextToTopHoverCard from '../../../globals/Cards/TextToTopHoverCard'
 import styles from './ShowCategories.module.scss'
 
 function ShowCategories({categories}) {
-    console.log(categories)
-
     return (
         <section className={styles.show_categories}>
             <h2>disfruta lo que te gusta!</h2>
