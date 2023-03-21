@@ -22,20 +22,20 @@
     }
 }
 
-.card_container:hover {
-    span{
-        display: none;
-    }
+// .card_container:hover {
+//     span{
+//         display: none;
+//     }
 
-    .card{
-        transform: translateX(110%);
-    }
+//     .card{
+//         transform: translateX(110%);
+//     }
 
-    &:before {
-        left: -50%;
-        transform: skewX(-5deg);
-    }
-}
+//     &:before {
+//         left: -50%;
+//         transform: skewX(-5deg);
+//     }
+// }
 
 .card_container span {
     position: absolute;

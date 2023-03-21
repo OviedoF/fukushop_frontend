@@ -31,7 +31,6 @@ export default function ProductPage({ product }) {
 
         // Get all sizes of the product in an array
         const sizes = product.variants.map(variant => variant.size);
-        console.log(sizes)
         // Remove duplicates
         const uniqueSizes = sizes.filter((size, index, self) => self.indexOf(size) === index);
 
@@ -60,7 +59,7 @@ export default function ProductPage({ product }) {
                 <meta name="keywords" content="ropa anime, ropa japonesa, moda anime, moda japonesa, cosplay, ropa de anime para mujeres, ropa de anime para hombres, tienda de ropa anime, anime, remeras anime, sakura" />
                 <meta property="og:title" content={`${product.name} | Fuku Shop`} />
                 <meta property="og:description" content="¡Bienvenidos a Fuku Shop! ✌️ Descubre nuestra amplia selección de ropa de estilo asiático y anime, con diseños exclusivos y de tendencia. 🥳🥳" />
-                <meta property="og:image" content={productVariant.images[0].url} />
+                <meta property="og:image" content={productVariant.image} />
                 <link rel="canonical" href={`https://fukushop.com.ar/${product.name.replaceAll(' ', '_')}`} />
             </Head>
 
