@@ -34,6 +34,7 @@ export default function products({products, categories, types, colors, sizes}) {
                 <meta property="og:title" content="Fuku Shop | Ropa estilo japones y anime para argentina 🍙" />
                 <meta property="og:description" content="¡Bienvenidos a Fuku Shop! ✌️ Descubre nuestra amplia selección de ropa de estilo asiático y anime, con diseños exclusivos y de tendencia. 🥳🥳" />
                 <meta property="og:image" content="https://res.cloudinary.com/syphhy/image/upload/v1678072035/logo_mitkyo.png" />
+                <link rel="canonical" href="https://fukushop.com.ar/productos" />
             </Head>
 
             <main>

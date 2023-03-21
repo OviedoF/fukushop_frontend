@@ -20,7 +20,7 @@
 	--title-letter-spacing: 10px;
 	--color-success: #28a745;
 	--color-danger: #dc3545;
-	--color-text-light: #FFFFFF60;
+	--color-text-light: #FFFFFF99;
 }
 
 @media screen and (max-width: 768px) {
@@ -285,4 +285,13 @@ button{
 		padding: 0 !important;
 		margin-bottom: 50px;
 	}
+}
+
+.sr-only{
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }

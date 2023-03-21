@@ -3,6 +3,8 @@ export default {
     products: '/productos',
     contact: '/contacto',
     sizes: '/talles',
+    about: '/sobre-nosotros',
+    politics: '/politicas',
 
     /* admin */
     adminLogin: '/adminlogin',

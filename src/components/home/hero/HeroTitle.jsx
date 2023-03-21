@@ -8,7 +8,6 @@ const HeroTitle = ({ title, span, sliderText, sliderTextAlternative }) => {
 
     const handleResize = () => {
         setWindowWidth(window.innerWidth);
-        console.log(windowWidth);
     }
 
     useEffect(() => {

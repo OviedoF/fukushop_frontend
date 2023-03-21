@@ -12,8 +12,8 @@ function ShowCategories({categories}) {
 
             <div className={styles.categories}>
                 {categories.map((category, index) => (
-                    <div key={index} className={index === 1 && styles.category_1}>
-                        <TextToTopHoverCard img={category.image} text={category.name} align={index === 1 && 'vertical'} />
+                    <div key={index} className={index === 1 ? styles.category_1 : ''}>
+                        <TextToTopHoverCard img={category.image} text={category.name} align={index === 1 ? 'vertical' : 'horizontal'} />
                     </div>
                 ))}
             </div>
