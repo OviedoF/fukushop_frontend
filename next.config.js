@@ -11,7 +11,9 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    
+    unoptimized: true,
+    loader: 'imgix',
+    path: 'https://res.cloudinary.com',
   },
 }
 
