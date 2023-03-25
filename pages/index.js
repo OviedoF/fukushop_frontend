@@ -30,7 +30,7 @@ export default function Home({ products, categories }) {
 
 // getStaticProps
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(`${env.API_URL}/products`)
   const resCategories = await fetch(`${env.API_URL}/category`)
   const products = await res.json()

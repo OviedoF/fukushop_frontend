@@ -60,7 +60,7 @@ export default function products({products, categories, types, colors, sizes}) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const productsFetch = await fetch(`${env.API_URL}/products`)
     const products = await productsFetch.json()
 
