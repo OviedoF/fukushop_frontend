@@ -5,6 +5,6 @@ export default {
     FRONTEND_URL: 'https://fukushop.com.ar',
 
     // dev
-    // API_URL: 'http://localhost:4000/api',
+    //API_URL: 'http://localhost:4000/api',
     // FRONTEND_URL: 'http://localhost:3000',
 }  

@@ -73,7 +73,7 @@ const HeroTitle = ({ title, span, sliderText, sliderTextAlternative }) => {
                 </div>
             </div>
 
-            <HeroCard containerStyles={cardStyle} image={'https://res.cloudinary.com/syphhy/image/upload/v1674524513/Sudadera-con-capucha-y-cremallera-para-hombre-ropa-de-calle-negra-para-Jogger-Hip-Hop-Punk.jpg_Q90.jpg__qryyq5.webp'} />
+            <HeroCard containerStyles={cardStyle} image={'https://res.cloudinary.com/dmoqdwvnr/image/upload/v1679867422/14f1ee34b3c004a7c755c5c4eeb265d0_dfiyyl.webp'} />
         </div>
     );
 }

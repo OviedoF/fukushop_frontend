@@ -1,0 +1,58 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+
+    .list_item{
+        width: 70%;
+        height: 50px;
+        background-color: #00000090;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        
+
+        .icons_list{
+            svg{
+                margin: 0 10px;
+                transition: all 0.3s ease-in-out;
+
+                &:hover{
+                    color: #FFFFFF;
+                }
+            }
+        }
+
+        .sublist{
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            padding: 0 40px 0 50px;
+            background-color: #00000090;
+            transition: all 0.3s ease-in-out;
+
+            li{
+                margin: 30px 0;
+                color: #FFFFFF90;
+                transition: all 0.3s ease-in-out;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+
+                &:hover{
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}

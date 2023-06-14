@@ -16,4 +16,13 @@ export default {
     createSubType: '/admin/create/subtype',
     createSize: '/admin/create/size',
     createColor: '/admin/create/color',
+
+    /* admin / list */
+    listCategories: '/admin/list/categories',
+    listSubcategories: '/admin/list/subcategories',
+    listTypes: '/admin/list/clotheTypes',
+    listSubTypes: '/admin/list/subtypes',
+    listSizes: '/admin/list/sizes',
+    listColors: '/admin/list/colors',
+    listProducts: '/admin/list/products',
 }

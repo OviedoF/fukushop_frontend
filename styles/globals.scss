@@ -216,6 +216,9 @@ main h1 {
 	margin: 20px;
 	text-align: center;
 	font-family: 'Fuku', sans-serif;
+	text-shadow:
+    0 0 0px var(--color-text),
+    0 0 8px var(--color-alternative);
 }
 
 /* change the user select color */
@@ -309,4 +312,16 @@ button{
         opacity: 1;
         transform: scale(1);
     }
+}
+
+p.error {
+	color: var(--color-danger);
+	text-align: center;
+	margin: 10px 0;
+}
+
+p.success {
+	color: var(--color-success);
+	text-align: center;
+	margin: 10px 0;
 }

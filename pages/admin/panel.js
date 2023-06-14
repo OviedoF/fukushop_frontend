@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import AdminCreateModuleCard from '../../src/components/admin/panel/AdminCreateModuleCard';
+import AdminModuleCard from '../../src/components/admin/panel/AdminModuleCard';
 import routes from '../../src/routes';
 import NotFoundItem from '../../src/globals/NotFoundItem';
+import Head from 'next/head';
 
 const Panel = () => {
     const auth = useSelector(state => state.auth);
@@ -12,20 +13,42 @@ const Panel = () => {
     }
 
     return (
-        <main>
-            <div className="card_container">
-                <AdminCreateModuleCard title={'Categoría'} href={routes.createCategory} />
-                <AdminCreateModuleCard title={'Subcategoría'} href={routes.createSubcategory} />
-                <AdminCreateModuleCard title={'Tipo de prenda'} href={routes.createType} />
-                <AdminCreateModuleCard title={'Subtipo de prenda'} href={routes.createSubType} />
-                <AdminCreateModuleCard title={'Talla'} href={routes.createSize} />
-                <AdminCreateModuleCard title={'Color'} href={routes.createColor} />
-                <AdminCreateModuleCard title={'Producto'} href={routes.createProduct} />
-            </div>
+        <>
+            <Head key="head">
+                <title>Panel de administración</title>
+            </Head>
 
-            <style jsx>{`
+            <main>
+                <h2>Creacion</h2>
+                <div className="card_container">
+                    <AdminModuleCard title={'Categoría'} href={routes.createCategory} />
+                    <AdminModuleCard title={'Subcategoría'} href={routes.createSubcategory} />
+                    <AdminModuleCard title={'Tipo de prenda'} href={routes.createType} />
+                    <AdminModuleCard title={'Subtipo de prenda'} href={routes.createSubType} />
+                    <AdminModuleCard title={'Talla'} href={routes.createSize} />
+                    <AdminModuleCard title={'Color'} href={routes.createColor} />
+                    <AdminModuleCard title={'Producto'} href={routes.createProduct} />
+                </div>
+
+                <h2>Administracion</h2>
+                <div className="card_container">
+                    <AdminModuleCard title={'Categorías'} href={routes.listCategories} />
+                    <AdminModuleCard title={'Sub-Categorias'} href={routes.listSubcategories} />
+                    <AdminModuleCard title={'Tipos de prendas'} href={routes.listTypes} />
+                    <AdminModuleCard title={'Subtipos de prendas'} href={routes.listSubTypes} />
+                    <AdminModuleCard title={'Tallas'} href={routes.listSizes} />
+                    <AdminModuleCard title={'Colores'} href={routes.listColors} />
+                    <AdminModuleCard title={'Productos'} href={routes.listProducts} />
+                </div>
+
+                <style jsx>{`
+                h2{
+                    margin: 40px auto;
+                }
+
                 .card_container {
                     display: flex;
+                    flex-wrap: wrap;
                     flex-direction: row;
                     justify-content: center;
                     align-items: center;
@@ -35,7 +58,8 @@ const Panel = () => {
                     max-width: 100%;
                 }
             `}</style>
-        </main>
+            </main>
+        </>
     );
 }
 

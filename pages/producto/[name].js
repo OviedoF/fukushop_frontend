@@ -93,14 +93,30 @@ export default function ProductPage({ product }) {
     )
 }
 
-export const getServerSideProps = async ({ params }) => {
+
+export const getStaticPaths = async () => {
+    const res = await fetch(`${env.API_URL}/products`)
+    const products = await res.json()
+
+    const paths = products.map(product => ({
+        params: { name: product.name.replaceAll(' ', '_') }
+    }));
+
+    return {
+        paths,
+        fallback: false
+    }
+}
+
+export const getStaticProps = async ({ params }) => {
     const productName = decodeURIComponent(params.name).replaceAll('_', ' ');
     const res = await fetch(`${env.API_URL}/products/${productName}`)
     const product = await res.json()
 
     return {
         props: {
-            product
-        }
+            product,
+        },
+        revalidate: 1
     }
 }

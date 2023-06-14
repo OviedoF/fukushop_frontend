@@ -15,6 +15,19 @@ const nextConfig = {
     loader: 'imgix',
     path: 'https://res.cloudinary.com',
   },
+  async headers() {
+    return [
+      {
+        source: '/favicon.ico',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'image/x-icon',
+          },
+        ],
+      },
+    ];
+  },
 }
 
 module.exports = nextConfig

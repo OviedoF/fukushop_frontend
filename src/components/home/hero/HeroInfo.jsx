@@ -25,7 +25,7 @@ const HeroInfo = () => {
                 </button>
             </div>
 
-            <HeroCard containerStyles={cardStyles} image={'https://res.cloudinary.com/syphhy/image/upload/v1674696271/tumblr_5352ef6fe0248d1c829f82f6bfded7e6_99e41e06_1280_ykh1sh.jpg'} />
+            <HeroCard containerStyles={cardStyles} image={'https://res.cloudinary.com/dmoqdwvnr/image/upload/v1679867421/b7e3a2690a50962d5db3bb9f5a304bc9_qvodc2.webp'} />
         </div>
     );
 }
