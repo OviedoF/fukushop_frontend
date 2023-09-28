@@ -1,7 +1,7 @@
 export default {
     FUKU_WHATSAPP: 'https://wa.me/543492287151?text=',
     // prod
-    API_URL: 'https://fukushopbackend-production.up.railway.app/api',
+    API_URL: 'https://fukushop.com.ar/api',
     FRONTEND_URL: 'https://fukushop.com.ar',
 
     // dev
