@@ -110,6 +110,30 @@
         }
     }
 
+    .product_presentation_quantity__buttons{
+        display: flex;  
+        align-items: center;
+
+        button {
+            background-color: transparent;
+            font-size: 2rem;
+            cursor: pointer;
+
+            &.minus{
+                margin-right: .5rem;
+            }
+
+            &.add{
+                margin-left: .5rem;
+            }
+        }
+
+        p{
+            font-size: 1.2rem;
+            margin: 0 1rem;
+        }
+    }
+
     .product_presentation_price{
         .product_price{
             font-size: 1.6rem;
@@ -146,6 +170,11 @@
             background-color: var(--color-secondary);
             height: 50px;
             border-radius: 5px;
+        }
+
+        svg{
+            fill: var(--color-text);
+            margin-left: 10px;
         }
     }
 }

@@ -110,7 +110,7 @@ _src_components_home_featured_Featured__WEBPACK_IMPORTED_MODULE_5__ = (__webpack
 
 
 
-function Home({ products , categories  }) {
+function Home({ products , categories , sizes  }) {
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_head__WEBPACK_IMPORTED_MODULE_1___default()), {
@@ -155,25 +155,28 @@ function Home({ products , categories  }) {
                         categories: categories
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_components_home_featured_Featured__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
-                        products: products
+                        products: products,
+                        sizes: sizes
                     })
                 ]
             })
         ]
     });
 }
-// getStaticProps
 async function getStaticProps() {
     const res = await fetch(`${_src_env__WEBPACK_IMPORTED_MODULE_4__/* ["default"].API_URL */ .Z.API_URL}/products`);
     const resCategories = await fetch(`${_src_env__WEBPACK_IMPORTED_MODULE_4__/* ["default"].API_URL */ .Z.API_URL}/category`);
     const products = await res.json();
     const categories = await resCategories.json();
+    const sizesFetch = await fetch(`${_src_env__WEBPACK_IMPORTED_MODULE_4__/* ["default"].API_URL */ .Z.API_URL}/sizes`);
+    const sizes = await sizesFetch.json();
     return {
         props: {
             products: products || [],
-            categories: categories || []
+            categories: categories || [],
+            sizes: sizes || []
         },
-        revalidate: 10
+        revalidate: 1
     };
 }
 
@@ -278,27 +281,40 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _globals_Products_ProductsContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4811);
-/* harmony import */ var _Featured_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2361);
-/* harmony import */ var _Featured_module_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Featured_module_scss__WEBPACK_IMPORTED_MODULE_3__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_globals_Products_ProductsContainer__WEBPACK_IMPORTED_MODULE_2__]);
-_globals_Products_ProductsContainer__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9816);
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Featured_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2361);
+/* harmony import */ var _Featured_module_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_Featured_module_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _globals_Products_ProductCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5396);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_globals_Products_ProductCard__WEBPACK_IMPORTED_MODULE_3__]);
+_globals_Products_ProductCard__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 
-function Featured({ products  }) {
+
+function Featured({ products , sizes  }) {
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("section", {
-        id: (_Featured_module_scss__WEBPACK_IMPORTED_MODULE_3___default().section_featured),
+        id: (_Featured_module_scss__WEBPACK_IMPORTED_MODULE_4___default().section_featured),
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
                 animation: "appear",
                 children: "PRODUCTOS DESTACADOS"
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_globals_Products_ProductsContainer__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
-                products: products
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                className: "jsx-89a85778f3985c6b" + " " + "products_container",
+                children: [
+                    products.map((product)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_globals_Products_ProductCard__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
+                            product: product,
+                            sizes: sizes
+                        }, product._id)),
+                    react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default()), {
+                        id: "89a85778f3985c6b",
+                        children: ".products_container.jsx-89a85778f3985c6b{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:start;-webkit-justify-content:flex-start;-moz-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;padding:0 50px;margin-top:var(--margin-within-sections);width:100%}@media screen and (max-width:768px){.products_container.jsx-89a85778f3985c6b{padding:0 20px;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center}}"
+                    })
+                ]
             })
         ]
     });
@@ -948,7 +964,7 @@ module.exports = import("@fortawesome/free-solid-svg-icons");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [210,676,664,121,675,158], () => (__webpack_exec__(4369)));
+var __webpack_exports__ = __webpack_require__.X(0, [210,676,664,121,675,92], () => (__webpack_exec__(4369)));
 module.exports = __webpack_exports__;
 
 })();

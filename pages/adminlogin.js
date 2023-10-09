@@ -13,7 +13,6 @@ const Adminlogin = () => {
     const dispatch = useDispatch();
 
     const getUserInfo = (token) => {
-        console.log(token)
         axios.post(`${env.API_URL}/auth/login/identifyUser`, {token})
             .then(res => {
                 localStorage.setItem('fukutoken', token);
@@ -22,7 +21,6 @@ const Adminlogin = () => {
                     ...res.data
                 }));
                 navigate(routes.home);
-                console.log(res.data)
             })
             .catch(err => {
                 if(err.response) {

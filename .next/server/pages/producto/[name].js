@@ -59,6 +59,9 @@ module.exports = {
 	"product_presentation_description": "ProductPresentation_product_presentation_description__fZW5A",
 	"product_presentation_sizes": "ProductPresentation_product_presentation_sizes__aLB9R",
 	"product_presentation_colors": "ProductPresentation_product_presentation_colors__leJgt",
+	"product_presentation_quantity__buttons": "ProductPresentation_product_presentation_quantity__buttons__i6IdL",
+	"minus": "ProductPresentation_minus__cLBxY",
+	"add": "ProductPresentation_add__ymQNo",
 	"product_presentation_price": "ProductPresentation_product_presentation_price__nWx9h",
 	"product_price": "ProductPresentation_product_price__bVSuW",
 	"product_price__discount": "ProductPresentation_product_price__discount__5GKuW",
@@ -137,46 +140,15 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_src
 
 
 
-function ProductPage({ product  }) {
-    const [productVariant, setProductVariant] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
-    const [variantColorSizes, setVariantColorSizes] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
-    const [productColors, setProductColors] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
-    const [allProductSizes, setallProductSizes] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
+function ProductPage({ product , sizes  }) {
+    const [colorSelected, setColorSelected] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(product.colors[0]);
+    const [sizeSelected, setSizeSelected] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)({});
     (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(()=>{
-        if (product.variants.length > 0) {
-            // Find the first variant that color is black
-            const blackVariant = product.variants.find((variant)=>variant.color === "black");
-            if (blackVariant) {
-                setProductVariant(blackVariant);
-            } else {
-                setProductVariant(product.variants[0]);
-            }
-        }
-        // Get all colors of the product in an array
-        const colors = product.variants.map((variant)=>variant.color);
-        // Remove duplicates
-        const uniqueColors = colors.map((color)=>JSON.stringify(color)).filter((color, index, self)=>self.indexOf(color) === index).map((color)=>JSON.parse(color));
-        // Get all sizes of the product in an array
-        const sizes = product.variants.map((variant)=>variant.size);
-        // Remove duplicates
-        const uniqueSizes = sizes.filter((size, index, self)=>self.indexOf(size) === index);
-        setProductColors(uniqueColors);
-        setallProductSizes(uniqueSizes);
+        console.log(colorSelected);
     }, [
-        product
+        colorSelected
     ]);
-    (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(()=>{
-        if (productVariant) {
-            // Find all variants wich color is the same as the selected variant
-            const variantsWithSameColor = product.variants.filter((variant)=>variant.color._id === productVariant.color._id);
-            // Get the sizes of the variants with the same color in an array
-            const sizes = variantsWithSameColor.map((variant)=>variant.size);
-            setVariantColorSizes(sizes);
-        }
-    }, [
-        productVariant
-    ]);
-    if (productVariant) return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_head__WEBPACK_IMPORTED_MODULE_2___default()), {
                 children: [
@@ -208,7 +180,7 @@ function ProductPage({ product  }) {
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
                         property: "og:image",
-                        content: productVariant.image
+                        content: colorSelected.principalImage
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("link", {
                         rel: "canonical",
@@ -223,20 +195,23 @@ function ProductPage({ product  }) {
                         className: "jsx-16ac772962a0141d" + " " + "product",
                         children: [
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_components_product_page_ImagesSlider__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
-                                variant: productVariant,
+                                colorSelected: colorSelected,
                                 product: product
                             }),
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_components_product_page_ProductPresentation__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                                 product: product,
-                                variant: productVariant,
-                                sizes: variantColorSizes,
-                                colors: productColors
+                                colorSelected: colorSelected,
+                                setColorSelected: setColorSelected,
+                                sizes: sizes,
+                                colors: product.colors,
+                                sizeSelected: sizeSelected,
+                                setSizeSelected: setSizeSelected
                             })
                         ]
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_components_product_page_Details__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
                         product: product,
-                        sizes: allProductSizes
+                        sizes: sizes
                     }),
                     react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default()), {
                         id: "16ac772962a0141d",
@@ -264,9 +239,12 @@ const getStaticProps = async ({ params  })=>{
     const productName = decodeURIComponent(params.name).replaceAll("_", " ");
     const res = await fetch(`${_src_env__WEBPACK_IMPORTED_MODULE_6__/* ["default"].API_URL */ .Z.API_URL}/products/${productName}`);
     const product = await res.json();
+    const sizesFetch = await fetch(`${_src_env__WEBPACK_IMPORTED_MODULE_6__/* ["default"].API_URL */ .Z.API_URL}/sizes`);
+    const sizes = await sizesFetch.json();
     return {
         props: {
-            product
+            product,
+            sizes
         },
         revalidate: 1
     };
@@ -356,20 +334,24 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_for
 
 
 
-function ImagesSlider({ variant , product  }) {
-    const [selectedImage, setSelectedImage] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(variant.image);
-    const [gallery, setGallery] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(variant.gallery);
+function ImagesSlider({ colorSelected , product  }) {
+    const [selectedImage, setSelectedImage] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(colorSelected.principalImage);
+    const [gallery, setGallery] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(colorSelected.images);
     const [zoom, setZoom] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        setSelectedImage(colorSelected.principalImage);
+        setGallery(colorSelected.images);
+    }, [
+        colorSelected
+    ]);
     const handleImageClick = (image)=>{
         setSelectedImage(image);
         const allImages = [
-            ...variant.gallery,
-            variant.image
+            ...colorSelected.images,
+            colorSelected.principalImage
         ];
-        console.log(allImages);
         // remove the selected image from the gallery
         const newGallery = allImages.filter((img)=>img !== image);
-        console.log(newGallery);
         setGallery(newGallery);
     };
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("section", {
@@ -384,6 +366,7 @@ function ImagesSlider({ variant , product  }) {
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                 className: (_ImagesSlider_module_scss__WEBPACK_IMPORTED_MODULE_6___default().principal_image_container),
                 onClick: (e)=>setZoom(selectedImage),
+                animation: "appearBottom",
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__.FontAwesomeIcon, {
                         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__.faArrowUpRightFromSquare,
@@ -391,7 +374,7 @@ function ImagesSlider({ variant , product  }) {
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_2___default()), {
                         src: selectedImage,
-                        alt: `${product.name} en color ${variant.color.name}`,
+                        alt: `${product.name} en color ${colorSelected.name}`,
                         fill: true,
                         style: {
                             objectFit: "contain"
@@ -401,11 +384,12 @@ function ImagesSlider({ variant , product  }) {
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                 className: (_ImagesSlider_module_scss__WEBPACK_IMPORTED_MODULE_6___default().gallery_images_container),
+                animation: "appearBottom",
                 children: gallery.filter((image)=>image !== null).map((image, index)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                         className: (_ImagesSlider_module_scss__WEBPACK_IMPORTED_MODULE_6___default().gallery_image_container),
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_2___default()), {
                             src: image,
-                            alt: `${product.name} en color ${variant.color.name}`,
+                            alt: `${product.name} en color ${colorSelected.name}`,
                             fill: true,
                             style: {
                                 objectFit: "contain"
@@ -441,7 +425,8 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony import */ var _ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5298);
 /* harmony import */ var _ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _utils_FormatNumbers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7230);
-/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2577);
+/* harmony import */ var notistack__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3142);
+/* harmony import */ var notistack__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(notistack__WEBPACK_IMPORTED_MODULE_4__);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__]);
 _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
@@ -451,14 +436,37 @@ _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_asyn
 
 
 
-function ProductPresentation({ product , sizes , colors , variant  }) {
-    const message = `¡Hola! me gustaría saber más sobre el producto "${product.name}"
-¿Podrías enviarme más información? 人(_ _*)
-¡Muchas gracias! :D
-
-Para que las cosas nos sean más fácil a los dos: 
-${_env__WEBPACK_IMPORTED_MODULE_4__/* ["default"].FRONTEND_URL */ .Z.FRONTEND_URL}/producto/${encodeURIComponent(product.name)}
-`;
+function ProductPresentation({ product , setColorSelected , sizes , colors , colorSelected , sizeSelected , setSizeSelected  }) {
+    const [quantity, setQuantity] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(1);
+    const { enqueueSnackbar  } = (0,notistack__WEBPACK_IMPORTED_MODULE_4__.useSnackbar)();
+    const message = `¡Hola! me interesa el producto ${product.name}.
+    ${colorSelected.name ? `En el color ${colorSelected.name}` : ""} 
+    ${sizeSelected.name ? `y talle ${sizeSelected.name}` : ""}
+    `;
+    const addProductToCart = ()=>{
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (!colorSelected.name || !sizeSelected.name) {
+            enqueueSnackbar("Debes seleccionar un color y un talle", {
+                variant: "error"
+            });
+            return;
+        }
+        const productInCart = cart.find((productInCart)=>productInCart.id === product.id && productInCart.color === colorSelected.name && productInCart.size === sizeSelected.name);
+        if (productInCart) {
+            productInCart.quantity = productInCart.quantity + quantity;
+        } else {
+            cart.push({
+                ...product,
+                quantity: quantity,
+                color: colorSelected.name,
+                size: sizeSelected.name
+            });
+        }
+        localStorage.setItem("cart", JSON.stringify(cart));
+        enqueueSnackbar("Producto agregado al carrito", {
+            variant: "success"
+        });
+    };
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("section", {
         className: (_ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5___default().product_presentation),
         children: [
@@ -471,7 +479,7 @@ ${_env__WEBPACK_IMPORTED_MODULE_4__/* ["default"].FRONTEND_URL */ .Z.FRONTEND_UR
                     " ",
                     product.category.name,
                     " ",
-                    product.subCategory.name
+                    product.subCategory && product.subCategory.name
                 ]
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
@@ -484,6 +492,11 @@ ${_env__WEBPACK_IMPORTED_MODULE_4__/* ["default"].FRONTEND_URL */ .Z.FRONTEND_UR
                 className: (_ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5___default().product_presentation_sizes),
                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
                     children: sizes.map((size, index)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+                            style: {
+                                background: sizeSelected.name === size.name ? "var(--color-alternative)" : "var(--color-primary)",
+                                color: sizeSelected.name === size.name ? "var(--color-primary)" : "var(--color-text)"
+                            },
+                            onClick: ()=>setSizeSelected(size),
                             children: size.name
                         }, index))
                 })
@@ -493,13 +506,36 @@ ${_env__WEBPACK_IMPORTED_MODULE_4__/* ["default"].FRONTEND_URL */ .Z.FRONTEND_UR
                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
                     children: colors.map((color, index)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                             style: {
-                                background: color._id === variant.color._id ? "var(--color-secondary)" : color.color
+                                background: color.hex
                             },
-                            children: color._id === variant.color._id && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+                            onClick: ()=>setColorSelected(color),
+                            children: color.hex === colorSelected.hex && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
                                 icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faCheck,
-                                color: "var(--color-success)"
+                                color: "var(--color-alternative)"
                             })
                         }, index))
+                })
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                className: (_ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5___default().product_presentation_quantity),
+                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    className: (_ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5___default().product_presentation_quantity__buttons),
+                    children: [
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                            onClick: ()=>setQuantity(quantity - 1),
+                            disabled: quantity === 1,
+                            className: (_ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5___default().minus),
+                            children: "-"
+                        }),
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                            children: quantity
+                        }),
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                            onClick: ()=>setQuantity(quantity + 1),
+                            className: (_ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5___default().add),
+                            children: "+"
+                        })
+                    ]
                 })
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
@@ -509,26 +545,40 @@ ${_env__WEBPACK_IMPORTED_MODULE_4__/* ["default"].FRONTEND_URL */ .Z.FRONTEND_UR
                     children: product.discount > 0 ? /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
                         children: [
                             "ARS $",
-                            (0,_utils_FormatNumbers__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)(product.priceWithOffer),
+                            (0,_utils_FormatNumbers__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)(quantity * product.priceWithOffer),
                             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
                                 className: (_ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5___default().product_price__discount),
                                 children: [
                                     "ARS ",
-                                    (0,_utils_FormatNumbers__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)(product.price)
+                                    (0,_utils_FormatNumbers__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)(quantity * product.price)
                                 ]
                             })
                         ]
-                    }) : `ARS $${(0,_utils_FormatNumbers__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)(product.price)}`
+                    }) : `ARS $${(0,_utils_FormatNumbers__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)(quantity * product.price)}`
                 })
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                href: `https://api.whatsapp.com/send?phone=543492287151&text=${message}`,
                 target: "_blank",
-                href: _env__WEBPACK_IMPORTED_MODULE_4__/* ["default"].FUKU_WHATSAPP */ .Z.FUKU_WHATSAPP + encodeURIComponent(message),
-                className: (_ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5___default().product_presentation_actions),
+                rel: "noreferrer",
+                className: (_ProductPresentation_module_scss__WEBPACK_IMPORTED_MODULE_5___default().product_presentation_button),
                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
                     className: "button_design",
-                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                        children: "\xa1Quiero este producto!"
+                    children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+                        children: [
+                            "\xa1Quiero este producto!",
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                height: "1em",
+                                viewBox: "0 0 576 512",
+                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                                    d: "M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z",
+                                    style: {
+                                        fill: "var(--color-text)"
+                                    }
+                                })
+                            })
+                        ]
                     })
                 })
             })
@@ -850,6 +900,14 @@ module.exports = require("next/dist/shared/lib/utils/warn-once.js");
 
 "use strict";
 module.exports = require("next/head");
+
+/***/ }),
+
+/***/ 3142:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("notistack");
 
 /***/ }),
 

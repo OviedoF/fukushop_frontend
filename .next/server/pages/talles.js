@@ -30,7 +30,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function talles({ sizes  }) {
-    console.log(sizes);
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_head__WEBPACK_IMPORTED_MODULE_3___default()), {
@@ -101,7 +100,7 @@ async function getStaticProps() {
         props: {
             sizes
         },
-        revalidate: 10
+        revalidate: 1
     };
 }
 

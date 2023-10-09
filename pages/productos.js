@@ -41,7 +41,7 @@ export default function products({products, categories, types, colors, sizes}) {
                 <Filters categories={categories} types={types} colors={colors} sizes={sizes} products={productsState} setProducts={setProductsState} originalProducts={originalProducts} 
                 maxPrice={maxPrice} minPrice={minPrice} queryCategory={queryCategory ? queryCategory._id : null}/>
 
-                <ProductsSection products={productsState} />
+                <ProductsSection products={productsState} sizes={sizes} />
 
                 <style jsx>{`
                     main {

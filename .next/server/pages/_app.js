@@ -69,16 +69,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_GlassmorphismForm_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_GlassmorphismForm_scss__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _styles_ButtonAnimationDesign_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(6651);
 /* harmony import */ var _styles_ButtonAnimationDesign_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_styles_ButtonAnimationDesign_scss__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _styles_animations_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1965);
+/* harmony import */ var _styles_animations_scss__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_animations_scss__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(6022);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _src_redux_store_index__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(112);
 /* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(1175);
 /* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_query__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _src_globals_Footer_Footer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(5840);
+/* harmony import */ var notistack__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(3142);
+/* harmony import */ var notistack__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(notistack__WEBPACK_IMPORTED_MODULE_13__);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_src_globals_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__, _src_globals_Footer_Footer__WEBPACK_IMPORTED_MODULE_12__]);
 ([_src_globals_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__, _src_globals_Footer_Footer__WEBPACK_IMPORTED_MODULE_12__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+
 
 
 
@@ -96,15 +99,22 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_src
 function App({ Component , pageProps  }) {
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_query__WEBPACK_IMPORTED_MODULE_11__.QueryClientProvider, {
         client: new react_query__WEBPACK_IMPORTED_MODULE_11__.QueryClient(),
-        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_redux__WEBPACK_IMPORTED_MODULE_9__.Provider, {
+        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_redux__WEBPACK_IMPORTED_MODULE_9__.Provider, {
             store: _src_redux_store_index__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z,
-            children: [
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_globals_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {}),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
-                    ...pageProps
-                }),
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_globals_Footer_Footer__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .Z, {})
-            ]
+            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(notistack__WEBPACK_IMPORTED_MODULE_13__.SnackbarProvider, {
+                autoHideDuration: 1000,
+                anchorOrigin: {
+                    vertical: "bottom",
+                    horizontal: "center"
+                },
+                children: [
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_globals_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {}),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
+                        ...pageProps
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_globals_Footer_Footer__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .Z, {})
+                ]
+            })
         })
     });
 }
@@ -637,7 +647,6 @@ const reducer = (0,external_redux_namespaceObject.combineReducers)({
 
 
 const store = (0,external_redux_namespaceObject.createStore)(reducers);
-store.subscribe(()=>console.log(store));
 /* harmony default export */ const redux_store = (store);
 
 
@@ -729,6 +738,13 @@ const ACTIVE_SCREEN = "ACTIVE";
 /***/ }),
 
 /***/ 6316:
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ 1965:
 /***/ (() => {
 
 
@@ -1003,6 +1019,14 @@ module.exports = require("next/dist/shared/lib/utils.js");
 
 "use strict";
 module.exports = require("next/dist/shared/lib/utils/warn-once.js");
+
+/***/ }),
+
+/***/ 3142:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("notistack");
 
 /***/ }),
 

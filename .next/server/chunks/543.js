@@ -40,7 +40,7 @@ _ProductsListItem__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__
 function DropdownList({ items , subList , actionsList , actionsSubList , listItemTitle , subItemTitle  }) {
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
         className: (_ProductsList_module_scss__WEBPACK_IMPORTED_MODULE_3___default().list),
-        children: items.map((item, index)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_ProductsListItem__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
+        children: items && items.map((item, index)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_ProductsListItem__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
                 item: item,
                 subList: subList,
                 actionsList: actionsList,
@@ -163,8 +163,11 @@ __webpack_async_result__();
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
     FUKU_WHATSAPP: "https://wa.me/543492287151?text=",
     // prod
-    API_URL: "https://fukushop.com.ar/api",
-    FRONTEND_URL: "https://fukushop.com.ar"
+    //API_URL: 'https://fukushop.com.ar/api',
+    //FRONTEND_URL: 'https://fukushop.com.ar',
+    // dev
+    API_URL: "http://localhost:4000/api",
+    FRONTEND_URL: "http://localhost:3000"
 });
 
 

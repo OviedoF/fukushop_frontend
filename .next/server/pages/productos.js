@@ -167,7 +167,8 @@ function products({ products , categories , types , colors , sizes  }) {
                         queryCategory: queryCategory ? queryCategory._id : null
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_components_products_page_ProductsSection__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
-                        products: productsState
+                        products: productsState,
+                        sizes: sizes
                     }),
                     react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default()), {
                         id: "2fa593d3f84fcd72",
@@ -277,6 +278,7 @@ function Filters({ categories , types , colors , sizes , setProducts , originalP
             let color = true;
             let size = true;
             let price = true;
+            console.log(filters.colors);
             if (filters.categories.length > 0) {
                 category = filters.categories.includes(product.category._id);
             }
@@ -284,10 +286,7 @@ function Filters({ categories , types , colors , sizes , setProducts , originalP
                 type = filters.types.includes(product.clothe_type._id);
             }
             if (filters.colors.length > 0) {
-                color = product.variants.some((variant)=>filters.colors.includes(variant.color._id));
-            }
-            if (filters.sizes.length > 0) {
-                size = product.variants.some((variant)=>filters.sizes.includes(variant.size._id));
+                color = product.colors.some((color)=>filters.colors.includes(color.color));
             }
             if (filters.price.min > 0 || filters.price.max < 50000) {
                 price = product.priceWithOffer ? product.priceWithOffer >= filters.price.min && product.priceWithOffer <= filters.price.max : product.price >= filters.price.min && product.price <= filters.price.max;
@@ -393,20 +392,6 @@ function Filters({ categories , types , colors , sizes , setProducts , originalP
                         className: (_Filters_module_scss__WEBPACK_IMPORTED_MODULE_6___default().filter),
                         children: [
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h4", {
-                                children: "Tallas"
-                            }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_globals_libs_CheckboxList__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
-                                handleFilters: handleFilters,
-                                filterName: "sizes",
-                                filters: filters,
-                                items: sizes
-                            })
-                        ]
-                    }),
-                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                        className: (_Filters_module_scss__WEBPACK_IMPORTED_MODULE_6___default().filter),
-                        children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h4", {
                                 children: "Precio"
                             }),
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_globals_libs_DoubleRangeSelecter__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
@@ -439,26 +424,39 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __we
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ProductsSection_module_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(802);
-/* harmony import */ var _ProductsSection_module_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_ProductsSection_module_scss__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _globals_Products_ProductsContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4811);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_globals_Products_ProductsContainer__WEBPACK_IMPORTED_MODULE_2__]);
-_globals_Products_ProductsContainer__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9816);
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ProductsSection_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(802);
+/* harmony import */ var _ProductsSection_module_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_ProductsSection_module_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _globals_Products_ProductCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5396);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_globals_Products_ProductCard__WEBPACK_IMPORTED_MODULE_3__]);
+_globals_Products_ProductCard__WEBPACK_IMPORTED_MODULE_3__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
 
 
-function ProductsSection({ products  }) {
+
+function ProductsSection({ products , sizes  }) {
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("section", {
-        id: (_ProductsSection_module_scss__WEBPACK_IMPORTED_MODULE_3___default().products_section),
+        id: (_ProductsSection_module_scss__WEBPACK_IMPORTED_MODULE_4___default().products_section),
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
                 children: "Nuestro catalogo!"
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_globals_Products_ProductsContainer__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
-                products: products
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                className: "jsx-89a85778f3985c6b" + " " + "products_container",
+                children: [
+                    products.map((product)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_globals_Products_ProductCard__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
+                            product: product,
+                            sizes: sizes
+                        }, product._id)),
+                    react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default()), {
+                        id: "89a85778f3985c6b",
+                        children: ".products_container.jsx-89a85778f3985c6b{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:start;-webkit-justify-content:flex-start;-moz-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;padding:0 50px;margin-top:var(--margin-within-sections);width:100%}@media screen and (max-width:768px){.products_container.jsx-89a85778f3985c6b{padding:0 20px;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center}}"
+                    })
+                ]
             })
         ]
     });
@@ -549,7 +547,7 @@ class CheckboxList extends (react__WEBPACK_IMPORTED_MODULE_1___default().Compone
         const { items  } = this.props;
         return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
             className: (_CheckboxList_module_scss__WEBPACK_IMPORTED_MODULE_2___default().selectionable_items),
-            children: items.map((item, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Checkbox, {
+            children: items && items.map((item, i)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Checkbox, {
                     selected: selection.includes(item._id),
                     onClick: ()=>this.toggleSelection(item._id),
                     label: item.name
@@ -1091,7 +1089,7 @@ module.exports = import("@fortawesome/free-solid-svg-icons");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [210,676,664,158], () => (__webpack_exec__(707)));
+var __webpack_exports__ = __webpack_require__.X(0, [210,676,664,92], () => (__webpack_exec__(707)));
 module.exports = __webpack_exports__;
 
 })();

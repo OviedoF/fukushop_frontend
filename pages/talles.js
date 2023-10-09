@@ -4,7 +4,6 @@ import env from '../src/env'
 import SizesTable from '../src/components/sizes-page/SizesTable'
 
 export default function talles({ sizes }) {
-    console.log(sizes)
     return (
         <>
             <Head>
@@ -46,6 +45,6 @@ export async function getStaticProps() {
         props: {
             sizes
         },
-        revalidate: 10
+        revalidate: 1
     }
 }

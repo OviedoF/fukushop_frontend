@@ -4,7 +4,7 @@ import ShowCategories from '../src/components/home/categories/ShowCategories'
 import env from '../src/env'
 import Featured from '../src/components/home/featured/Featured'
 
-export default function Home({ products, categories }) {
+export default function Home({ products, categories, sizes }) {
   return (
     <>
       <Head>
@@ -21,14 +21,12 @@ export default function Home({ products, categories }) {
       <main>
         <Hero />
         <ShowCategories categories={categories} />
-        <Featured products={products} />
+        <Featured products={products} sizes={sizes}/>
       </main>
 
     </>
   )
 }
-
-// getStaticProps
 
 export async function getStaticProps() {
   const res = await fetch(`${env.API_URL}/products`)
@@ -36,11 +34,15 @@ export async function getStaticProps() {
   const products = await res.json()
   const categories = await resCategories.json()
 
+  const sizesFetch = await fetch(`${env.API_URL}/sizes`)
+  const sizes = await sizesFetch.json()
+
   return {
     props: {
       products: products || [],
-      categories: categories || []
+      categories: categories || [],
+      sizes: sizes || []
     },
-    revalidate: 10
+    revalidate: 1
   }
 }

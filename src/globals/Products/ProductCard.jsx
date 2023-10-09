@@ -3,46 +3,26 @@ import React, { useEffect, useState } from 'react'
 import styles from './ProductCard.module.scss'
 import ProductColorsList from './ProductColorsList';
 
-export default function ProductCard({ product }) {
-    const [variantSelected, setVariantSelected] = useState(null);
-    const [colorSelected, setColorSelected] = useState(null);
+export default function ProductCard({ product, sizes }) {
+    const [colorSelected, setColorSelected] = useState({});
     const [productColors, setProductColors] = useState([]);
-    const [productSizes, setProductSizes] = useState([])
 
     const getColors = () => {
-        const colors = product.variants.map(variant => variant.color);
-
-        // Eliminamos los colores repetidos
-        const colorsWithoutDuplicates = colors.map(color => JSON.stringify(color)).filter((value, index, self) => self.indexOf(value) === index).map(color => JSON.parse(color));
-
-        setProductColors(colorsWithoutDuplicates);
+        const colors = product.colors.map(variant => variant.name);
+        setProductColors(colors);
+        setColorSelected(product.colors[0]);
     }
 
     useEffect(() => {
-        const variant = product.variants.find(variant => variant.color.name === 'Negro');
-
-        if (!variant) return setVariantSelected(product.variants[0])
-
-        setVariantSelected(variant)
         getColors();
-    }, [product])
+    }, [])                                                                
 
-    useEffect(() => {
-        const color = productColors.find(color => color.name === variantSelected.color.name);
-
-        setColorSelected(color);
-        if (variantSelected) {
-            setProductSizes(product.variants.filter(variant => variant.color.name === variantSelected.color.name).map(variant => variant.size))
-        }
-    }, [variantSelected])
-
-
-    if (variantSelected) return (
+    return (
         <div key={product._id} className={styles.product_card} animation='appear'>
-            <img src={variantSelected.image} alt={product.name} />
+            <img src={colorSelected.principalImage} alt={product.name} />
 
             {product.discount > 0 && <span className={styles.product_card__discount}>{product.discount}% OFF</span>}
-            <ProductColorsList colors={productColors} product={product} setVariantSelected={setVariantSelected} colorSelected={colorSelected} setColorSelected={setColorSelected} />
+            <ProductColorsList colors={product.colors} product={product} colorSelected={colorSelected} setColorSelected={setColorSelected} />
 
             <div className={styles.product_card__info}>
                 <h3 className={styles.product_name}>{product.name}</h3>
@@ -59,10 +39,10 @@ export default function ProductCard({ product }) {
                 </p>
 
                 {
-                    productSizes.length > 0 && (
+                    sizes.length > 0 && (
                         <div className={styles.product_sizes}>
                             <ul className={styles.product_sizes__list}>
-                                {productSizes.map(size => (
+                                {sizes.map(size => (
                                     <li key={size._id} className={styles.product_sizes__item}>{size.name}</li>
                                 ))}
                             </ul>

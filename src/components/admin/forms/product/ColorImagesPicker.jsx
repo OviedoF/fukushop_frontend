@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import ProductFormContext from './Product.provider'
 
-export default function ColorImagesPicker({ colorsSelected }) {
+export default function ColorImagesPicker({ colorsSelected, setColorsSelected }) {
     const { images, setImages } = useContext(ProductFormContext);
 
     const handleImages = (e, key, property) => {
@@ -22,6 +22,19 @@ export default function ColorImagesPicker({ colorsSelected }) {
                 [property]: Object.values(e.target.files)
             }
         })
+    }
+
+    const handleStock = (e) => {
+        setColorsSelected(colorsSelected.map(color => {
+            if (color._id === e.target.id) {
+                return {
+                    ...color,
+                    stock: parseInt(e.target.value)
+                }
+            }
+
+            return color;
+        }))
     }
 
     return (
@@ -52,6 +65,20 @@ export default function ColorImagesPicker({ colorsSelected }) {
                             <input onChange={(e) => handleImages(e, color.imageKey, 'gallery')} type="file" name={color._id} id={color._id} multiple />
                         </div>
                     </div>
+
+                    <h3>Stock del color {color.name}</h3>
+                    <input type="number" name={color._id} id={color._id} placeholder='Escriba aquí' style={{
+                        width: '98%',
+                        marginTop: 'auto',
+                        marginBottom: 20,
+                        padding: 10,
+                        backgroundColor: 'transparent',
+                        border: 'none',
+                        color: '#fff',
+                        borderBottom: '1px solid var(--color-alternative)'
+                    }} onChange={
+                        (e) => handleStock(e)
+                    }/>
 
                     <style jsx>{`
         .variant_color_picker {

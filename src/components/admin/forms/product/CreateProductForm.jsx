@@ -1,13 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
 import ColorsSelect from './ColorsSelect';
-import SizesSelect from './SizesSelect';
 import ProductFormContext from './Product.provider';
-import Variants from './Variants';
 import ColorImagesPicker from './ColorImagesPicker';
 import { HashLoader } from 'react-spinners';
 
 const CreateProductForm = ({ createStatus }) => {
-    const [sizesSelected, setSizesSelected] = useState([]);
     const [colorsSelected, setColorsSelected] = useState([]);
     const [subCategoriesFromCategroy, setSubCategoriesFromCategroy] = useState([])
     const [populatedVariants, setPopulatedVariants] = useState([]);
@@ -22,26 +19,21 @@ const CreateProductForm = ({ createStatus }) => {
     }, [form.category]);
 
     useEffect(() => {
-        const variants = [];
+        setForm({ ...form, colors: [] });
 
-        colorsSelected.forEach(color => {
-            sizesSelected.forEach(size => {
-                variants.push({
-                    color: color._id,
-                    size: size,
-                    stock: 0
-                })
-            })
+        const colors = colorsSelected.map(color => {
+            return {
+                color: color._id,
+                imageKey: color.imageKey,
+                name: color.name,
+                principalImage: '',
+                stock: color.stock || 0,
+                images: []
+            }
         });
 
-        setVariants(variants);
-
-        setForm({
-            ...form,
-            variants
-        })
-
-    }, [colorsSelected, sizesSelected])
+        setForm({ ...form, colors });
+    }, [colorsSelected])
 
     useEffect(() => {
         setPopulatedVariants(variants.map(variant => populateVariant(variant)));
@@ -110,13 +102,13 @@ const CreateProductForm = ({ createStatus }) => {
                 </select>
             </div>
 
-            <SizesSelect sizes={sizes} setSizesSelected={setSizesSelected} sizesSelected={sizesSelected} />
+            {/* <SizesSelect sizes={sizes} setSizesSelected={setSizesSelected} sizesSelected={sizesSelected} /> */}
 
             <ColorsSelect setColorsSelected={setColorsSelected} colorsSelected={colorsSelected} />
 
-            <Variants variants={populatedVariants} colorsSelected={colorsSelected} />
+            {/* <Variants variants={populatedVariants} colorsSelected={colorsSelected} /> */}
 
-            <ColorImagesPicker colorsSelected={colorsSelected} />
+            <ColorImagesPicker colorsSelected={colorsSelected} setColorsSelected={setColorsSelected} />
 
             {createStatus.status === 'success' && <p animation='appear' className='card_text_1 success' animate={{ transform: 'scale(1)' }}>{createStatus.message}</p>}
             {createStatus.status === 'loading' ? <HashLoader color='#FFF' size={50} /> : <button type='submit' onClick={(e) => handleSend(e)}>Crear producto</button>}

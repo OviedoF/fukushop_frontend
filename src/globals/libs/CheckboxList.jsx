@@ -55,7 +55,7 @@ class CheckboxList extends React.Component {
       
       return (
         <ul className={styles.selectionable_items}>
-          {items.map((item, i) => 
+          {items && items.map((item, i) => 
             <Checkbox 
               key={i}
               selected={selection.includes(item._id)} 

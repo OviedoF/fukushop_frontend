@@ -43,7 +43,6 @@ const Subcategory = () => {
                 setBackgroundImage(null);
             })
             .catch(err => {
-                console.log(err)
                 setStatus({ status: 'error', message: "Ha ocurrido un error al crear la categoría" });
             })
     }

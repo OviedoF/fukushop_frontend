@@ -53,6 +53,8 @@ export default function Filters({ categories, types, colors, sizes, setProducts,
       let size = true;
       let price = true;
 
+      console.log(filters.colors)
+
       if (filters.categories.length > 0) {
         category = filters.categories.includes(product.category._id)
       }
@@ -62,11 +64,7 @@ export default function Filters({ categories, types, colors, sizes, setProducts,
       }
 
       if (filters.colors.length > 0) {
-        color = product.variants.some(variant => filters.colors.includes(variant.color._id))
-      }
-
-      if (filters.sizes.length > 0) {
-        size = product.variants.some(variant => filters.sizes.includes(variant.size._id))
+        color = product.colors.some(color => filters.colors.includes(color.color))
       }
 
       if (filters.price.min > 0 || filters.price.max < 50000) {
@@ -120,11 +118,11 @@ export default function Filters({ categories, types, colors, sizes, setProducts,
           <CheckboxList handleFilters={handleFilters} filterName={'colors'} filters={filters} items={colors} />
         </div>
 
-        <div className={styles.filter}>
+        {/* <div className={styles.filter}>
           <h4>Tallas</h4>
 
           <CheckboxList handleFilters={handleFilters} filterName={'sizes'} filters={filters} items={sizes} />
-        </div>
+        </div> */}
 
         <div className={styles.filter}>
           <h4>Precio</h4>

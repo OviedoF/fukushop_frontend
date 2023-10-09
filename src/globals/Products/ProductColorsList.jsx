@@ -3,13 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import styles from './ProductCard.module.scss'
 
-export default function ProductColorsList({ colors, colorSelected, setColorSelected, product, setVariantSelected }) {
-
+export default function ProductColorsList({ colors, colorSelected, setColorSelected }) {
     const handleColorSelected = (color) => {
-        const variant = product.variants.find(variant => variant.color.name === color.name);
-
         setColorSelected(color);
-        setVariantSelected(variant);
     }
 
     if (colorSelected) return (
@@ -19,7 +15,7 @@ export default function ProductColorsList({ colors, colorSelected, setColorSelec
                     onClick={() => handleColorSelected(color)}
                     className={styles.product_color}
                     key={color._id}
-                    style={{ background: color.color }}
+                    style={{ background: color.hex }}
                 >
                     {colorSelected.name === color.name && <>
                         <div className={styles.product_color__selected} >
