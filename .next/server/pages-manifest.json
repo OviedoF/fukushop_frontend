@@ -9,7 +9,6 @@
   "/admin/create/product": "pages/admin/create/product.html",
   "/admin/create/size": "pages/admin/create/size.html",
   "/admin/create/subcategory": "pages/admin/create/subcategory.html",
-  "/admin/create/subtype": "pages/admin/create/subtype.html",
   "/admin/panel": "pages/admin/panel.html",
   "/adminlogin": "pages/adminlogin.html",
   "/contacto": "pages/contacto.html",
@@ -18,12 +17,13 @@
   "/admin/list/clotheTypes": "pages/admin/list/clotheTypes.js",
   "/admin/list/products": "pages/admin/list/products.js",
   "/admin/list/subcategories": "pages/admin/list/subcategories.js",
-  "/admin/list/sizes": "pages/admin/list/sizes.js",
+  "/admin/list/subtypes": "pages/admin/list/subtypes.js",
   "/": "pages/index.js",
   "/producto/[name]": "pages/producto/[name].js",
-  "/productos": "pages/productos.js",
+  "/admin/list/categories": "pages/admin/list/categories.js",
   "/talles": "pages/talles.js",
   "/admin/list/colors": "pages/admin/list/colors.js",
-  "/admin/list/subtypes": "pages/admin/list/subtypes.js",
-  "/admin/list/categories": "pages/admin/list/categories.js"
+  "/admin/create/subtype": "pages/admin/create/subtype.html",
+  "/productos": "pages/productos.js",
+  "/admin/list/sizes": "pages/admin/list/sizes.js"
 }

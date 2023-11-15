@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/0-vnr1mbU-1h6pHIuczfy/_buildManifest.js",
-    "static/0-vnr1mbU-1h6pHIuczfy/_ssgManifest.js"
+    "static/4mrA-QN9yGWKOxz4phbRM/_buildManifest.js",
+    "static/4mrA-QN9yGWKOxz4phbRM/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -181,7 +181,7 @@
       "static/chunks/433-53bf0dfe631509fb.js",
       "static/chunks/857-9d53dc4f6d813a36.js",
       "static/css/d794b198989d6164.css",
-      "static/chunks/pages/contacto-cc87ca6ae982affa.js"
+      "static/chunks/pages/contacto-d32d17fb1b9bbeda.js"
     ],
     "/politicas": [
       "static/chunks/webpack-ee7e63bc15b31913.js",
