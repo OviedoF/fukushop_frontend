@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './HeroTitle.module.scss';
 import HeroCard from './HeroCard';
+import verticalImage from '../../../../public/hero_vertical.jpg';
 
 const HeroTitle = ({ title, span, sliderText, sliderTextAlternative }) => {
     const cardStyle = {
@@ -73,7 +74,7 @@ const HeroTitle = ({ title, span, sliderText, sliderTextAlternative }) => {
                 </div>
             </div>
 
-            <HeroCard containerStyles={cardStyle} image={'https://res.cloudinary.com/dmoqdwvnr/image/upload/v1679867422/14f1ee34b3c004a7c755c5c4eeb265d0_dfiyyl.webp'} />
+            <HeroCard containerStyles={cardStyle} image={verticalImage} credits='@millerband_' />
         </div>
     );
 }

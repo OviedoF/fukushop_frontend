@@ -1,136 +1,100 @@
-"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 450;
-exports.ids = [450];
+exports.id = "pages/talles";
+exports.ids = ["pages/talles"];
 exports.modules = {
 
-/***/ 6406:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./src/components/sizes-page/SizesTable.module.scss":
+/*!**********************************************************!*\
+  !*** ./src/components/sizes-page/SizesTable.module.scss ***!
+  \**********************************************************/
+/***/ ((module) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ talles),
-/* harmony export */   "getStaticProps": () => (/* binding */ getStaticProps)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9816);
-/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(968);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _src_env__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2577);
-/* harmony import */ var _src_components_sizes_page_SizesTable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7990);
-
-
-
-
-
-
-function talles({ sizes  }) {
-    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-        children: [
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_head__WEBPACK_IMPORTED_MODULE_3___default()), {
-                children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("title", {
-                        children: "Fuku Shop | Talles"
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
-                        name: "description",
-                        content: "\xa1Bienvenidos a Fuku Shop! ✌️ Descubre nuestra amplia selecci\xf3n de ropa de estilo asi\xe1tico y anime, con dise\xf1os exclusivos y de tendencia. \uD83E\uDD73\uD83E\uDD73 Compra prendas hechas sin maltrato animal y disfruta de la moda de una forma m\xe1s consciente. \xa1Vis\xedtanos ahora y vive la experiencia Fuku Shop!"
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
-                        name: "viewport",
-                        content: "width=device-width, initial-scale=1"
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
-                        name: "keywords",
-                        content: "ropa anime, ropa japonesa, moda anime, moda japonesa, cosplay, ropa de anime para mujeproductsFetch, ropa de anime para hombres, tienda de ropa anime, anime, remeras anime"
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
-                        property: "og:title",
-                        content: "Fuku Shop | Ropa estilo japones y anime para argentina \uD83C\uDF59"
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
-                        property: "og:description",
-                        content: "\xa1Bienvenidos a Fuku Shop! ✌️ Descubre nuestra amplia selecci\xf3n de ropa de estilo asi\xe1tico y anime, con dise\xf1os exclusivos y de tendencia. \uD83E\uDD73\uD83E\uDD73"
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
-                        property: "og:image",
-                        content: "https://res.cloudinary.com/syphhy/image/upload/v1678072035/logo_mitkyo.png"
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("link", {
-                        rel: "canonical",
-                        href: "https://fukushop.com.ar/talles"
-                    })
-                ]
-            }),
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("main", {
-                initial: {
-                    y: -50,
-                    opacity: 0,
-                    scale: 0.8
-                },
-                animation: "appear",
-                className: "jsx-6d84a2e7242bcbf8",
-                children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
-                        className: "jsx-6d84a2e7242bcbf8",
-                        children: "Tablas de talles"
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_src_components_sizes_page_SizesTable__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
-                        sizes: sizes,
-                        title: "Remera oversize"
-                    }),
-                    react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default()), {
-                        id: "6d84a2e7242bcbf8",
-                        children: "@media(min-width:768px){main.jsx-6d84a2e7242bcbf8{padding-top:3rem}}"
-                    })
-                ]
-            })
-        ]
-    });
-}
-async function getStaticProps() {
-    const res = await fetch(`${_src_env__WEBPACK_IMPORTED_MODULE_4__/* ["default"].API_URL */ .Z.API_URL}/sizes`);
-    const sizes = await res.json();
-    return {
-        props: {
-            sizes
-        },
-        revalidate: 1
-    };
-}
-
+eval("// Exports\nmodule.exports = {\n\t\"sizes_table\": \"SizesTable_sizes_table__qwsXm\",\n\t\"table\": \"SizesTable_table__P3UPF\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9zaXplcy1wYWdlL1NpemVzVGFibGUubW9kdWxlLnNjc3MuanMiLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZXMiOlsid2VicGFjazovL2Zyb250ZW5kLy4vc3JjL2NvbXBvbmVudHMvc2l6ZXMtcGFnZS9TaXplc1RhYmxlLm1vZHVsZS5zY3NzP2YzZTkiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhwb3J0c1xubW9kdWxlLmV4cG9ydHMgPSB7XG5cdFwic2l6ZXNfdGFibGVcIjogXCJTaXplc1RhYmxlX3NpemVzX3RhYmxlX19xd3NYbVwiLFxuXHRcInRhYmxlXCI6IFwiU2l6ZXNUYWJsZV90YWJsZV9fUDNVUEZcIlxufTtcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/components/sizes-page/SizesTable.module.scss\n");
 
 /***/ }),
 
-/***/ 968:
+/***/ "./pages/talles.js":
+/*!*************************!*\
+  !*** ./pages/talles.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ talles),\n/* harmony export */   \"getStaticProps\": () => (/* binding */ getStaticProps)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-jsx/style */ \"styled-jsx/style\");\n/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/head */ \"next/head\");\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _src_env__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/env */ \"./src/env.js\");\n/* harmony import */ var _src_components_sizes_page_SizesTable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/components/sizes-page/SizesTable */ \"./src/components/sizes-page/SizesTable.jsx\");\n\n\n\n\n\n\nfunction talles({ sizes  }) {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_head__WEBPACK_IMPORTED_MODULE_3___default()), {\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"title\", {\n                        children: \"Fuku Shop | Talles\"\n                    }, void 0, false, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                        lineNumber: 10,\n                        columnNumber: 17\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        name: \"description\",\n                        content: \"\\xa1Bienvenidos a Fuku Shop! ✌️ Descubre nuestra amplia selecci\\xf3n de ropa de estilo asi\\xe1tico y anime, con dise\\xf1os exclusivos y de tendencia. \\uD83E\\uDD73\\uD83E\\uDD73 Compra prendas hechas sin maltrato animal y disfruta de la moda de una forma m\\xe1s consciente. \\xa1Vis\\xedtanos ahora y vive la experiencia Fuku Shop!\"\n                    }, void 0, false, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                        lineNumber: 11,\n                        columnNumber: 17\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        name: \"viewport\",\n                        content: \"width=device-width, initial-scale=1\"\n                    }, void 0, false, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                        lineNumber: 12,\n                        columnNumber: 17\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        name: \"keywords\",\n                        content: \"ropa anime, ropa japonesa, moda anime, moda japonesa, cosplay, ropa de anime para mujeproductsFetch, ropa de anime para hombres, tienda de ropa anime, anime, remeras anime\"\n                    }, void 0, false, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                        lineNumber: 13,\n                        columnNumber: 17\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"og:title\",\n                        content: \"Fuku Shop | Ropa estilo japones y anime para argentina \\uD83C\\uDF59\"\n                    }, void 0, false, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                        lineNumber: 14,\n                        columnNumber: 17\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"og:description\",\n                        content: \"\\xa1Bienvenidos a Fuku Shop! ✌️ Descubre nuestra amplia selecci\\xf3n de ropa de estilo asi\\xe1tico y anime, con dise\\xf1os exclusivos y de tendencia. \\uD83E\\uDD73\\uD83E\\uDD73\"\n                    }, void 0, false, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                        lineNumber: 15,\n                        columnNumber: 17\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"meta\", {\n                        property: \"og:image\",\n                        content: \"https://res.cloudinary.com/syphhy/image/upload/v1678072035/logo_mitkyo.png\"\n                    }, void 0, false, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                        lineNumber: 16,\n                        columnNumber: 17\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"link\", {\n                        rel: \"canonical\",\n                        href: \"https://fukushop.com.ar/talles\"\n                    }, void 0, false, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                        lineNumber: 17,\n                        columnNumber: 17\n                    }, this)\n                ]\n            }, void 0, true, {\n                fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                lineNumber: 9,\n                columnNumber: 13\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"main\", {\n                initial: {\n                    y: -50,\n                    opacity: 0,\n                    scale: 0.8\n                },\n                animation: \"appear\",\n                className: \"jsx-6d84a2e7242bcbf8\",\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n                        className: \"jsx-6d84a2e7242bcbf8\",\n                        children: \"Tablas de talles\"\n                    }, void 0, false, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                        lineNumber: 24,\n                        columnNumber: 17\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_src_components_sizes_page_SizesTable__WEBPACK_IMPORTED_MODULE_5__[\"default\"], {\n                        sizes: sizes,\n                        title: \"Remera oversize\"\n                    }, void 0, false, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                        lineNumber: 26,\n                        columnNumber: 17\n                    }, this),\n                    (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((styled_jsx_style__WEBPACK_IMPORTED_MODULE_1___default()), {\n                        id: \"6d84a2e7242bcbf8\",\n                        children: \"@media(min-width:768px){main.jsx-6d84a2e7242bcbf8{padding-top:3rem}}\"\n                    }, void 0, false, void 0, this)\n                ]\n            }, void 0, true, {\n                fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\pages\\\\talles.js\",\n                lineNumber: 20,\n                columnNumber: 13\n            }, this)\n        ]\n    }, void 0, true);\n}\nasync function getStaticProps() {\n    const res = await fetch(`${_src_env__WEBPACK_IMPORTED_MODULE_4__[\"default\"].API_URL}/sizes`);\n    const sizes = await res.json();\n    return {\n        props: {\n            sizes\n        },\n        revalidate: 1\n    };\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy90YWxsZXMuanMuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBeUI7QUFDRztBQUNBO0FBQ29DO0FBRWpELFNBQVNJLE9BQU8sRUFBRUMsTUFBSyxFQUFFLEVBQUU7SUFDdEMscUJBQ0k7OzBCQUNJLDhEQUFDSixrREFBSUE7O2tDQUNELDhEQUFDSztrQ0FBTTs7Ozs7O2tDQUNQLDhEQUFDQzt3QkFBS0MsTUFBSzt3QkFBY0MsU0FBUTs7Ozs7O2tDQUNqQyw4REFBQ0Y7d0JBQUtDLE1BQUs7d0JBQVdDLFNBQVE7Ozs7OztrQ0FDOUIsOERBQUNGO3dCQUFLQyxNQUFLO3dCQUFXQyxTQUFROzs7Ozs7a0NBQzlCLDhEQUFDRjt3QkFBS0csVUFBUzt3QkFBV0QsU0FBUTs7Ozs7O2tDQUNsQyw4REFBQ0Y7d0JBQUtHLFVBQVM7d0JBQWlCRCxTQUFROzs7Ozs7a0NBQ3hDLDhEQUFDRjt3QkFBS0csVUFBUzt3QkFBV0QsU0FBUTs7Ozs7O2tDQUNsQyw4REFBQ0U7d0JBQUtDLEtBQUk7d0JBQVlDLE1BQUs7Ozs7Ozs7Ozs7OzswQkFHL0IsOERBQUNDO2dCQUNHQyxTQUFTO29CQUFFQyxHQUFHLENBQUM7b0JBQUlDLFNBQVM7b0JBQUdDLE9BQU87Z0JBQUk7Z0JBQzFDQyxXQUFVOzs7a0NBRVYsOERBQUNDOztrQ0FBRzs7Ozs7O2tDQUVKLDhEQUFDakIsNkVBQVVBO3dCQUFDRSxPQUFPQTt3QkFBT0MsT0FBTTs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBWWhELENBQUM7QUFFTSxlQUFlZSxpQkFBaUI7SUFDbkMsTUFBTUMsTUFBTSxNQUFNQyxNQUFNLENBQUMsRUFBRXJCLHdEQUFXLENBQUMsTUFBTSxDQUFDO0lBQzlDLE1BQU1HLFFBQVEsTUFBTWlCLElBQUlHLElBQUk7SUFFNUIsT0FBTztRQUNIQyxPQUFPO1lBQ0hyQjtRQUNKO1FBQ0FzQixZQUFZO0lBQ2hCO0FBQ0osQ0FBQyIsInNvdXJjZXMiOlsid2VicGFjazovL2Zyb250ZW5kLy4vcGFnZXMvdGFsbGVzLmpzP2EwNjAiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0J1xyXG5pbXBvcnQgSGVhZCBmcm9tICduZXh0L2hlYWQnXHJcbmltcG9ydCBlbnYgZnJvbSAnLi4vc3JjL2VudidcclxuaW1wb3J0IFNpemVzVGFibGUgZnJvbSAnLi4vc3JjL2NvbXBvbmVudHMvc2l6ZXMtcGFnZS9TaXplc1RhYmxlJ1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gdGFsbGVzKHsgc2l6ZXMgfSkge1xyXG4gICAgcmV0dXJuIChcclxuICAgICAgICA8PlxyXG4gICAgICAgICAgICA8SGVhZD5cclxuICAgICAgICAgICAgICAgIDx0aXRsZT5GdWt1IFNob3AgfCBUYWxsZXM8L3RpdGxlPlxyXG4gICAgICAgICAgICAgICAgPG1ldGEgbmFtZT1cImRlc2NyaXB0aW9uXCIgY29udGVudD0nwqFCaWVudmVuaWRvcyBhIEZ1a3UgU2hvcCEg4pyM77iPIERlc2N1YnJlIG51ZXN0cmEgYW1wbGlhIHNlbGVjY2nDs24gZGUgcm9wYSBkZSBlc3RpbG8gYXNpw6F0aWNvIHkgYW5pbWUsIGNvbiBkaXNlw7FvcyBleGNsdXNpdm9zIHkgZGUgdGVuZGVuY2lhLiDwn6Wz8J+lsyBDb21wcmEgcHJlbmRhcyBoZWNoYXMgc2luIG1hbHRyYXRvIGFuaW1hbCB5IGRpc2ZydXRhIGRlIGxhIG1vZGEgZGUgdW5hIGZvcm1hIG3DoXMgY29uc2NpZW50ZS4gwqFWaXPDrXRhbm9zIGFob3JhIHkgdml2ZSBsYSBleHBlcmllbmNpYSBGdWt1IFNob3AhJyAvPlxyXG4gICAgICAgICAgICAgICAgPG1ldGEgbmFtZT1cInZpZXdwb3J0XCIgY29udGVudD1cIndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xXCIgLz5cclxuICAgICAgICAgICAgICAgIDxtZXRhIG5hbWU9XCJrZXl3b3Jkc1wiIGNvbnRlbnQ9XCJyb3BhIGFuaW1lLCByb3BhIGphcG9uZXNhLCBtb2RhIGFuaW1lLCBtb2RhIGphcG9uZXNhLCBjb3NwbGF5LCByb3BhIGRlIGFuaW1lIHBhcmEgbXVqZXByb2R1Y3RzRmV0Y2gsIHJvcGEgZGUgYW5pbWUgcGFyYSBob21icmVzLCB0aWVuZGEgZGUgcm9wYSBhbmltZSwgYW5pbWUsIHJlbWVyYXMgYW5pbWVcIiAvPlxyXG4gICAgICAgICAgICAgICAgPG1ldGEgcHJvcGVydHk9XCJvZzp0aXRsZVwiIGNvbnRlbnQ9XCJGdWt1IFNob3AgfCBSb3BhIGVzdGlsbyBqYXBvbmVzIHkgYW5pbWUgcGFyYSBhcmdlbnRpbmEg8J+NmVwiIC8+XHJcbiAgICAgICAgICAgICAgICA8bWV0YSBwcm9wZXJ0eT1cIm9nOmRlc2NyaXB0aW9uXCIgY29udGVudD1cIsKhQmllbnZlbmlkb3MgYSBGdWt1IFNob3AhIOKcjO+4jyBEZXNjdWJyZSBudWVzdHJhIGFtcGxpYSBzZWxlY2Npw7NuIGRlIHJvcGEgZGUgZXN0aWxvIGFzacOhdGljbyB5IGFuaW1lLCBjb24gZGlzZcOxb3MgZXhjbHVzaXZvcyB5IGRlIHRlbmRlbmNpYS4g8J+ls/CfpbNcIiAvPlxyXG4gICAgICAgICAgICAgICAgPG1ldGEgcHJvcGVydHk9XCJvZzppbWFnZVwiIGNvbnRlbnQ9XCJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9zeXBoaHkvaW1hZ2UvdXBsb2FkL3YxNjc4MDcyMDM1L2xvZ29fbWl0a3lvLnBuZ1wiIC8+XHJcbiAgICAgICAgICAgICAgICA8bGluayByZWw9XCJjYW5vbmljYWxcIiBocmVmPVwiaHR0cHM6Ly9mdWt1c2hvcC5jb20uYXIvdGFsbGVzXCIgLz5cclxuICAgICAgICAgICAgPC9IZWFkPlxyXG5cclxuICAgICAgICAgICAgPG1haW5cclxuICAgICAgICAgICAgICAgIGluaXRpYWw9e3sgeTogLTUwLCBvcGFjaXR5OiAwLCBzY2FsZTogMC44IH19XHJcbiAgICAgICAgICAgICAgICBhbmltYXRpb249J2FwcGVhcidcclxuICAgICAgICAgICAgPlxyXG4gICAgICAgICAgICAgICAgPGgxPlRhYmxhcyBkZSB0YWxsZXM8L2gxPlxyXG5cclxuICAgICAgICAgICAgICAgIDxTaXplc1RhYmxlIHNpemVzPXtzaXplc30gdGl0bGU9J1JlbWVyYSBvdmVyc2l6ZScgLz5cclxuXHJcbiAgICAgICAgICAgICAgICA8c3R5bGUganN4PntgXHJcbiAgICAgICAgICAgICAgICAgICAgQG1lZGlhIChtaW4td2lkdGg6IDc2OHB4KSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIG1haW57XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwYWRkaW5nLXRvcDogM3JlbTtcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIGB9PC9zdHlsZT5cclxuICAgICAgICAgICAgPC9tYWluPlxyXG4gICAgICAgIDwvPlxyXG4gICAgKVxyXG59XHJcblxyXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gZ2V0U3RhdGljUHJvcHMoKSB7XHJcbiAgICBjb25zdCByZXMgPSBhd2FpdCBmZXRjaChgJHtlbnYuQVBJX1VSTH0vc2l6ZXNgKVxyXG4gICAgY29uc3Qgc2l6ZXMgPSBhd2FpdCByZXMuanNvbigpXHJcblxyXG4gICAgcmV0dXJuIHtcclxuICAgICAgICBwcm9wczoge1xyXG4gICAgICAgICAgICBzaXplc1xyXG4gICAgICAgIH0sXHJcbiAgICAgICAgcmV2YWxpZGF0ZTogMVxyXG4gICAgfVxyXG59Il0sIm5hbWVzIjpbIlJlYWN0IiwiSGVhZCIsImVudiIsIlNpemVzVGFibGUiLCJ0YWxsZXMiLCJzaXplcyIsInRpdGxlIiwibWV0YSIsIm5hbWUiLCJjb250ZW50IiwicHJvcGVydHkiLCJsaW5rIiwicmVsIiwiaHJlZiIsIm1haW4iLCJpbml0aWFsIiwieSIsIm9wYWNpdHkiLCJzY2FsZSIsImFuaW1hdGlvbiIsImgxIiwiZ2V0U3RhdGljUHJvcHMiLCJyZXMiLCJmZXRjaCIsIkFQSV9VUkwiLCJqc29uIiwicHJvcHMiLCJyZXZhbGlkYXRlIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/talles.js\n");
+
+/***/ }),
+
+/***/ "./src/components/sizes-page/SizesTable.jsx":
+/*!**************************************************!*\
+  !*** ./src/components/sizes-page/SizesTable.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ SizesTable)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _SizesTable_module_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SizesTable.module.scss */ \"./src/components/sizes-page/SizesTable.module.scss\");\n/* harmony import */ var _SizesTable_module_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_SizesTable_module_scss__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nfunction SizesTable({ title , sizes , titleAlign =\"center\" , padding =\"var(--padding-from-borders)\"  }) {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"section\", {\n        className: (_SizesTable_module_scss__WEBPACK_IMPORTED_MODULE_2___default().sizes_table),\n        style: {\n            padding\n        },\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h2\", {\n                style: {\n                    textAlign: titleAlign\n                },\n                children: title\n            }, void 0, false, {\n                fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                lineNumber: 7,\n                columnNumber: 13\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: (_SizesTable_module_scss__WEBPACK_IMPORTED_MODULE_2___default().table),\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"img\", {\n                        src: \"https://res.cloudinary.com/dmoqdwvnr/image/upload/v1678643458/TALLE_REMERA_OVERSIZE_xas5wz.png\",\n                        alt: \"Talles remera oversize\"\n                    }, void 0, false, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                        lineNumber: 10,\n                        columnNumber: 17\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"table\", {\n                        children: [\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"thead\", {\n                                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"tr\", {\n                                    children: [\n                                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"th\", {\n                                            children: \"Talle\"\n                                        }, void 0, false, {\n                                            fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                            lineNumber: 15,\n                                            columnNumber: 29\n                                        }, this),\n                                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"th\", {\n                                            children: \"Ancho\"\n                                        }, void 0, false, {\n                                            fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                            lineNumber: 16,\n                                            columnNumber: 29\n                                        }, this),\n                                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"th\", {\n                                            children: \"Alto\"\n                                        }, void 0, false, {\n                                            fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                            lineNumber: 17,\n                                            columnNumber: 29\n                                        }, this),\n                                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"th\", {\n                                            children: \"Hombros\"\n                                        }, void 0, false, {\n                                            fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                            lineNumber: 18,\n                                            columnNumber: 29\n                                        }, this),\n                                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"th\", {\n                                            children: \"Mangas\"\n                                        }, void 0, false, {\n                                            fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                            lineNumber: 19,\n                                            columnNumber: 29\n                                        }, this)\n                                    ]\n                                }, void 0, true, {\n                                    fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                    lineNumber: 14,\n                                    columnNumber: 25\n                                }, this)\n                            }, void 0, false, {\n                                fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                lineNumber: 13,\n                                columnNumber: 21\n                            }, this),\n                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"tbody\", {\n                                children: sizes.map((size, index)=>/*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"tr\", {\n                                        children: [\n                                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"td\", {\n                                                children: size.name\n                                            }, void 0, false, {\n                                                fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                                lineNumber: 26,\n                                                columnNumber: 33\n                                            }, this),\n                                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"td\", {\n                                                children: size.width\n                                            }, void 0, false, {\n                                                fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                                lineNumber: 27,\n                                                columnNumber: 33\n                                            }, this),\n                                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"td\", {\n                                                children: size.height\n                                            }, void 0, false, {\n                                                fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                                lineNumber: 28,\n                                                columnNumber: 33\n                                            }, this),\n                                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"td\", {\n                                                children: size.shoulders\n                                            }, void 0, false, {\n                                                fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                                lineNumber: 29,\n                                                columnNumber: 33\n                                            }, this),\n                                            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"td\", {\n                                                children: size.sleeves\n                                            }, void 0, false, {\n                                                fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                                lineNumber: 30,\n                                                columnNumber: 33\n                                            }, this)\n                                        ]\n                                    }, index, true, {\n                                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                        lineNumber: 25,\n                                        columnNumber: 29\n                                    }, this))\n                            }, void 0, false, {\n                                fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                                lineNumber: 23,\n                                columnNumber: 21\n                            }, this)\n                        ]\n                    }, void 0, true, {\n                        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                        lineNumber: 12,\n                        columnNumber: 17\n                    }, this)\n                ]\n            }, void 0, true, {\n                fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n                lineNumber: 9,\n                columnNumber: 13\n            }, this)\n        ]\n    }, void 0, true, {\n        fileName: \"C:\\\\Users\\\\LordS\\\\Documents\\\\LABURO\\\\FUKU\\\\fukushop_frontend\\\\src\\\\components\\\\sizes-page\\\\SizesTable.jsx\",\n        lineNumber: 6,\n        columnNumber: 9\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvY29tcG9uZW50cy9zaXplcy1wYWdlL1NpemVzVGFibGUuanN4LmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7O0FBQXlCO0FBQ29CO0FBRTlCLFNBQVNFLFdBQVcsRUFBRUMsTUFBSyxFQUFFQyxNQUFLLEVBQUVDLFlBQWEsU0FBUSxFQUFFQyxTQUFVLDhCQUE2QixFQUFFLEVBQUU7SUFDakgscUJBQ0ksOERBQUNDO1FBQVFDLFdBQVdQLDRFQUFrQjtRQUFFUyxPQUFPO1lBQUNKO1FBQU87OzBCQUNuRCw4REFBQ0s7Z0JBQUdELE9BQU87b0JBQUNFLFdBQVdQO2dCQUFVOzBCQUFJRjs7Ozs7OzBCQUVyQyw4REFBQ1U7Z0JBQUlMLFdBQVdQLHNFQUFZOztrQ0FDeEIsOERBQUNjO3dCQUFJQyxLQUFJO3dCQUFpR0MsS0FBSTs7Ozs7O2tDQUU5Ryw4REFBQ0g7OzBDQUNHLDhEQUFDSTswQ0FDRyw0RUFBQ0M7O3NEQUNHLDhEQUFDQztzREFBRzs7Ozs7O3NEQUNKLDhEQUFDQTtzREFBRzs7Ozs7O3NEQUNKLDhEQUFDQTtzREFBRzs7Ozs7O3NEQUNKLDhEQUFDQTtzREFBRzs7Ozs7O3NEQUNKLDhEQUFDQTtzREFBRzs7Ozs7Ozs7Ozs7Ozs7Ozs7MENBSVosOERBQUNDOzBDQUNJakIsTUFBTWtCLEdBQUcsQ0FBQyxDQUFDQyxNQUFNQyxzQkFDZCw4REFBQ0w7OzBEQUNHLDhEQUFDTTswREFBSUYsS0FBS0csSUFBSTs7Ozs7OzBEQUNkLDhEQUFDRDswREFBSUYsS0FBS0ksS0FBSzs7Ozs7OzBEQUNmLDhEQUFDRjswREFBSUYsS0FBS0ssTUFBTTs7Ozs7OzBEQUNoQiw4REFBQ0g7MERBQUlGLEtBQUtNLFNBQVM7Ozs7OzswREFDbkIsOERBQUNKOzBEQUFJRixLQUFLTyxPQUFPOzs7Ozs7O3VDQUxaTjs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQWVyQyxDQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vZnJvbnRlbmQvLi9zcmMvY29tcG9uZW50cy9zaXplcy1wYWdlL1NpemVzVGFibGUuanN4P2U0OTgiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0J1xyXG5pbXBvcnQgc3R5bGVzIGZyb20gJy4vU2l6ZXNUYWJsZS5tb2R1bGUuc2NzcydcclxuXHJcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIFNpemVzVGFibGUoeyB0aXRsZSwgc2l6ZXMsIHRpdGxlQWxpZ24gPSAnY2VudGVyJywgcGFkZGluZyA9ICd2YXIoLS1wYWRkaW5nLWZyb20tYm9yZGVycyknIH0pIHtcclxuICAgIHJldHVybiAoXHJcbiAgICAgICAgPHNlY3Rpb24gY2xhc3NOYW1lPXtzdHlsZXMuc2l6ZXNfdGFibGV9IHN0eWxlPXt7cGFkZGluZ319PlxyXG4gICAgICAgICAgICA8aDIgc3R5bGU9e3t0ZXh0QWxpZ246IHRpdGxlQWxpZ259fT57dGl0bGV9PC9oMj5cclxuXHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtzdHlsZXMudGFibGV9PlxyXG4gICAgICAgICAgICAgICAgPGltZyBzcmM9XCJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kbW9xZHd2bnIvaW1hZ2UvdXBsb2FkL3YxNjc4NjQzNDU4L1RBTExFX1JFTUVSQV9PVkVSU0laRV94YXM1d3oucG5nXCIgYWx0PVwiVGFsbGVzIHJlbWVyYSBvdmVyc2l6ZVwiIC8+XHJcblxyXG4gICAgICAgICAgICAgICAgPHRhYmxlPlxyXG4gICAgICAgICAgICAgICAgICAgIDx0aGVhZD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPHRyPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRoPlRhbGxlPC90aD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDx0aD5BbmNobzwvdGg+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dGg+QWx0bzwvdGg+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dGg+SG9tYnJvczwvdGg+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dGg+TWFuZ2FzPC90aD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPC90cj5cclxuICAgICAgICAgICAgICAgICAgICA8L3RoZWFkPlxyXG5cclxuICAgICAgICAgICAgICAgICAgICA8dGJvZHk+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHtzaXplcy5tYXAoKHNpemUsIGluZGV4KSA9PiAoXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dHIga2V5PXtpbmRleH0+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRkPntzaXplLm5hbWV9PC90ZD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dGQ+e3NpemUud2lkdGh9PC90ZD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8dGQ+e3NpemUuaGVpZ2h0fTwvdGQ+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHRkPntzaXplLnNob3VsZGVyc308L3RkPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDx0ZD57c2l6ZS5zbGVldmVzfTwvdGQ+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L3RyPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICApKX1cclxuICAgICAgICAgICAgICAgICAgICA8L3Rib2R5PlxyXG4gICAgICAgICAgICAgICAgPC90YWJsZT5cclxuICAgICAgICAgICAgPC9kaXY+XHJcblxyXG5cclxuICAgICAgICA8L3NlY3Rpb24+XHJcbiAgICApXHJcbn1cclxuIl0sIm5hbWVzIjpbIlJlYWN0Iiwic3R5bGVzIiwiU2l6ZXNUYWJsZSIsInRpdGxlIiwic2l6ZXMiLCJ0aXRsZUFsaWduIiwicGFkZGluZyIsInNlY3Rpb24iLCJjbGFzc05hbWUiLCJzaXplc190YWJsZSIsInN0eWxlIiwiaDIiLCJ0ZXh0QWxpZ24iLCJkaXYiLCJ0YWJsZSIsImltZyIsInNyYyIsImFsdCIsInRoZWFkIiwidHIiLCJ0aCIsInRib2R5IiwibWFwIiwic2l6ZSIsImluZGV4IiwidGQiLCJuYW1lIiwid2lkdGgiLCJoZWlnaHQiLCJzaG91bGRlcnMiLCJzbGVldmVzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/components/sizes-page/SizesTable.jsx\n");
+
+/***/ }),
+
+/***/ "./src/env.js":
+/*!********************!*\
+  !*** ./src/env.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({\n    FUKU_WHATSAPP: \"https://wa.me/543492287151?text=\",\n    // prod\n    //API_URL: 'https://fukushop.com.ar/api',\n    //FRONTEND_URL: 'https://fukushop.com.ar',\n    // dev\n    API_URL: \"http://localhost:4000/api\",\n    FRONTEND_URL: \"http://localhost:3000\"\n});\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvZW52LmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7QUFBQSxpRUFBZTtJQUNYQSxlQUFlO0lBQ2YsT0FBTztJQUNQLHlDQUF5QztJQUN6QywwQ0FBMEM7SUFFMUMsTUFBTTtJQUNOQyxTQUFTO0lBQ1RDLGNBQWM7QUFDbEIsQ0FBQyIsInNvdXJjZXMiOlsid2VicGFjazovL2Zyb250ZW5kLy4vc3JjL2Vudi5qcz8xMGJhIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IHtcclxuICAgIEZVS1VfV0hBVFNBUFA6ICdodHRwczovL3dhLm1lLzU0MzQ5MjI4NzE1MT90ZXh0PScsXHJcbiAgICAvLyBwcm9kXHJcbiAgICAvL0FQSV9VUkw6ICdodHRwczovL2Z1a3VzaG9wLmNvbS5hci9hcGknLFxyXG4gICAgLy9GUk9OVEVORF9VUkw6ICdodHRwczovL2Z1a3VzaG9wLmNvbS5hcicsXHJcblxyXG4gICAgLy8gZGV2XHJcbiAgICBBUElfVVJMOiAnaHR0cDovL2xvY2FsaG9zdDo0MDAwL2FwaScsXHJcbiAgICBGUk9OVEVORF9VUkw6ICdodHRwOi8vbG9jYWxob3N0OjMwMDAnLFxyXG59ICAiXSwibmFtZXMiOlsiRlVLVV9XSEFUU0FQUCIsIkFQSV9VUkwiLCJGUk9OVEVORF9VUkwiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/env.js\n");
+
+/***/ }),
+
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("next/head");
 
 /***/ }),
 
-/***/ 6689:
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("react");
 
 /***/ }),
 
-/***/ 997:
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
 /***/ ((module) => {
 
-module.exports = require("react/jsx-runtime");
+"use strict";
+module.exports = require("react/jsx-dev-runtime");
 
 /***/ }),
 
-/***/ 9816:
+/***/ "styled-jsx/style":
+/*!***********************************!*\
+  !*** external "styled-jsx/style" ***!
+  \***********************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = require("styled-jsx/style");
 
 /***/ })
@@ -142,7 +106,7 @@ module.exports = require("styled-jsx/style");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [789], () => (__webpack_exec__(6406)));
+var __webpack_exports__ = (__webpack_exec__("./pages/talles.js"));
 module.exports = __webpack_exports__;
 
 })();

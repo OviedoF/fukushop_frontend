@@ -5,21 +5,19 @@ export default function ColorImagesPicker({ colorsSelected, setColorsSelected })
     const { images, setImages } = useContext(ProductFormContext);
 
     const handleImages = (e, key, property) => {
-        if (property === 'image') {
-            return setImages({
-                ...images,
-                [key]: {
-                    ...images[key],
-                    [property]: e.target.files[0]
-                }
-            })
-        }
-
-        setImages({
+        console.log(key)
+        console.log({
             ...images,
             [key]: {
                 ...images[key],
-                [property]: Object.values(e.target.files)
+                [property]: e.target.files[0]
+            }
+        })
+        return setImages({
+            ...images,
+            [key]: {
+                ...images[key],
+                [property]: e.target.files[0]
             }
         })
     }
@@ -41,12 +39,12 @@ export default function ColorImagesPicker({ colorsSelected, setColorsSelected })
         <>
             {colorsSelected.map((color, index) => (
                 <div key={`${color._id}-${index}`} style={{ width: '80%', marginBottom: 100 }} className='variant_color_picker'>
-                    <h3>Imágenes para el color {color.name}</h3>
+                    <h3>Imágenes para el color {color.imageKey}</h3>
 
                     <div style={{ display: 'flex', height: 300 }}>
-                        <div className='form_group required'>
+                        <div className='form_group'>
                             <label htmlFor={color.imageKey} style={{ display: 'flex', flexDirection: 'column' }}>
-                                Elija la imágen principal del color {color.name}
+                                Elija la imágen principal del color {color.imageKey}
                                 <br />
                                 <br />
                                 {<span style={{ color: 'var(--color-success)' }}>{images[color.imageKey] && images[color.imageKey].image && 'Imágen seleccionada'}</span>}
@@ -55,7 +53,29 @@ export default function ColorImagesPicker({ colorsSelected, setColorsSelected })
                             <input onChange={(e) => handleImages(e, color.imageKey, 'image')} type="file" name={color.imageKey} id={color.imageKey} />
                         </div>
 
-                        <div className='form_group required'>
+                        <div className='form_group'>
+                            <label htmlFor={`${color.imageKey}_backImage`} style={{ display: 'flex', flexDirection: 'column' }}>
+                                Elija la imágen de reverso del color {color.imageKey}
+                                <br />
+                                <br />
+                                {<span style={{ color: 'var(--color-success)' }}>{images[color.imageKey] && images[color.imageKey].backImage && 'Imágen seleccionada'}</span>}
+                            </label>
+
+                            <input onChange={(e) => handleImages(e, color.imageKey, 'backImage')} type="file" name={`${color.imageKey}_backImage`} id={`${color.imageKey}_backImage`} />
+                        </div>
+
+                        <div className='form_group'>
+                            <label htmlFor={`${color.imageKey}_fullImage`} style={{ display: 'flex', flexDirection: 'column' }}>
+                                Elija la imágen completa del color {color.imageKey}
+                                <br />
+                                <br />
+                                {<span style={{ color: 'var(--color-success)' }}>{images[color.imageKey] && images[color.imageKey].fullImage && 'Imágen seleccionada'}</span>}
+                            </label>
+
+                            <input onChange={(e) => handleImages(e, color.imageKey, 'fullImage')} type="file" name={`${color.imageKey}_fullImage`} id={`${color.imageKey}_fullImage`} />
+                        </div>
+
+                        {/* <div className='form_group required'>
                             <label htmlFor={color._id} style={{ display: 'flex', flexDirection: 'column' }}>Imagenes secundarias
                                 <br />
                                 <br />
@@ -63,7 +83,7 @@ export default function ColorImagesPicker({ colorsSelected, setColorsSelected })
                             </label>
 
                             <input onChange={(e) => handleImages(e, color.imageKey, 'gallery')} type="file" name={color._id} id={color._id} multiple />
-                        </div>
+                        </div> */}
                     </div>
 
                     <h3>Stock del color {color.name}</h3>
@@ -78,7 +98,7 @@ export default function ColorImagesPicker({ colorsSelected, setColorsSelected })
                         borderBottom: '1px solid var(--color-alternative)'
                     }} onChange={
                         (e) => handleStock(e)
-                    }/>
+                    } />
 
                     <style jsx>{`
         .variant_color_picker {

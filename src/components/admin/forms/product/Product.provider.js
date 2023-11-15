@@ -47,10 +47,12 @@ function ProductFormProvider({ children, setCreateStatus, categories, subCategor
 
     imagesKeys.forEach(key => {
       formData.append(key, images[key].image);
+      formData.append(key, images[key].backImage);
+      formData.append(key, images[key].fullImage);
 
-      images[key].gallery.forEach(image => {
-        formData.append(key, image);
-      });
+      // images[key].gallery.forEach(image => {
+      //   formData.append(key, image);
+      // });
     });
 
     axios.post(`${env.API_URL}/products`, formData)

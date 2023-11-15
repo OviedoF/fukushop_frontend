@@ -3,7 +3,7 @@ import React from 'react';
 import routes from '../routes';
 import styles from './NotFoundItem.module.scss'
 
-const NotFoundItem = ({title = 'No se ha encontrado esta página! :(', subtitle = 'Tranquilo, te redirigiremos al inicio! 😉'}) => {
+const NotFoundItem = ({title = 'No se ha encontrado esta página! :(', subtitle = 'Tranquilo, estás a un botón del inicio!'}) => {
     const router = useRouter();
 
     return (
@@ -92,7 +92,7 @@ const NotFoundItem = ({title = 'No se ha encontrado esta página! :(', subtitle 
                 <p>{title}</p>
                 <p>{subtitle}</p>
                 <div>
-                    <button onClick={() => router.push(routes.home)}>Volver al inicio.</button>
+                    <button onClick={() => router.push(routes.home)}>{`Volver al inicio <-`}</button>
                 </div>
             </article>
         </main>

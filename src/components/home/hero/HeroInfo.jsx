@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Hero.module.scss';
 import HeroCard from './HeroCard';
+import horizontalImage from '../../../../public/miller 25.jpg';
 
 const HeroInfo = () => {
     const cardStyles = {
@@ -13,11 +14,11 @@ const HeroInfo = () => {
         <div className={styles.hero_description}>
             <div className={styles.hero_description_text} animation='appear'>
                 <p>
-                    ¡Bienvenidos a Fuku Shop! Somos una tienda copada que se dedica a vender ropa de altísima calidad con onda anime, estilo asiático, videojuegos, etc.
+                    Somos FukuShop, donde podrás encontrar ropa con estilo callejero y una gran calidad! La mejor alternativa en Argentina!
                 </p>
 
                 <p>
-                     Tenemos altos diseños, te aseguramos que te van a gustar. ¿Qué estás esperando? Seguí scrolleando y sé parte de Fuku ;)
+                     Podrás ver todo nuestro catálogo si sigues scrolleando, esperemos que seamos de tu agrado ;)
                 </p>
 
                 <button className='button_design' >
@@ -25,7 +26,7 @@ const HeroInfo = () => {
                 </button>
             </div>
 
-            <HeroCard containerStyles={cardStyles} image={'https://res.cloudinary.com/dmoqdwvnr/image/upload/v1679867421/b7e3a2690a50962d5db3bb9f5a304bc9_qvodc2.webp'} />
+            <HeroCard containerStyles={cardStyles} image={horizontalImage} credits='@millerband_' />
         </div>
     );
 }

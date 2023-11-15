@@ -6,19 +6,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ZoomImage from './ZoomImage';
 
 export default function ImagesSlider({ colorSelected, product }) {
-    const [selectedImage, setSelectedImage] = useState(colorSelected.principalImage)
-    const [gallery, setGallery] = useState(colorSelected.images)
+    const [selectedImage, setSelectedImage] = useState(colorSelected.fullImage)
+    const [gallery, setGallery] = useState([colorSelected.principalImage, colorSelected.reverseImage])
     const [zoom, setZoom] = useState(false);
 
     useEffect(() => {
-        setSelectedImage(colorSelected.principalImage)
-        setGallery(colorSelected.images)
+        console.log('product', product)
+        setSelectedImage(colorSelected.fullImage)
+        setGallery([colorSelected.principalImage, colorSelected.reverseImage])
     }, [colorSelected])
 
     const handleImageClick = (image) => {
         setSelectedImage(image)
 
-        const allImages = [...colorSelected.images, colorSelected.principalImage]
+        const allImages = [colorSelected.principalImage, colorSelected.reverseImage, colorSelected.fullImage]
         // remove the selected image from the gallery
         const newGallery = allImages.filter(img => img !== image)
         setGallery(newGallery)
