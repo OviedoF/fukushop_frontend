@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import styles from './ProductCard.module.scss'
 import ProductColorsList from './ProductColorsList';
+import Image from 'next/image';
 
 export default function ProductCard({ product, sizes }) {
     const [colorSelected, setColorSelected] = useState({});
@@ -15,11 +16,15 @@ export default function ProductCard({ product, sizes }) {
 
     useEffect(() => {
         getColors();
-    }, [])                                                                
+    }, [])
 
     return (
         <div key={product._id} className={styles.product_card} animation='appear'>
-            <img src={colorSelected.principalImage} alt={product.name} />
+            <div className={styles.product_card__image_container}>
+                <Image src={colorSelected.principalImage} alt={product.name} fill style={{
+                    objectFit: 'contain',
+                }} />
+            </div>
 
             {product.discount > 0 && <span className={styles.product_card__discount}>{product.discount}% OFF</span>}
             <ProductColorsList colors={product.colors} product={product} colorSelected={colorSelected} setColorSelected={setColorSelected} />

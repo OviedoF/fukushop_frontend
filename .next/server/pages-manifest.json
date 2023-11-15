@@ -15,15 +15,15 @@
   "/contacto": "pages/contacto.html",
   "/politicas": "pages/politicas.html",
   "/sobre-nosotros": "pages/sobre-nosotros.html",
-  "/admin/list/categories": "pages/admin/list/categories.js",
+  "/admin/list/clotheTypes": "pages/admin/list/clotheTypes.js",
   "/admin/list/products": "pages/admin/list/products.js",
   "/admin/list/subcategories": "pages/admin/list/subcategories.js",
-  "/admin/list/subtypes": "pages/admin/list/subtypes.js",
+  "/admin/list/sizes": "pages/admin/list/sizes.js",
   "/": "pages/index.js",
   "/producto/[name]": "pages/producto/[name].js",
   "/productos": "pages/productos.js",
   "/talles": "pages/talles.js",
   "/admin/list/colors": "pages/admin/list/colors.js",
-  "/admin/list/sizes": "pages/admin/list/sizes.js",
-  "/admin/list/clotheTypes": "pages/admin/list/clotheTypes.js"
+  "/admin/list/subtypes": "pages/admin/list/subtypes.js",
+  "/admin/list/categories": "pages/admin/list/categories.js"
 }

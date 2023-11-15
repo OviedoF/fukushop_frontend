@@ -6,6 +6,7 @@ export default function Politicas() {
         <>
             <Head>
                 <title>Fuku Shop | Sobre nosotros</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
 
             <main>

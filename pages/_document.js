@@ -5,7 +5,6 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta name="description" content='¡Bienvenidos a Fuku Shop! ✌️ Descubre nuestra amplia selección de ropa de estilo urbano, con diseños exclusivos 🥳🥳 ' />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="ropa anime, ropa japonesa, moda anime, moda japonesa, cosplay, ropa de anime para mujeres, ropa de anime para hombres, tienda de ropa anime, anime, remeras anime, remeras oversize argentina, remera oversize, estilo urbano, urbano, argentina" />
         <meta property="og:title" content="Fuku Shop | Tienda de ropa urbana en Argentina ✨" />
         <meta property="og:description" content="¡Bienvenidos a Fuku Shop! ✌️ Descubre nuestra amplia selección de ropa de estilo urbano, con diseños exclusivos 🥳🥳" />

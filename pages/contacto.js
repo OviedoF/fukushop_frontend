@@ -8,6 +8,7 @@ export default function contacto() {
         <>
             <Head>
                 <title>Fuku Shop | Contacto</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
 
             <main>

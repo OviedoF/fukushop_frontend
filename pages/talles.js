@@ -8,6 +8,7 @@ export default function talles({ sizes }) {
         <>
             <Head>
                 <title>Fuku Shop | Talles</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
 
             <main

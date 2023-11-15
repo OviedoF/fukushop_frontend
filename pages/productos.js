@@ -28,6 +28,7 @@ export default function products({products, categories, types, colors, sizes}) {
         <>
             <Head>
                 <title>Fuku Shop | Catálogo de ropa urbana</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
 
             <main>
